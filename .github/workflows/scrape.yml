@@ -2,7 +2,7 @@ name: Scrape Gym Capacity
 
 on:
   schedule:
-    - cron: "*/20 7-21 * * *"  # Runs every 15 minutes
+    - cron: "*/20 7-21 * * *"  # Runs every 20 minutes
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
@@ -39,5 +39,5 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           git add gym_capacity.db
-          git commit -m "Update gym_capacity.db [CI]" || exit 0
+          git commit -m "Updated gym capacity database" || exit 0
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
