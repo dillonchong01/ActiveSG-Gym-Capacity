@@ -1,14 +1,12 @@
 # Start from a base image with Python
 FROM python:3.10-slim
 
-# Install necessary dependencies including wget, curl, and lsb-release
+# Install necessary dependencies for running Selenium
 RUN apt-get update && apt-get install -y \
     wget \
     curl \
-    unzip \
     gnupg \
     ca-certificates \
-    lsb-release \
     libx11-dev \
     libxpm-dev \
     libpng-dev \
@@ -22,30 +20,20 @@ RUN apt-get update && apt-get install -y \
     libgtk-3-0 \
     && apt-get clean
 
-# Add Google Chrome's official repository and install Chrome
-RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
-    && DISTRO=$(lsb_release -c | awk '{print $2}') \
-    && echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ $DISTRO main" | tee /etc/apt/sources.list.d/google-chrome.list \
-    && apt-get update \
-    && apt-get install -y google-chrome-stable \
-    && apt-get clean
+# Install the latest stable Google Chrome version
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+    && apt-get install -y ./google-chrome-stable_current_amd64.deb \
+    && rm google-chrome-stable_current_amd64.deb
 
-# Install ChromeDriver (you may need to update the version of chromedriver)
-RUN CHROME_VERSION=$(google-chrome --version | awk '{print $3}') \
-    && wget https://chromedriver.storage.googleapis.com/113.0.5672.63/chromedriver_linux64.zip \
-    && unzip chromedriver_linux64.zip \
-    && mv chromedriver /usr/local/bin/ \
-    && chmod +x /usr/local/bin/chromedriver
-
-# Set the working directory inside the container
+# Set up the working directory in the container
 WORKDIR /app
-
-# Copy the requirements file into the container and install dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the scraper script into the container
 COPY .github/scrape.py .
+
+# Install Python dependencies
+COPY requirements.txt .  # If you have any Python dependencies, this line will work.
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Run the scraper script when the container starts
 CMD ["python", "scrape.py"]
