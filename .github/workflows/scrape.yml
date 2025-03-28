@@ -37,4 +37,4 @@ jobs:
           git config --global user.email "github-actions@github.com"
           git add gym_capacity.db
           git commit -m "Update gym_capacity.db [CI]" || exit 0
-          git push
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
