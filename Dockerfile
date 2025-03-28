@@ -1,7 +1,7 @@
 FROM selenium/standalone-chrome:latest
 
 # Install any other Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --user -r requirements.txt
 
 # Set the working directory
 WORKDIR /app
