@@ -2,7 +2,7 @@ name: Scrape Gym Capacity
 
 on:
   schedule:
-    - cron: "*/20 7-21 * * *"  # Runs every 20 minutes
+    - cron: "*/20 23-13 * * *"  # Runs every 20 minutes
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
