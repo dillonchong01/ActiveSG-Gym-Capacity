@@ -3,11 +3,14 @@ name: Scrape Gym Capacity
 on:
   schedule:
     - cron: "*/15 7-21 * * *"  # Runs every 15 minutes
-  workflow_dispatch:
+  workflow_dispatch:  # Allows manual triggering
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write  # Allow write access for GITHUB_TOKEN
 
     steps:
       - name: Checkout Repository
@@ -37,4 +40,4 @@ jobs:
           git config --global user.email "github-actions@github.com"
           git add gym_capacity.db
           git commit -m "Update gym_capacity.db [CI]" || exit 0
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
