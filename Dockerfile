@@ -1,13 +1,14 @@
 # Start from a base image with Python
 FROM python:3.10-slim
 
-# Install dependencies including wget and curl
+# Install necessary dependencies including wget, curl, and lsb-release
 RUN apt-get update && apt-get install -y \
     wget \
     curl \
     unzip \
     gnupg \
     ca-certificates \
+    lsb-release \
     libx11-dev \
     libxpm-dev \
     libpng-dev \
@@ -23,9 +24,11 @@ RUN apt-get update && apt-get install -y \
 
 # Add Google Chrome's official repository and install Chrome
 RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
-    && echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ bullseye main" | tee -a /etc/apt/sources.list.d/google-chrome.list \
+    && DISTRO=$(lsb_release -c | awk '{print $2}') \
+    && echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ $DISTRO main" | tee /etc/apt/sources.list.d/google-chrome.list \
     && apt-get update \
-    && apt-get install -y google-chrome-stable
+    && apt-get install -y google-chrome-stable \
+    && apt-get clean
 
 # Install ChromeDriver (you may need to update the version of chromedriver)
 RUN CHROME_VERSION=$(google-chrome --version | awk '{print $3}') \
