@@ -34,14 +34,17 @@ jobs:
           sleep 10  # Wait for Selenium to be ready
           python .github/ActiveSG_Capacity_Scraper.py
 
-      - name: Pull latest changes from the remote repository
-        run: |
-          git pull --rebase origin main
-
-      - name: Commit and Push Database
+      - name: Commit any changes (if needed)
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           git add gym_capacity.db
-          git commit -m "Updated gym capacity database" || exit 0
+          git commit -m "Updated gym capacity database" || echo "No changes to commit"
+
+      - name: Pull latest changes from the remote repository
+        run: |
+          git pull --rebase origin main
+
+      - name: Push changes to the repository
+        run: |
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
