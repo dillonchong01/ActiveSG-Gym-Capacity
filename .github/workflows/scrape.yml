@@ -3,7 +3,7 @@ name: Scrape Gym Capacity
 on:
   schedule:
     - cron: "*/15 7-21 * * *"  # Runs every 15 minutes
-  workflow_dispatch:  # Allows manual triggering
+  workflow_dispatch:
 
 jobs:
   scrape:
@@ -16,26 +16,20 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: '3.10'
 
       - name: Install Dependencies
         run: |
           pip install selenium beautifulsoup4 requests
 
-      - name: Set Up Chrome and WebDriver
-        run: |
-          sudo apt update
-          sudo apt install -y wget unzip
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo apt install -y ./google-chrome-stable_current_amd64.deb
-          CHROME_VERSION=$(google-chrome --version | grep -oP '[0-9]+(\.[0-9]+)*')
-          wget https://storage.googleapis.com/chrome-for-testing-public/${CHROME_VERSION}/linux64/chromedriver-linux64.zip
-          unzip chromedriver-linux64.zip
-          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
-          sudo chmod +x /usr/local/bin/chromedriver
+      - name: Set up Docker for Selenium
+        uses: docker/setup-buildx-action@v2
 
-      - name: Run Scraper
-        run: python .github/scrape.py
+      - name: Run Scraper in Docker with Chrome
+        run: |
+          docker run -d --name selenium -p 4444:4444 selenium/standalone-chrome
+          sleep 10  # Wait for Selenium to be ready
+          python .github/scrape.py
 
       - name: Commit and Push Database
         run: |
