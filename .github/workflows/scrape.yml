@@ -20,7 +20,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pip install selenium beautifulsoup4 requests sqlite3
+          pip install selenium beautifulsoup4 requests
 
       - name: Set Up Chrome and WebDriver
         run: |
