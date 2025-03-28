@@ -2,13 +2,13 @@ name: Scrape Gym Capacity
 
 on:
   schedule:
-    - cron: "*/2 7-21 * * *"  # Runs every 20 minutes
+    - cron: "*/15 7-21 * * *"  # Runs every 15 minutes
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
-
+    
     permissions:
       contents: write  # Allow write access for GITHUB_TOKEN
 
@@ -24,7 +24,6 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install selenium beautifulsoup4 requests
-
       - name: Set up Docker for Selenium
         uses: docker/setup-buildx-action@v2
 
@@ -33,18 +32,10 @@ jobs:
           docker run -d --name selenium -p 4444:4444 selenium/standalone-chrome
           sleep 10  # Wait for Selenium to be ready
           python .github/ActiveSG_Capacity_Scraper.py
-
-      - name: Commit any changes (if needed)
+      - name: Commit and Push Database
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           git add gym_capacity.db
-          git commit -m "Updated gym capacity database" || echo "No changes to commit"
-
-      - name: Pull latest changes from the remote repository
-        run: |
-          git pull --rebase origin main
-
-      - name: Push changes to the repository
-        run: |
+          git commit -m "Update gym_capacity.db [CI]" || exit 0
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
