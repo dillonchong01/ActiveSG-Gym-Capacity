@@ -8,7 +8,7 @@ on:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-
+    
     permissions:
       contents: write  # Allow write access for GITHUB_TOKEN
 
@@ -30,10 +30,9 @@ jobs:
 
       - name: Run Scraper in Docker with Chrome
         run: |
-          docker build -t scrape-image .
           docker run -d --name selenium -p 4444:4444 selenium/standalone-chrome
           sleep 10  # Wait for Selenium to be ready
-          docker run --rm scrape-image python .github/scrape.py
+          python .github/ActiveSG_Capacity_Scraper.py
 
       - name: Commit and Push Database
         run: |
@@ -41,4 +40,4 @@ jobs:
           git config --global user.email "github-actions@github.com"
           git add gym_capacity.db
           git commit -m "Update gym_capacity.db [CI]" || exit 0
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
