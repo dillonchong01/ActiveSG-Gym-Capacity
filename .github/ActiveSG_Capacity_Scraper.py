@@ -37,7 +37,7 @@ def scrape():
             time_str = match.group(2)
             time_str = datetime.strptime(time_str, "%I:%M %p").replace(
                 minute=(datetime.strptime(time_str, "%I:%M %p").minute // 10) * 10, second=0
-            ).strftime('%H:%M:%S')
+            ).strftime('%H:%M')
         else:
             return 0
 
