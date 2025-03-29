@@ -8,6 +8,12 @@ from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 
 def scrape():
+    """
+    Scrapes Gym Capacity from the ActiveSG Website
+
+    Returns:
+        list: A list of gym capacity data containing gym-capacity pairs
+    """
     # Initialize the WebDriver
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--start-maximized")
@@ -24,14 +30,18 @@ def scrape():
         # Extract Date/Time from Webpage
         match = re.search(r"Last updated at (\d{1,2} \w+ \d{4}), ([\d:APM ]+)", update_text)
         if match:
+            # Get Date
             date_str = match.group(1)
             date_str = datetime.strptime(date_str, "%d %B %Y").date()
+            # Get Time, rounded down to nearest 10min
             time_str = match.group(2)
-            time_str = datetime.strptime(time_str, "%I:%M %p").strftime('%H:%M:%S')
+            time_str = datetime.strptime(time_str, "%I:%M %p").replace(
+                minute=(datetime.strptime(time_str, "%I:%M %p").minute // 10) * 10, second=0
+            ).strftime('%H:%M:%S')
         else:
             return 0
 
-        # Extract Gyms and Capacities
+        # Extract Capacity for each Gym
         data = []
         gym_capacity = soup.find_all('div', class_='chakra-card css-m97yjq')
         for element in gym_capacity:
@@ -46,6 +56,14 @@ def scrape():
     return data
 
 def save_data_to_db(database, data):
+    """
+    Saves gym capacity data into a SQLite datase
+
+    Args:
+    database (str): The SQLite database name
+    data (list): The list of gym capacity records to be stored
+    """
+    # Connect to database
     conn = sqlite3.connect(database)
     cursor = conn.cursor()
 
@@ -53,7 +71,7 @@ def save_data_to_db(database, data):
         # Create table if it doesn't exist
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS gym_capacity (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                id INTEGER PRIMARY KEY,
                 gym_name TEXT,
                 capacity INTEGER,
                 date DATE,
@@ -67,6 +85,8 @@ def save_data_to_db(database, data):
             INSERT OR IGNORE INTO gym_capacity (gym_name, capacity, date, time) 
             VALUES (?, ?, ?, ?)
         ''', data)
+        
+        # Commit changes to the database
         conn.commit()
 
     except sqlite3.Error as e:
