@@ -98,4 +98,4 @@ def save_data_to_db(database, data):
 
 data = scrape()
 if data:
-    save_data_to_db('gym_capacity.db', data)
+    save_data_to_db('database/gym_capacity.db', data)
