@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Gym Capacity Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .graph-container {
+            margin: 40px auto;
+            max-width: 700px;
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>📊 Gym Capacity Dashboard</h1>
+
+    {% for graph in graphs %}
+        <div class="graph-container">
+            <h2>{{ graph.replace('.png', '').replace('_', ' ') }}</h2>
+            <img src="{{ url_for('get_graph', filename=graph) }}" alt="{{ graph }}">
+        </div>
+    {% endfor %}
+</body>
+</html>
