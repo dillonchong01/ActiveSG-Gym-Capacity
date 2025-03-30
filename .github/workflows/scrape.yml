@@ -32,12 +32,12 @@ jobs:
         run: |
           docker run -d --name selenium -p 4444:4444 selenium/standalone-chrome
           sleep 10  # Wait for Selenium to be ready
-          python .github/ActiveSG_Capacity_Scraper.py
+          python webscraper/scraper.py
           
       - name: Commit and Push Database
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
-          git add gym_capacity.db
+          git add database/gym_capacity.db
           git commit -m "Updatde gym_capacity.db [CI]" || exit 0
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
