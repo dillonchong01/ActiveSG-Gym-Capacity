@@ -9,7 +9,7 @@ def home():
     # Generate new graphs from the latest DB
     generate_graphs()
     graph_files = os.listdir('static/graphs')
-    return render_template('index.html', graphs=graph_files)
+    return render_template('homepage.html', graphs=graph_files)
 
 @app.route('/graphs/<filename>')
 def get_graph(filename):
