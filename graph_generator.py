@@ -40,5 +40,3 @@ def generate_graphs():
         filename = re.sub(r'[^\w\-_. ]', '_', gym).replace(' ', '_')
         plt.savefig(f"static/graphs/{filename}.png")
         plt.close()
-
-generate_graphs()
