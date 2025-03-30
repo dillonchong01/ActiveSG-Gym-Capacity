@@ -1,5 +1,5 @@
 from flask import Flask, render_template, send_from_directory
-from graph_generator import *
+from graph_generator import generate_graphs
 import os
 
 app = Flask(__name__)
