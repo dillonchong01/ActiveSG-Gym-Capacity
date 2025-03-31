@@ -16,14 +16,7 @@ def get_graph(filename):
     return send_from_directory('static/graphs', filename)
 
 if __name__ == "__main__":
-    # Check if we are on Render (cloud environment)
-    if os.environ.get("RENDER"):
-        print("App is running in a cloud environment. Starting app...")
-        # Run the app on all network interfaces and on the dynamically assigned port
-        port = int(os.environ.get("PORT", 10000))  # Render sets the PORT environment variable
-        app.run(host="0.0.0.0", port=port)
-    else:
-        print("App is not running in a cloud environment. Exiting.")
-        # Prevent running the Flask app locally
-        # You can log, exit, or print a message indicating that the app is not running locally.
-        exit(0)
+    # Get the PORT environment variable for Render (or fallback to 10000 locally)
+    port = int(os.environ.get("PORT", 10000))  # Default to 10000 for local testing
+    # Run the app on all network interfaces with the dynamic port
+    app.run(host="0.0.0.0", port=port)
