@@ -16,11 +16,7 @@ def get_graph(filename):
     return send_from_directory('static/graphs', filename)
 
 if __name__ == "__main__":
-    # Check if the app is running in the cloud (on Render)
-    if os.environ.get("RENDER"):
-        print("App is running in a cloud environment. Starting app...")
-        # Ensure the app runs on all network interfaces and listens on the port set by Render
-        app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 10000)))
-    else:
-        # If not running in the cloud, do not run the app locally (you can print a message for local testing)
-        print("App is not running in a cloud environment. Exiting.")
+    # Retrieve the PORT environment variable, or default to 5000 if not set
+    port = int(os.environ.get("PORT", 5000))
+    # Bind the app to 0.0.0.0 on the dynamic port
+    app.run(host="0.0.0.0", port=port)
