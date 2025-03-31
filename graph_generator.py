@@ -2,6 +2,7 @@ import re
 import sqlite3
 import pandas as pd
 import matplotlib.pyplot as plt
+matplotlib.use('Agg')
 from datetime import datetime
 import os
 
