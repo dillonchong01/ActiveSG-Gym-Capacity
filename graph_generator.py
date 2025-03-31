@@ -1,8 +1,9 @@
 import re
 import sqlite3
 import pandas as pd
-import matplotlib.pyplot as plt
+import matplotlib
 matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 from datetime import datetime
 import os
 
