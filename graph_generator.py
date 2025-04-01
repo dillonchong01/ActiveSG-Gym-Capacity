@@ -14,7 +14,7 @@ def generate_graphs():
     conn = sqlite3.connect("database/gym_capacity_summary.db")
 
     # Load raw data
-    query = "SELECT gym_name, capacity, date, time FROM gym_capacity_summary;"
+    query = "SELECT gym_name, time, capacity FROM gym_capacity_summary;"
     df = pd.read_sql(query, conn)
     conn.close()
 
