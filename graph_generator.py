@@ -8,10 +8,10 @@ from datetime import datetime
 import os
 
 def generate_graphs():
-    os.makedirs("../static/graphs", exist_ok=True)
+    os.makedirs("static/graphs", exist_ok=True)
 
     # Connect to local SQLite database
-    conn = sqlite3.connect("../database/gym_capacity.db")
+    conn = sqlite3.connect("database/gym_capacity.db")
 
     # Load raw data
     query = "SELECT gym_name, capacity, date, time FROM gym_capacity;"
@@ -40,5 +40,5 @@ def generate_graphs():
 
         # Save graph as an image
         filename = re.sub(r'[^\w\-_. ]', '_', gym).replace(' ', '_')
-        plt.savefig(f"../static/graphs/{filename}.png")
+        plt.savefig(f"static/graphs/{filename}.png")
         plt.close()
