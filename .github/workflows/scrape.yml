@@ -32,7 +32,7 @@ jobs:
         run: |
           docker run -d --name selenium -p 4444:4444 selenium/standalone-chrome
           sleep 10  # Wait for Selenium to be ready
-          python webscraper/capacity_scraper.py
+          python functions/capacity_scraper.py
           
       - name: Commit and Push Database
         run: |
