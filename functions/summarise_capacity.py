@@ -22,7 +22,7 @@ def summarize_capacity():
     # Group by gym_name and time and obtain average capacity
     df_grouped = df.groupby(["gym_name", "time"])["capacity"].mean().reset_index()
     df_grouped["gym_name"] = df_grouped["gym_name"].apply(lambda x: re.sub(r'\b(ActiveSG|Gym)\b|@', '', x).strip())
-    df_grouped["time"] = df_grouped["time"].apply(lambda t: datetime.strptime(t, "%H:%M"))
+    df_grouped["time"] = df_grouped["time"].apply(lambda t: datetime.strptime(t, "%H:%M").time())
 
     # Save into summary database
     summary_conn = sqlite3.connect(SUMMARY_DB_PATH)
