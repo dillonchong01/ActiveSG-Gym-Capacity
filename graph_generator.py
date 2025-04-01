@@ -11,17 +11,15 @@ def generate_graphs():
     os.makedirs("static/graphs", exist_ok=True)
 
     # Connect to local SQLite database
-    conn = sqlite3.connect("database/gym_capacity.db")
+    conn = sqlite3.connect("database/gym_capacity_summary.db")
 
     # Load raw data
-    query = "SELECT gym_name, capacity, date, time FROM gym_capacity;"
+    query = "SELECT gym_name, capacity, date, time FROM gym_capacity_summary;"
     df = pd.read_sql(query, conn)
     conn.close()
 
     # Group by gym_name and time and obtain average capacity
     df_grouped = df.groupby(["gym_name", "time"])["capacity"].mean().reset_index()
-    df_grouped["gym_name"] = df_grouped["gym_name"].apply(lambda x: re.sub(r'\b(ActiveSG|Gym)\b|@', '', x).strip())
-    df_grouped["time"] = df_grouped["time"].apply(lambda t: datetime.strptime(t, "%H:%M"))
 
     # Define x-axis labels
     desired_ticks = [datetime.strptime(f"{hour:02d}:00", "%H:%M") for hour in range(7, 23)]
