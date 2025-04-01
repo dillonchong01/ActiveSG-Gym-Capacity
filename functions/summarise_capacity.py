@@ -26,7 +26,7 @@ def summarize_capacity():
 
     # Save into summary database
     summary_conn = sqlite3.connect(SUMMARY_DB_PATH)
-    summary_df.to_sql("gym_capacity_summary", summary_conn, if_exists="replace", index=False)
+    df_grouped.to_sql("gym_capacity_summary", summary_conn, if_exists="replace", index=False)
     summary_conn.close()
 
 if __name__ == "__main__":
