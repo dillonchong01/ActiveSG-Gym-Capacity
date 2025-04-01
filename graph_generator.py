@@ -19,6 +19,7 @@ def generate_graphs():
     conn.close()
 
     # Group by gym_name and time and obtain average capacity
+    gym_data["time"] = pd.to_datetime(gym_data["time"], format="%H:%M")
     df_grouped = df.groupby(["gym_name", "time"])["capacity"].mean().reset_index()
 
     # Define x-axis labels
