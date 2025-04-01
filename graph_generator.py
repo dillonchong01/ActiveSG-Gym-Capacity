@@ -16,6 +16,7 @@ def generate_graphs():
     # Load raw data
     query = "SELECT gym_name, capacity, date, time FROM gym_capacity;"
     df = pd.read_sql(query, conn)
+    conn.close()
 
     # Group by gym_name and time and obtain average capacity
     df_grouped = df.groupby(["gym_name", "time"])["capacity"].mean().reset_index()

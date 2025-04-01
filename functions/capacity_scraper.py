@@ -1,11 +1,14 @@
 import re
 import sqlite3
+from pathlib import Path
 from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
+
+DB_PATH = Path("database/gym_capacity.db")
 
 def scrape():
     """
@@ -55,16 +58,15 @@ def scrape():
 
     return data
 
-def save_data_to_db(database, data):
+def save_data_to_db(data):
     """
     Saves gym capacity data into a SQLite datase
 
     Args:
-    database (str): The SQLite database name
     data (list): The list of gym capacity records to be stored
     """
     # Connect to database
-    conn = sqlite3.connect(database)
+    conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
 
     try:
@@ -95,7 +97,7 @@ def save_data_to_db(database, data):
     finally:
         conn.close()
     
-
-data = scrape()
-if data:
-    save_data_to_db('database/gym_capacity.db', data)
+if __name__ == "__main__":
+    data = scrape()
+    if data:
+        save_data_to_db(data)
