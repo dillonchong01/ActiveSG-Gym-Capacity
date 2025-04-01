@@ -100,4 +100,4 @@ def save_data_to_db(data):
 if __name__ == "__main__":
     data = scrape()
     if data:
-        save_data_to_db('database/gym_capacity.db', data)
+        save_data_to_db(data)
