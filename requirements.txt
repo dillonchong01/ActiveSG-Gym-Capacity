@@ -3,4 +3,3 @@ flask-caching
 pandas
 matplotlib
 requests
-vercel-flask
