@@ -11,7 +11,7 @@ app.config['CACHE_DEFAULT_TIMEOUT'] = 86400  # Cache timeout: 1 day (86400 secon
 cache = Cache(app)
 
 @app.route('/')
-@cache.cached(timeout=86400, key_prefix='graphs')  # Cache the homepage route for 1 day
+# @cache.cached(timeout=86400, key_prefix='graphs')  # Cache the homepage route for 1 day
 
 def home():
     # Generate new graphs from the latest DB
@@ -24,6 +24,4 @@ def get_graph(filename):
     return send_from_directory('public/graphs', filename)
 
 if __name__ == "__main__":
-    # Get the PORT environment variable for Render (or fallback to 10000 locally)
-    port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
