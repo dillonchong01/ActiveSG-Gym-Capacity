@@ -1,10 +1,9 @@
-from vercel_flask import VercelFlask
 from flask import Flask, render_template, send_from_directory
 from graph_generator import generate_graphs
 import os
 from flask_caching import Cache
 
-app = VercelFlask(__name__)
+app = Flask(__name__)
 
 # Configure the caching system
 app.config['CACHE_TYPE'] = 'simple'  # Use in-memory caching for simplicity
