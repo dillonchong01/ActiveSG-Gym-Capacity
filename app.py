@@ -1,12 +1,17 @@
 import logging
 import os
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 from graph_generator import generate_graphs
 
 # Initialize the Flask app and set up logging
 app = Flask(__name__)
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
+
+# Serve static files from the 'public/graphs' directory
+@app.route('/graphs/<filename>')
+def get_graph(filename):
+    return send_from_directory('public/graphs', filename)
 
 @app.route('/')
 def home():
