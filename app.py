@@ -1,9 +1,10 @@
+from vercel_flask import VercelFlask
 from flask import Flask, render_template, send_from_directory
 from graph_generator import generate_graphs
 import os
 from flask_caching import Cache
 
-app = Flask(__name__)
+app = VercelFlask(__name__)
 
 # Configure the caching system
 app.config['CACHE_TYPE'] = 'simple'  # Use in-memory caching for simplicity
@@ -16,12 +17,12 @@ cache = Cache(app)
 def home():
     # Generate new graphs from the latest DB
     generate_graphs()
-    graph_files = [file for file in os.listdir('static/graphs') if file != '.gitkeep']
+    graph_files = [file for file in os.listdir('public/graphs') if file != '.gitkeep']
     return render_template('homepage.html', graphs=graph_files)
 
 @app.route('/graphs/<filename>')
 def get_graph(filename):
-    return send_from_directory('static/graphs', filename)
+    return send_from_directory('public/graphs', filename)
 
 if __name__ == "__main__":
     # Get the PORT environment variable for Render (or fallback to 10000 locally)
