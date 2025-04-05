@@ -3,4 +3,4 @@ flask-caching
 pandas
 matplotlib
 requests
-gunicorn
+vercel-flask
