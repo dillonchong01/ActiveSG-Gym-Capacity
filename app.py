@@ -1,27 +1,26 @@
-from flask import Flask, render_template, send_from_directory
-from graph_generator import generate_graphs
+import logging
 import os
-from flask_caching import Cache
+from flask import Flask, render_template
+from graph_generator import generate_graphs
 
+# Initialize the Flask app and set up logging
 app = Flask(__name__)
-
-# Configure the caching system
-app.config['CACHE_TYPE'] = 'simple'  # Use in-memory caching for simplicity
-app.config['CACHE_DEFAULT_TIMEOUT'] = 86400  # Cache timeout: 1 day (86400 seconds)
-cache = Cache(app)
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 
 @app.route('/')
-# @cache.cached(timeout=86400, key_prefix='graphs')  # Cache the homepage route for 1 day
-
 def home():
-    # Generate new graphs from the latest DB
-    generate_graphs()
-    graph_files = [file for file in os.listdir('public/graphs') if file != '.gitkeep']
-    return render_template('homepage.html', graphs=graph_files)
-
-@app.route('/graphs/<filename>')
-def get_graph(filename):
-    return send_from_directory('public/graphs', filename)
+    try:
+        logger.debug("Starting graph generation...")
+        # Generate new graphs from the latest DB
+        generate_graphs()  # Calling the graph generation function
+        graph_files = [file for file in os.listdir('public/graphs') if file != '.gitkeep']
+        
+        logger.debug(f"Graph files found: {graph_files}")
+        return render_template('homepage.html', graphs=graph_files)
+    except Exception as e:
+        logger.error(f"Error generating graphs: {e}")
+        return "Internal Server Error", 500
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0")
