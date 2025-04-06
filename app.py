@@ -1,7 +1,7 @@
 import logging
 import os
 from flask import Flask, render_template, send_from_directory
-from graph_generator import generate_graphs
+from graph_generator import *
 
 # Initialize the Flask app and set up logging
 app = Flask(__name__)
@@ -18,7 +18,7 @@ def home():
     try:
         logger.debug("Starting graph generation...")
         # Generate new graphs from the latest DB
-        generate_graphs()  # Calling the graph generation function
+        generate_all()  # Calling the graph generation function
         graph_files = [file for file in os.listdir('/tmp') if file.endswith('.png')]
         
         logger.debug(f"Graph files found: {graph_files}")
