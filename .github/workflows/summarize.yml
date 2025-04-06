@@ -1,4 +1,4 @@
-name: Summarise Gym Capacity
+name: Summarise Gym Capacity (Daily)
 
 on:
   schedule:
