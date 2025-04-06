@@ -51,7 +51,7 @@ def generate_graphs():
 
             # Save graph as an image in 'public/graphs'
             filename = re.sub(r'[^\w\-_. ]', '_', gym).replace(' ', '_')
-            graph_path = f"public/graphs/{filename}.png"
+            graph_path = f"tmp/{filename}.png"
             plt.savefig(graph_path)
             plt.close()
 
