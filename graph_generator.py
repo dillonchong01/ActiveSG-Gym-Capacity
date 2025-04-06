@@ -14,9 +14,9 @@ logger.setLevel(logging.DEBUG)
 
 def generate_graphs():
     try:
-        # Ensure the directory exists in '/tmp/' for Vercel
-        os.makedirs("/tmp/", exist_ok=True)
-        logger.debug("Directory /tmp/ is ready.")
+        # Ensure the directory exists in '/tmp' for Vercel
+        os.makedirs("/tmp", exist_ok=True)
+        logger.debug("Directory /tmp is ready.")
 
         # Connect to the SQLite database
         conn = sqlite3.connect("database/gym_capacity_summary.db")
@@ -49,7 +49,7 @@ def generate_graphs():
             plt.grid(True)
             plt.tight_layout()
 
-            # Save graph as an image in '/tmp/'
+            # Save graph as an image in '/tmp'
             filename = re.sub(r'[^\w\-_. ]', '_', gym).replace(' ', '_')
             graph_path = f"/tmp/{filename}.png"
             plt.savefig(graph_path)
