@@ -2,7 +2,7 @@ name: Summarise Gym Capacity
 
 on:
   schedule:
-    - cron: '0 16 * * *'  # Run daily at midnight
+    - cron: '0 16 * * *'  # Run daily at 12am time
   workflow_dispatch:
 
 jobs:
