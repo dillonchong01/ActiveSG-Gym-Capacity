@@ -1,4 +1,4 @@
-name: Scheduled Graph Generation
+name: Graph Generation (Daily)
 
 on:
   schedule:
