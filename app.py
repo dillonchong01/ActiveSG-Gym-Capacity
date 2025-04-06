@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 # Serve static files from the 'public/graphs' directory
 @app.route('/graphs/<filename>')
 def get_graph(filename):
-    return send_from_directory('public/graphs', filename)
+    return send_from_directory('/tmp', filename)
 
 @app.route('/')
 def home():
@@ -19,7 +19,7 @@ def home():
         logger.debug("Starting graph generation...")
         # Generate new graphs from the latest DB
         generate_graphs()  # Calling the graph generation function
-        graph_files = [file for file in os.listdir('public/graphs') if file != '.gitkeep']
+        graph_files = [file for file in os.listdir('/tmp') if file != '.gitkeep']
         
         logger.debug(f"Graph files found: {graph_files}")
         return render_template('homepage.html', graphs=graph_files)
