@@ -15,9 +15,9 @@ logger.setLevel(logging.DEBUG)
 
 def generate_all():
     try:
-        # Ensure the directory exists in '/tmp' for Vercel
-        os.makedirs("/tmp", exist_ok=True)
-        logger.debug("Directory /tmp is ready.")
+        # Ensure the directory exists in 'static/graphs' for Vercel
+        os.makedirs("static/graphs", exist_ok=True)
+        logger.debug("Directory static/graphs is ready.")
 
         # Connect to the SQLite database
         conn = sqlite3.connect("database/gym_capacity_summary.db")
@@ -62,9 +62,9 @@ def generate_graph(gym, gym_data):
         plt.grid(True)
         plt.tight_layout()
 
-        # Save graph as an image in '/tmp'
+        # Save graph as an image in 'static/graphs'
         filename = re.sub(r'[^\w\-_. ]', '_', gym).replace(' ', '_')
-        graph_path = f"/tmp/{filename}.png"
+        graph_path = f"static/graphs/{filename}.png"
         plt.savefig(graph_path)
         plt.close()
 
@@ -72,3 +72,6 @@ def generate_graph(gym, gym_data):
         
     except Exception as e:
         logger.error(f"Error during graph generation: {e}")
+
+if __name__ == "__main__":
+    generate_all()
