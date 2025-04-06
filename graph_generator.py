@@ -43,6 +43,9 @@ def generate_all():
             for future in futures:
                 future.result()
 
+    except Exception as e:
+        logger.error(f"Error during generate_all: {e}")
+
 def generate_graph(gym, gym_data):
     try:
         # Define x-axis labels
