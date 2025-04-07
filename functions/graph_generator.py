@@ -15,11 +15,11 @@ def generate_all():
 
     # Load raw data from the database
     query = "SELECT gym_name, time, capacity FROM gym_capacity_summary;"
-    df = pl.read_database(query, conn)
+    df = pl.read_sql(query, conn)
     conn.close()
 
     # Group by gym_name and time and obtain average capacity
-    df = df.with_columns(pl.col("time").str.strptime(pl.Time, "%H:%M"))
+    df = df.with_columns(pl.col("time").dt.time())
     df_grouped = (df.groupby(["gym_name", "time"])
                   .agg(pl.col("capacity").mean().alias("capacity"))
                   .sort(["gym_name", "time"])
@@ -41,7 +41,7 @@ def generate_graph(gym, gym_data):
     desired_tick_labels = [dt.strftime("%H:%M") for dt in desired_ticks]
 
     # Obtain data for plotting
-    times = [datetime.strptime(str(t), "%H:%M:%S") for t in gym_data["time"]]
+    times = [datetime.strptime(str(t), "%H:%M").time() for t in gym_data["time"].to_list()]
     capacities = gym_data["capacity"].to_list()
         
     # Generate and save the graph for each gym
