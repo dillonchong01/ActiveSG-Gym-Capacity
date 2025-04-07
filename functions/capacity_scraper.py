@@ -85,7 +85,7 @@ def save_data_to_db(data):
                 capacity INTEGER,
                 date DATE,
                 time TIME,
-                weekend BOOLEAN,
+                is_weekend BOOLEAN,
                 UNIQUE(gym_name, date, time)
             )
         ''')

@@ -12,7 +12,7 @@ def summarize_capacity():
     conn = sqlite3.connect(DB_PATH)
 
     # Load raw data
-    query = "SELECT gym_name, capacity, date, time, weekend FROM gym_capacity;"
+    query = "SELECT gym_name, capacity, date, time, is_weekend FROM gym_capacity;"
     df = pd.read_sql(query, conn)
     conn.close()
 
@@ -20,7 +20,7 @@ def summarize_capacity():
       return
 
     # Group by gym_name and time and obtain average capacity
-    df_grouped = df.groupby(["gym_name", "time", "weekend"])["capacity"].mean().reset_index()
+    df_grouped = df.groupby(["gym_name", "time", "is_weekend"])["capacity"].mean().reset_index()
     df_grouped["gym_name"] = df_grouped["gym_name"].apply(lambda x: re.sub(r'\b(ActiveSG|Gym)\b|@', '', x).strip())
     df_grouped["time"] = df_grouped["time"].apply(lambda t: datetime.strptime(t, "%H:%M").strftime("%H:%M"))
 

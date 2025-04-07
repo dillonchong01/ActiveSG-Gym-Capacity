@@ -16,16 +16,16 @@ def generate_all():
     conn = sqlite3.connect("database/gym_capacity_summary.db")
 
     # Load raw data from the database
-    query = "SELECT gym_name, time, capacity, weekend FROM gym_capacity_summary;"
+    query = "SELECT gym_name, time, capacity, is_weekend FROM gym_capacity_summary;"
     df = pl.read_database(query, conn)
     conn.close()
 
     # Group by gym_name and time and obtain average capacity
     df = df.with_columns(pl.col("time").str.strptime(pl.Time, "%H:%M").alias("time"))
     
-    df_grouped = (df.group_by(["gym_name", "time", "weekend"])
+    df_grouped = (df.group_by(["gym_name", "time", "is_weekend"])
                   .agg(pl.col("capacity").mean().alias("capacity"))
-                  .sort(["gym_name", "weekend", "time"])
+                  .sort(["gym_name", "is_weekend", "time"])
                  )
 
     # Use ThreadPoolExecutor to generate graphs concurrently for each gym
@@ -33,7 +33,7 @@ def generate_all():
         # Submit graph generation tasks for each gym and weekend pair in parallel
         futures = [
             executor.submit(generate_graph, gym, bool(weekend),
-                df_grouped.filter((pl.col("gym_name") == gym) & (pl.col("weekend") == weekend)))
+                df_grouped.filter((pl.col("gym_name") == gym) & (pl.col("is_weekend") == weekend)))
             for gym in df_grouped["gym_name"].unique()
             for weekend in [0, 1]
         ]

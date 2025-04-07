@@ -11,21 +11,45 @@ def get_graph(filename):
 
 @app.route('/')
 def home():
-    graph_files = [file for file in os.listdir('static/graphs')
-                   if file.endswith('.png') or file.endswith('.jpg')]
-    # Strip file extensions to get gym names
-    gym_names = [os.path.splitext(f)[0] for f in graph_files]
-        
+    # List all graph filenames
+    graph_files = [
+        file for file in os.listdir('static/graphs')
+        if file.endswith('.png') or file.endswith('.jpg')
+    ]
+
+    # Extract unique gym names (remove _weekday or _weekend suffix)
+    gym_names = set()
+    for file in graph_files:
+        name = os.path.splitext(file)[0]
+        if name.endswith('_weekday'):
+            name = name.removesuffix('_weekday')
+        elif name.endswith('_weekend'):
+            name = name.removesuffix('_weekend')
+        gym_names.add(name)
+
     return render_template('homepage.html', gyms=sorted(gym_names))
 
 @app.route('/gym/<gym_name>')
 def show_gym(gym_name):
-    # Match corresponding image file
-    for ext in ['.png', '.jpg']:
-        path = f"static/graphs/{gym_name}{ext}"
-        if os.path.exists(path):
-            return render_template('gym_page.html', gym_name=gym_name, image_file=f"{gym_name}{ext}")
-    return "Gym graph not found", 404
+    def graph_exists(name):
+        for ext in ['.jpg', '.png']:
+            path = f"static/graphs/{name}{ext}"
+            if os.path.exists(path):
+                return f"{name}{ext}"
+        return None
+
+    weekday_image = graph_exists(f"{gym_name}_weekday")
+    weekend_image = graph_exists(f"{gym_name}_weekend")
+
+    if not weekday_image and not weekend_image:
+        return "Gym graphs not found", 404
+
+    return render_template(
+        'gym_page.html',
+        gym_name=gym_name,
+        weekday_image=weekday_image,
+        weekend_image=weekend_image
+    )
 
 @app.route('/select-gym', methods=['POST'])
 def select_gym():
