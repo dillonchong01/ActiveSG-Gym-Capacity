@@ -1,27 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Select a Gym</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 40px;
-            background-color: #f9f9f9;
-            text-align: center;
-        }
-        h1 {
-            color: #333;
-        }
-        select, button {
-            font-size: 18px;
-            padding: 10px 20px;
-            margin: 20px;
-        }
-    </style>
-</head>
-<body>
-    <h1>📊 Select a Gym to View Capacity</h1>
+{% extends "base.html" %}
+
+{% block title %}Select a Gym{% endblock %}
+
+{% block content %}
+<div class="selector-container">
+    <h2>📊 Select a Gym to View Capacity</h2>
     <form action="{{ url_for('select_gym') }}" method="post">
         <select name="gym" required>
             <option value="" disabled selected>Select a Gym</option>
@@ -29,7 +12,8 @@
                 <option value="{{ gym }}">{{ gym.replace('_', ' ') }}</option>
             {% endfor %}
         </select>
+        <br>
         <button type="submit">View Graph</button>
     </form>
-</body>
-</html>
+</div>
+{% endblock %}

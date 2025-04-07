@@ -1,70 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>{{ gym_name.replace('_', ' ') }} - Gym Graph</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 40px;
-            background-color: #f9f9f9;
-            text-align: center;
-        }
-        h1 {
-            color: #333;
-        }
-        .graph-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 40px;
-            flex-wrap: nowrap; /* force side-by-side even on small screens */
-            margin-top: 40px;
-            max-width: 100%; /* prevent overflow */
-            overflow-x: auto; /* scroll on small screens */
-        }
-        .graph-container {
-            width: 600px; /* force equal widths */
-            background: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            box-sizing: border-box;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        h2 {
-            color: #555;
-        }
-        a {
-            display: inline-block;
-            margin-top: 30px;
-            text-decoration: none;
-            color: #007bff;
-        }
-    </style>
-</head>
-<body>
-    <h1>{{ gym_name.replace('_', ' ') }}</h1>
+{% extends "base.html" %}
 
-    <div class="graph-wrapper">
-        {% if weekday_image %}
-        <div class="graph-container">
-            <h2>Weekday</h2>
-            <img src="{{ url_for('get_graph', filename=weekday_image) }}" alt="Weekday Graph for {{ gym_name }}">
-        </div>
-        {% endif %}
+{% block title %}{{ gym_name.replace('_', ' ') }} - Gym Graph{% endblock %}
 
-        {% if weekend_image %}
-        <div class="graph-container">
-            <h2>Weekend</h2>
-            <img src="{{ url_for('get_graph', filename=weekend_image) }}" alt="Weekend Graph for {{ gym_name }}">
-        </div>
-        {% endif %}
+{% block content %}
+<h1>Capacity Trend for - {{ gym_name.replace('_', ' ') }}</h1>
+<div class="graphs-container">
+    {% if weekday_image %}
+    <div class="graph">
+        <h2>Weekday</h2>
+        <img src="{{ url_for('get_graph', filename=weekday_image) }}" alt="Weekday Graph for {{ gym_name }}">
     </div>
-
-    <a href="{{ url_for('home') }}">← Back to selection</a>
-</body>
-</html>
+    {% endif %}
+    {% if weekend_image %}
+    <div class="graph">
+        <h2>Weekend</h2>
+        <img src="{{ url_for('get_graph', filename=weekend_image) }}" alt="Weekend Graph for {{ gym_name }}">
+    </div>
+    {% endif %}
+</div>
+<div class="back-button-container">
+    <a href="{{ url_for('home') }}" class="button">← Back to selection</a>
+</div>
+{% endblock %}
