@@ -1,7 +1,7 @@
 import re
 import sqlite3
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -36,11 +36,17 @@ def scrape():
             # Get Date
             date_str = match.group(1)
             date_str = datetime.strptime(date_str, "%d %B %Y").date()
-            # Get Time, rounded down to nearest 10min
+
+            # Get Time, rounded down to nearest 30min
             time_str = match.group(2)
-            time_str = datetime.strptime(time_str, "%I:%M %p").replace(
-                minute=(datetime.strptime(time_str, "%I:%M %p").minute // 10) * 10, second=0
-            ).strftime('%H:%M')
+            dt = datetime.strptime(time_str, "%I:%M %p")
+            rounded_minute = round(dt.minute / 30) * 30
+            if rounded_minute == 60:
+                dt = dt.replace(minute=0, second=0) + timedelta(hours=1)
+            else:
+                dt = dt.replace(minute=rounded_minute, second=0)
+            time_str = dt.strftime('%H:%M')
+
         else:
             return 0
 
