@@ -57,7 +57,8 @@ def scrape():
             gym_name = element.select_one('.chakra-text').get_text(strip=True) if element.select_one('.chakra-text') else "Unknown Gym"
             capacity_text = element.select_one('.chakra-badge').get_text(strip=True) if element.select_one('.chakra-badge') else "0%"
             capacity_percentage = int(''.join(filter(str.isdigit, capacity_text)))
-            data.append([gym_name, capacity_percentage, date_str, time_str])
+            is_weekend = date_str.weekday() >= 5
+            data.append([gym_name, capacity_percentage, date_str, time_str, is_weekend])
 
     finally:
         driver.quit()
@@ -84,14 +85,15 @@ def save_data_to_db(data):
                 capacity INTEGER,
                 date DATE,
                 time TIME,
+                weekend BOOLEAN,
                 UNIQUE(gym_name, date, time)
             )
         ''')
 
         # Insert data while avoiding duplicates
         cursor.executemany('''
-            INSERT OR IGNORE INTO gym_capacity (gym_name, capacity, date, time) 
-            VALUES (?, ?, ?, ?)
+            INSERT OR IGNORE INTO gym_capacity (gym_name, capacity, date, time, weekend) 
+            VALUES (?, ?, ?, ?, ?)
         ''', data)
         
         # Commit changes to the database

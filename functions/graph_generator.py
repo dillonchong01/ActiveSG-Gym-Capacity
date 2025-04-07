@@ -16,29 +16,33 @@ def generate_all():
     conn = sqlite3.connect("database/gym_capacity_summary.db")
 
     # Load raw data from the database
-    query = "SELECT gym_name, time, capacity FROM gym_capacity_summary;"
+    query = "SELECT gym_name, time, capacity, weekend FROM gym_capacity_summary;"
     df = pl.read_database(query, conn)
     conn.close()
 
     # Group by gym_name and time and obtain average capacity
     df = df.with_columns(pl.col("time").str.strptime(pl.Time, "%H:%M").alias("time"))
     
-    df_grouped = (df.group_by(["gym_name", "time"])
+    df_grouped = (df.group_by(["gym_name", "time", "weekend"])
                   .agg(pl.col("capacity").mean().alias("capacity"))
-                  .sort(["gym_name", "time"])
+                  .sort(["gym_name", "weekend", "time"])
                  )
 
     # Use ThreadPoolExecutor to generate graphs concurrently for each gym
     with ThreadPoolExecutor() as executor:
-        # Submit graph generation tasks for each gym in parallel
-        futures = [executor.submit(generate_graph, gym, df_grouped.filter(pl.col("gym_name") == gym))
-                   for gym in df_grouped["gym_name"].unique()]
+        # Submit graph generation tasks for each gym and weekend pair in parallel
+        futures = [
+            executor.submit(generate_graph, gym, bool(weekend),
+                df_grouped.filter((pl.col("gym_name") == gym) & (pl.col("weekend") == weekend)))
+            for gym in df_grouped["gym_name"].unique()
+            for weekend in [0, 1]
+        ]
                 
         # Wait for all futures to complete
         for future in futures:
             future.result()
 
-def generate_graph(gym, gym_data):
+def generate_graph(gym, is_weekend, gym_data):
     gym = re.sub(r'\s+', ' ', gym)
     # Sort by time, obtain list of times and capacities
     gym_data = gym_data.sort("time")
@@ -51,7 +55,8 @@ def generate_graph(gym, gym_data):
     # Plot graph
     fig, ax = plt.subplots(figsize=(8, 5), facecolor='white')
     ax.plot(times, capacities, marker="o", linestyle="-", linewidth=2, markersize=5, color="blue")
-    ax.set_title(f"Gym Capacity - {gym}")
+    label = "Weekend" if is_weekend else "Weekday"
+    ax.set_title(f"Gym Capacity - {gym} ({label})")
     ax.set_xlabel("Time of Day")
     ax.set_ylabel("Average Capacity")
 
@@ -66,7 +71,7 @@ def generate_graph(gym, gym_data):
 
     # Save graph into static/graphs
     filename = re.sub(r'[^\w\-_. @]', '_', gym)
-    filename = re.sub(r'\s+', '_', filename)
+    filename = re.sub(r'\s+', '_', filename) + f'_{label.lower()}'
     graph_path = f"static/graphs/{filename}.jpg"
     fig.savefig(graph_path, facecolor='white', edgecolor='white')
     plt.close(fig)
