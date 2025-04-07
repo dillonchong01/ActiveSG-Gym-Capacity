@@ -1,26 +1,29 @@
+import os
 import re
 import sqlite3
 import polars as pl
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from datetime import datetime
-import os
+import matplotlib.dates as mdates
+from datetime import date, datetime
 from concurrent.futures import ThreadPoolExecutor
 
 
 def generate_all():
+    os.makedirs("static/graphs", exist_ok=True)
     # Connect to the SQLite database
     conn = sqlite3.connect("database/gym_capacity_summary.db")
 
     # Load raw data from the database
     query = "SELECT gym_name, time, capacity FROM gym_capacity_summary;"
-    df = pl.read_sql(query, conn)
+    df = pl.read_database(query, conn)
     conn.close()
 
     # Group by gym_name and time and obtain average capacity
-    df = df.with_columns(pl.col("time").dt.time())
-    df_grouped = (df.groupby(["gym_name", "time"])
+    df = df.with_columns(pl.col("time").str.strptime(pl.Time, "%H:%M").alias("time"))
+    
+    df_grouped = (df.group_by(["gym_name", "time"])
                   .agg(pl.col("capacity").mean().alias("capacity"))
                   .sort(["gym_name", "time"])
                  )
@@ -36,29 +39,36 @@ def generate_all():
             future.result()
 
 def generate_graph(gym, gym_data):
-    # Define x-axis labels
-    desired_ticks = [datetime.strptime(f"{hour:02d}:00", "%H:%M") for hour in range(7, 23)]
-    desired_tick_labels = [dt.strftime("%H:%M") for dt in desired_ticks]
-
-    # Obtain data for plotting
-    times = [datetime.strptime(str(t), "%H:%M").time() for t in gym_data["time"].to_list()]
+    gym = re.sub(r'\s+', ' ', gym)
+    # Sort by time, obtain list of times and capacities
+    gym_data = gym_data.sort("time")
+    times = [datetime.combine(date.today(), t) for t in gym_data["time"]]
     capacities = gym_data["capacity"].to_list()
-        
-    # Generate and save the graph for each gym
-    plt.figure(figsize=(8, 5))
-    plt.plot(times,capacities, marker="o", linestyle="-")
-    plt.xlabel("Time of Day")
-    plt.ylabel("Average Capacity")
-    plt.title(f"Gym Capacity - {gym}")
-    plt.xticks(ticks=desired_ticks, labels=desired_tick_labels, rotation=45)
-    plt.grid(True)
-    plt.tight_layout()
 
-    # Save graph as an image in 'static/graphs'
-    filename = re.sub(r'[^\w\-_. ]', '_', gym).replace(' ', '_')
-    graph_path = f"static/graphs/{filename}.png"
-    plt.savefig(graph_path)
-    plt.close()
+    if not times or not capacities:
+        return
+
+    # Plot graph
+    fig, ax = plt.subplots(figsize=(8, 5), facecolor='white')
+    ax.plot(times, capacities, marker="o", linestyle="-", linewidth=2, markersize=5, color="blue")
+    ax.set_title(f"Gym Capacity - {gym}")
+    ax.set_xlabel("Time of Day")
+    ax.set_ylabel("Average Capacity")
+
+    # Set x and y axis
+    ax.xaxis.set_major_locator(mdates.HourLocator(interval=1))
+    ax.xaxis.set_major_formatter(mdates.DateFormatter("%H:%M"))
+    ax.tick_params(axis='x', rotation=45)
+    ax.set_ylim(0, min(100, max(capacities) + 10))
+
+    ax.grid(True)
+    fig.tight_layout()
+
+    # Save graph into static/graphs
+    filename = re.sub(r'[^\w\-_. @]', '_', gym)
+    graph_path = f"static/graphs/{filename}.jpg"
+    fig.savefig(graph_path, facecolor='white', edgecolor='white')
+    plt.close(fig)
 
 if __name__ == "__main__":
     generate_all()

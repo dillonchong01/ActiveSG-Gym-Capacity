@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ gym_name.replace('_', ' ') }} - Gym Graph</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .graph-container {
+            margin: 40px auto;
+            max-width: 700px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ gym_name.replace('_', ' ') }}</h1>
+    <div class="graph-container">
+        <img src="{{ url_for('get_graph', filename=image_file) }}" alt="Graph for {{ gym_name }}">
+    </div>
+    <a href="{{ url_for('home') }}">← Back to selection</a>
+</body>
+</html>
