@@ -66,6 +66,7 @@ def generate_graph(gym, gym_data):
 
     # Save graph into static/graphs
     filename = re.sub(r'[^\w\-_. @]', '_', gym)
+    filename = re.sub(r'\s+', '_', filename)
     graph_path = f"static/graphs/{filename}.jpg"
     fig.savefig(graph_path, facecolor='white', edgecolor='white')
     plt.close(fig)
