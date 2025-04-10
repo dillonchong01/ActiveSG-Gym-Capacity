@@ -92,7 +92,7 @@ def save_data_to_db(data):
 
         # Insert data while avoiding duplicates
         cursor.executemany('''
-            INSERT OR IGNORE INTO gym_capacity (gym_name, capacity, date, time, weekend) 
+            INSERT OR IGNORE INTO gym_capacity (gym_name, capacity, date, time, is_weekend) 
             VALUES (?, ?, ?, ?, ?)
         ''', data)
         
