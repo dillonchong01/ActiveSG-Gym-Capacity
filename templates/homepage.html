@@ -1,19 +1,39 @@
 {% extends "base.html" %}
 
-{% block title %}Select a Gym{% endblock %}
+{% block title %}ActiveSG Gym Capacity Trends{% endblock %}
 
 {% block content %}
-<div class="selector-container">
-    <h2>📊 Select a Gym to View Capacity</h2>
-    <form action="{{ url_for('select_gym') }}" method="post">
-        <select name="gym" required>
-            <option value="" disabled selected>Select a Gym</option>
-            {% for gym in gyms %}
-                <option value="{{ gym }}">{{ gym.replace('_', ' ') }}</option>
-            {% endfor %}
-        </select>
-        <br>
-        <button type="submit">View Graph</button>
-    </form>
+<div class="layout-container">
+    <div class="layout-flex">
+        <!-- Left side: Info block -->
+        <div class="info-box">
+            <h2>About This Project</h2>
+            <p>Finding the perfect time to hit the gym can be tough, especially if you prefer a less crowded workout environment. This tool helps ActiveSG gym users make data-driven decisions about their gym visits by providing insightful visualizations of gym capacity trends. Whether you're dodging the crowd or just curious about gym traffic patterns, we've got you covered! 🚀</p>
+    
+            <h2>How It Works</h2>
+            <p>We web scrape ActiveSG gym capacity data from their <a href="https://activesg.gov.sg/gym-capacity" target="_blank" rel="noopener noreferrer">Live Tracking Website</a>, dynamically updating our database to reflect the latest trends. This data is then processed into clear, insightful visualizations to reflect</p>
+            <p class="spaced">✅ Fluctuations in Crowd Levels</p>
+            <p>✅ Trends over Weekdays and Weekends</p>
+    
+            <h2>What’s Next?</h2>
+            <p>We’re continuously working on improving the insights provided. Upcoming features include:</p>
+            <p class="spaced">📊 Day-Specific Trends – Breaking down capacity trends for each day of the week</p>
+            <p>📅 Holiday Adjustments – Factoring in public and school holidays for more accurate predictions</p>
+        </div>
+    
+        <!-- Right side: Selector form -->
+        <div class="selector-container">
+            <h1>📊 Select a Gym</h1>
+            <form action="{{ url_for('select_gym') }}" method="post">
+                <select name="gym" required>
+                    <option value="" disabled selected>Select a Gym</option>
+                    {% for gym in gyms %}
+                        <option value="{{ gym }}">{{ gym.replace('_', ' ') }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit">View Capacity Trend</button>
+            </form>
+        </div>
+    </div>
 </div>
 {% endblock %}

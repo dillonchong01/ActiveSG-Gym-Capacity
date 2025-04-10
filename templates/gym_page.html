@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 
-{% block title %}{{ gym_name.replace('_', ' ') }} - Gym Graph{% endblock %}
+{% block title %}{{ gym_name.replace('_', ' ') }} Gym{% endblock %}
 
 {% block content %}
-<h1>Capacity Trend for - {{ gym_name.replace('_', ' ') }}</h1>
+<div class="header-row">
+    <a href="{{ url_for('home') }}" class="back-button-inline">← Back to Selection</a>
+    <h1 class="header-title">Capacity Trend for {{ gym_name.replace('_', ' ') }}</h1>
+</div>
 <div class="graphs-container">
     {% if weekday_image %}
     <div class="graph">
@@ -17,8 +20,5 @@
         <img src="{{ url_for('get_graph', filename=weekend_image) }}" alt="Weekend Graph for {{ gym_name }}">
     </div>
     {% endif %}
-</div>
-<div class="back-button-container">
-    <a href="{{ url_for('home') }}" class="button">← Back to selection</a>
 </div>
 {% endblock %}
