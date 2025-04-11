@@ -62,8 +62,7 @@ def generate_graph(gym, is_weekend, gym_data):
 
     # Set x and y axis
     ax.xaxis.set_major_locator(mdates.HourLocator(interval=1))
-    ax.xaxis.set_major_formatter(mdates.DateFormatter("%I:%M %p"))
-    ax.tick_params(axis='x', rotation=45)
+    ax.xaxis.set_major_formatter(mdates.DateFormatter("%-I%p"))
     ax.set_ylim(0, min(100, max(capacities) + 10))
 
     ax.grid(True)
