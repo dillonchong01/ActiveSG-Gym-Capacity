@@ -32,7 +32,7 @@ h2 {
    Top Banner
 ============================= */
 .top-banner {
-    background-color: #f25353;
+    background-color: #990033;
     color: white;
     padding: 20px;
     font-family: 'Times New Roman', Times, serif;
@@ -65,7 +65,7 @@ h2 {
 }
 
 .graph h2 {
-    background-color: #f25353;
+    background-color: #990033;
     color: #fff;
     padding: 10px;
     text-align: center;
@@ -91,7 +91,7 @@ h2 {
 }
 
 .selector-container h1 {
-    color: #f25353;
+    color: #990033;
     margin-bottom: 30px;
 }
 
@@ -111,7 +111,7 @@ a.button {
 
 button,
 a.button {
-    background-color: #f25353;
+    background-color: #990033;
     color: white;
     border: none;
     cursor: pointer;
@@ -140,7 +140,7 @@ a.button:hover {
 .info-box {
     flex: 2;
     background-color: #ffffff;
-    border-left: 5px solid #f25353;
+    border-left: 5px solid #990033;
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
@@ -151,7 +151,7 @@ a.button:hover {
 
 .info-box h2 {
     margin-top: 30px;
-    color: #f25353;
+    color: #990033;
 }
 
 .info-box > *:first-child {
@@ -180,7 +180,7 @@ a.button:hover {
     transform: translate(-50%, -50%);
     margin: 0;
     font-size: 28px;
-    color: #f25353;
+    color: #990033;
     white-space: nowrap;
     text-align: center;
 }
@@ -192,16 +192,14 @@ a.button:hover {
     transform: translateY(-50%);
     font-size: 20px;
     padding: 6px 10px;
-    border: 3px solid #eb9500;
-    border-radius: 6px;
     background-color: #eb9500;
     color: white;
+    border-radius: 5px;
     text-decoration: none;
-    transition: background-color 0.2s ease;
 }
 
 .back-button-inline:hover {
-    background-color: #f25353;
+    background-color: #ebd2a5;
     color: white;
 }
 

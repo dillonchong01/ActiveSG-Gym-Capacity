@@ -19,8 +19,10 @@ def summarize_capacity():
     if df.empty:
       return
 
-    # Group by gym_name and time and obtain average capacity
-    df_grouped = df.groupby(["gym_name", "time", "is_weekend"])["capacity"].mean().reset_index()
+    # Group by gym_name, date and time and obtain average capacity (Only 1 Value from each datetime)
+    df_grouped1 = df.groupby(["gym_name", "date", "time"])["capacity"].mean().reset_index()
+    df_grouped = df_grouped1.groupby(["gym_name", "time", "is_weekend"])["capacity"].mean().reset_index()
+
     df_grouped["gym_name"] = df_grouped["gym_name"].apply(lambda x: re.sub(r'\b(ActiveSG|Gym)\b|@', '', x).strip())
     df_grouped["time"] = df_grouped["time"].apply(lambda t: datetime.strptime(t, "%H:%M").strftime("%H:%M"))
 

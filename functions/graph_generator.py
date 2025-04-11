@@ -57,12 +57,12 @@ def generate_graph(gym, is_weekend, gym_data):
     ax.plot(times, capacities, marker="o", linestyle="-", linewidth=2, markersize=5, color="blue")
     label = "Weekend" if is_weekend else "Weekday"
     ax.set_title(f"Gym Capacity - {gym} ({label})")
-    ax.set_xlabel("Time of Day")
-    ax.set_ylabel("Average Capacity")
+    ax.set_xlabel("Time")
+    ax.set_ylabel("Average Capacity (%)")
 
     # Set x and y axis
     ax.xaxis.set_major_locator(mdates.HourLocator(interval=1))
-    ax.xaxis.set_major_formatter(mdates.DateFormatter("%H:%M"))
+    ax.xaxis.set_major_formatter(mdates.DateFormatter("%I:%M %p"))
     ax.tick_params(axis='x', rotation=45)
     ax.set_ylim(0, min(100, max(capacities) + 10))
 

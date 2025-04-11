@@ -54,9 +54,26 @@ def scrape():
         data = []
         gym_capacity = soup.find_all('div', class_='chakra-card css-m97yjq')
         for element in gym_capacity:
-            gym_name = element.select_one('.chakra-text').get_text(strip=True) if element.select_one('.chakra-text') else "Unknown Gym"
-            capacity_text = element.select_one('.chakra-badge').get_text(strip=True) if element.select_one('.chakra-badge') else "0%"
+            # If Gym Name not found, continue
+            if element.select_one('.chakra-text'):
+                gym_name = element.select_one('.chakra-text').get_text(strip=True)
+            else:
+                continue
+
+            # If Capacity not found, continue
+            if element.select_one('.chakra-badge'):
+                capacity_text = element.select_one('.chakra-badge').get_text(strip=True)
+            else:
+                continue
+
+            # If Capacity is 0 or Closed, continue
+            if capacity_text == 'Closed':
+                continue
             capacity_percentage = int(''.join(filter(str.isdigit, capacity_text)))
+            if capacity_percentage == 0:
+                continue
+
+            # Add Boolean for Weekend
             is_weekend = date_str.weekday() >= 5
             data.append([gym_name, capacity_percentage, date_str, time_str, is_weekend])
 
