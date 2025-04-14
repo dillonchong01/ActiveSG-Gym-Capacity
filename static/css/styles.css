@@ -203,23 +203,21 @@ a.button:hover {
 /* ============================
    Responsive Design
 ============================= */
-@media (max-width: 400px) {
-    .graph {
-        width: 100%;
-    }
-
+@media (max-width: 768px) {
     .layout-flex {
         flex-direction: column !important;
         width: 100%;
         margin: 0;
         padding: 0 10px;
     }
-
+    
     .selector-container {
+        order: -1 !important;
         width: 100%;
     }
-
+    
     .info-box {
+        order: 0 !important;
         width: 100%;
     }
 }
