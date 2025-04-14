@@ -164,6 +164,9 @@ a.button:hover {
    Header Row for Graphs
 ============================= */
 .header-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     margin: 0 50px 20px 50px;
     padding: 0 20px;
@@ -219,5 +222,21 @@ a.button:hover {
     .info-box {
         order: 0 !important;
         width: 100%;
+    }
+
+   .header-row {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+   
+    .back-button-inline,
+    .header-title {
+        position: static;
+        transform: none;
+    }
+   
+    .back-button-inline {
+        margin-bottom: 10px;
     }
 }
