@@ -203,7 +203,7 @@ a.button:hover {
 /* ============================
    Responsive Design
 ============================= */
-@media (max-width: 400px) {
+@media (max-width: 600px) {
     .graph {
         width: 100%;
     }
