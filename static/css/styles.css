@@ -128,6 +128,7 @@ a.button:hover {
    Layout: Info + Selector
 ============================= */
 .layout-flex {
+    flex-wrap: wrap;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -202,13 +203,12 @@ a.button:hover {
 /* ============================
    Responsive Design
 ============================= */
-@media (max-width: 600px) {
+@media (max-width: 400px) {
     .graph {
         width: 100%;
     }
 
     .layout-flex {
-        border: 2px solid red !important;
         flex-direction: column !important;
         width: 100%;
         margin: 0;
@@ -216,12 +216,10 @@ a.button:hover {
     }
 
     .selector-container {
-        order: -1 !important;
         width: 100%;
     }
 
     .info-box {
-        order: 0 !important;
         width: 100%;
     }
 }
