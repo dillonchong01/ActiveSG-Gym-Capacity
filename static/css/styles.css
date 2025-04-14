@@ -209,20 +209,20 @@ a.button:hover {
     }
 
     .layout-flex {
-        border: 2px solid red;
-        flex-direction: column;
+        border: 2px solid red !important;
+        flex-direction: column !important;
         width: 100%;
         margin: 0;
         padding: 0 10px;
     }
 
     .selector-container {
-        order: 1;
+        order: -1 !important;
         width: 100%;
     }
 
     .info-box {
-        order: 2;
+        order: 0 !important;
         width: 100%;
     }
 }
