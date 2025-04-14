@@ -179,7 +179,7 @@ a.button:hover {
     top: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
-    font-size: 28px;
+    font-size: clamp(12px, 5vw, 28px);
     color: #990033;
     white-space: nowrap;
     text-align: center;
