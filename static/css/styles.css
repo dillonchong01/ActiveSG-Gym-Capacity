@@ -216,8 +216,13 @@ a.button:hover {
         padding: 0 10px;
     }
 
-    .info-box,
     .selector-container {
-        max-width: 100%;
+        order: -1;
+        width: 100%;
+    }
+
+    .info-box {
+        order: 0;
+        width: 100%;
     }
 }
