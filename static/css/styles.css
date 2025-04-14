@@ -203,7 +203,7 @@ a.button:hover {
 /* ============================
    Responsive Design
 ============================= */
-@media (max-width: 768px) {
+@media (max-width: 400px) {
     .graph {
         width: 100%;
     }
@@ -217,12 +217,12 @@ a.button:hover {
     }
 
     .selector-container {
-        order: -1;
+        order: 1;
         width: 100%;
     }
 
     .info-box {
-        order: 0;
+        order: 2;
         width: 100%;
     }
 }
