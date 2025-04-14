@@ -209,6 +209,7 @@ a.button:hover {
     }
 
     .layout-flex {
+        border: 2px solid red;
         flex-direction: column;
         width: 100%;
         margin: 0;
