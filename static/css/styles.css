@@ -175,7 +175,7 @@ a.button:hover {
     top: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
-    font-size: clamp(12px, 5vw, 28px);
+    font-size: clamp(12px, 5vw, 22px);
     color: #990033;
     white-space: nowrap;
     text-align: center;
@@ -186,7 +186,7 @@ a.button:hover {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 20px;
+    font-size: 16px;
     padding: 6px 10px;
     background-color: #eb9500;
     color: white;
