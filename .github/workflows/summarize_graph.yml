@@ -1,4 +1,4 @@
-name: Summarise Gym Capacity (Daily)
+name: Summarise Capacity and Plot Graphs (Daily)
 
 on:
   schedule:
@@ -19,16 +19,20 @@ jobs:
           python-version: '3.10'
 
       - name: Install dependencies
-        run: pip install pandas
+        run: pip install pandas polars==1.26.0 matplotlib==3.9.2
 
       - name: Run summarisation script
         run: python functions/summarise_capacity.py
+
+      - name: Run graph generation
+        run: python functions/graph_generator.py
 
       - name: Commit and push summarized DB
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"    
           git add database/gym_capacity_summary.db
+          
           # Only commit if file has changed
-          git diff --cached --quiet || git commit -m "Update summarized gym capacity database"
+          git diff --cached --quiet || git commit -m "Update summarized capacity database and add generated graphs"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
