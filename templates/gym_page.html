@@ -3,10 +3,14 @@
 {% block title %}{{ gym_name.replace('_', ' ') }} Gym{% endblock %}
 
 {% block content %}
-<div class="header-row">
-    <a href="{{ url_for('home') }}" class="back-button-inline">← Back to Selection</a>
-    <h1 class="header-title">Capacity Trend for {{ gym_name.replace('_', ' ') }}</h1>
+<div class="top-banner">
+    🏋️ Capacity Trend for {{ gym_name.replace('_', ' ') }}
 </div>
+
+<div class="back-button-container">
+    <a href="{{ url_for('home') }}" class="back-button-inline">← Back to Selection</a>
+</div>
+
 <div class="graphs-container">
     {% if weekday_image %}
     <div class="graph">

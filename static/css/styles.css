@@ -9,10 +9,24 @@
 
 body {
     font-family: 'Times New Roman', Times, serif;
-    background-color: #f2f2f2;
+    background-image: url('background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     color: #333;
     line-height: 1.6;
     padding: 20px;
+}
+
+/* Dark Overlay over Background Image */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
 }
 
 /* ============================
@@ -38,10 +52,12 @@ h2 {
     font-family: 'Times New Roman', Times, serif;
     font-size: 36px;
     font-weight: bold;
-    text-align: left;
-    margin-bottom: 20px;
+    text-align: center;
+    box-sizing: border-box;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     border-radius: 12px;
+    width: 100%;
+    margin-bottom: 20px
 }
 
 /* ============================
@@ -50,7 +66,7 @@ h2 {
 .graphs-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 10px 20px;
     flex-wrap: wrap;
 }
 
@@ -157,41 +173,22 @@ a.button:hover {
 }
 
 /* ============================
-   Header Row for Graphs
+   Back Button
 ============================= */
-.header-row {
+.back-button-container {
     display: flex;
-    align-items: center;
     justify-content: center;
-    position: relative;
-    margin: 0 50px 20px 50px;
-    padding: 0 20px;
-    height: 50px;
-}
-
-.header-title {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
-    font-size: clamp(12px, 5vw, 22px);
-    color: #990033;
-    white-space: nowrap;
-    text-align: center;
+    align-items: center;
 }
 
 .back-button-inline {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
     font-size: 16px;
     padding: 6px 10px;
     background-color: #eb9500;
     color: white;
     border-radius: 5px;
     text-decoration: none;
+    margin-bottom: 20px;
 }
 
 .back-button-inline:hover {
@@ -219,15 +216,8 @@ a.button:hover {
         order: 0 !important;
         width: 100%;
     }
-
-   .header-row {
-        display: flex;
-        flex-direction: column;
-        height: auto;
-    }
    
-    .back-button-inline,
-    .header-title {
+    .back-button-inline {
         position: static;
         transform: none;
     }
