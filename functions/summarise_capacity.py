@@ -23,7 +23,7 @@ def summarize_capacity():
     df_grouped1 = df.groupby(["gym_name", "date", "time", "is_weekend"])["capacity"].mean().reset_index()
     df_grouped = df_grouped1.groupby(["gym_name", "time", "is_weekend"])["capacity"].mean().reset_index()
 
-    df_grouped["gym_name"] = df_grouped["gym_name"].apply(lambda x: re.sub(r'\b(ActiveSG|Gym)\b|@', '', x).strip())
+    df_grouped["gym_name"] = df_grouped["gym_name"].apply(lambda x: re.sub(r'\b(ActiveSG|Gym)\b|@', '', x).replace('  ', ' ').strip())
     df_grouped["time"] = df_grouped["time"].apply(lambda t: datetime.strptime(t, "%H:%M").strftime("%H:%M"))
 
     # Save into summary database
