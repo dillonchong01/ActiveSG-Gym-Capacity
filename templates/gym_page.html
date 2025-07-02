@@ -4,24 +4,36 @@
 
 {% block content %}
 <div class="top-banner">
-    🏋️ Capacity Trend for {{ gym_name.replace('_', ' ') }}
+    <h1>🏋️ {{ gym_name.replace('_', ' ').title() }} Capacity Trends</h1>
 </div>
 
 <div class="back-button-container">
-    <a href="{{ url_for('home') }}" class="back-button-inline">← Back to Selection</a>
+    <a href="{{ url_for('home') }}" class="back-button-inline" aria-label="Go back to gym selection">
+        ← Back to Selection
+    </a>
 </div>
 
 <div class="graphs-container">
     {% if weekday_image %}
     <div class="graph">
-        <h2>Weekday</h2>
-        <img src="{{ url_for('get_graph', filename=weekday_image) }}" alt="Weekday Graph for {{ gym_name }}">
+        <h2>📅 Weekday Trends</h2>
+        <img src="{{ url_for('get_graph', filename=weekday_image) }}" 
+             alt="Weekday capacity trend graph for {{ gym_name.replace('_', ' ') }}"
+             loading="lazy">
     </div>
     {% endif %}
     {% if weekend_image %}
     <div class="graph">
-        <h2>Weekend</h2>
-        <img src="{{ url_for('get_graph', filename=weekend_image) }}" alt="Weekend Graph for {{ gym_name }}">
+        <h2>🎉 Weekend Trends</h2>
+        <img src="{{ url_for('get_graph', filename=weekend_image) }}" 
+             alt="Weekend capacity trend graph for {{ gym_name.replace('_', ' ') }}"
+             loading="lazy">
+    </div>
+    {% endif %}
+    {% if not weekday_image and not weekend_image %}
+    <div style="text-align: center; padding: 2rem; background: white; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <h2 style="color: #dc2626; margin-bottom: 1rem;">📊 No Data Available</h2>
+        <p style="color: #6b7280;">Capacity trend data for this gym is currently unavailable. Please try again later or select a different gym.</p>
     </div>
     {% endif %}
 </div>
