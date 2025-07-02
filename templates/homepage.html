@@ -3,60 +3,117 @@
 {% block title %}ActiveSG Gym Capacity Trends{% endblock %}
 
 {% block content %}
-<div class="top-banner">
-    <h1>🏋️ ActiveSG Gym Capacity Trends</h1>
-</div>
-
-<div class="layout-container">
-    <div class="layout-flex">
-        
-        <!-- Left side: Info block -->
-        <div class="info-box">
-            <h2>About This Project</h2>
-            <p>Struggling to find the best time to hit the gym without the crowd? Our tool helps ActiveSG users make informed decisions by visualizing gym capacity trends, whether you're avoiding peak hours or just curious about crowd patterns. 🚀</p>
-    
-            <h2>How It Works</h2>
-            <p>We web scrape ActiveSG gym capacity data from their <a href="https://activesg.gov.sg/gym-capacity" target="_blank" rel="noopener noreferrer">Live Tracking Website</a>, keeping our database up-to-date with the latest trends. The data is then transformed into clear visualizations reflecting:</p>
-            <p style="margin-left: 1rem; margin-bottom: 0.5rem;">✅ Crowd Level Fluctuations</p>
-            <p style="margin-left: 1rem; margin-bottom: 1rem;">✅ Weekday vs. Weekend Trends</p>
-    
-            <h2>What's Next?</h2>
-            <p>We're constantly improving! Future features include:</p>
-            <p style="margin-left: 1rem; margin-bottom: 0.5rem;">📊 Holiday Adjustments – Factoring in Public/School Holidays</p>
-            <p style="margin-left: 1rem; margin-bottom: 0;">📊 Forecasting Model – ML-powered Capacity Predictions</p>
+<!-- Hero Section with Creative Layout -->
+<div class="hero-section">
+    <div class="hero-content">
+        <div class="hero-badge">
+            <span class="badge-icon">🏋️</span>
+            <span class="badge-text">Live Capacity Tracking</span>
         </div>
-        
-        <!-- Right side: Selector form -->
-        <div class="selector-container">
-            <h1>📊 Select a Gym</h1>
-            <form action="{{ url_for('select_gym') }}" method="post">
-                <label for="gym-select" class="sr-only">Choose a gym to view capacity trends</label>
-                <select name="gym" id="gym-select" required>
-                    <option value="" disabled selected>Choose your gym...</option>
-                    {% for gym in gyms %}
-                        <option value="{{ gym }}">{{ gym.replace('_', ' ').title() }}</option>
-                    {% endfor %}
-                </select>
-                <button type="submit" aria-label="View capacity trend for selected gym">
-                    View Capacity Trend
-                </button>
-            </form>
+        <h1 class="hero-title">
+            <span class="title-main">ActiveSG</span>
+            <span class="title-accent">Gym Capacity</span>
+            <span class="title-sub">Trends</span>
+        </h1>
+        <p class="hero-subtitle">Beat the crowd, optimize your workout</p>
+    </div>
+    
+    <!-- Floating Stats Cards -->
+    <div class="stats-floating">
+        <div class="stat-card stat-1">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Tracking</div>
         </div>
-        
+        <div class="stat-card stat-2">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Gyms</div>
+        </div>
+        <div class="stat-card stat-3">
+            <div class="stat-number">Real</div>
+            <div class="stat-label">Time</div>
+        </div>
     </div>
 </div>
 
-<style>
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-</style>
+<!-- Main Content Area with Asymmetric Layout -->
+<div class="content-grid">
+    <!-- Gym Selector - Prominent Position -->
+    <div class="selector-section">
+        <div class="selector-card">
+            <div class="card-header">
+                <h2 class="selector-title">
+                    <span class="title-icon">📊</span>
+                    Choose Your Gym
+                </h2>
+                <p class="selector-subtitle">Select a gym to view detailed capacity trends</p>
+            </div>
+            
+            <form action="{{ url_for('select_gym') }}" method="post" class="gym-form">
+                <div class="form-group">
+                    <label for="gym-select" class="form-label">Gym Location</label>
+                    <div class="select-wrapper">
+                        <select name="gym" id="gym-select" required class="gym-select">
+                            <option value="" disabled selected>Select your preferred gym...</option>
+                            {% for gym in gyms %}
+                                <option value="{{ gym }}">{{ gym.replace('_', ' ').title() }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="select-icon">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="cta-button" aria-label="View capacity trend for selected gym">
+                    <span class="button-text">Analyze Trends</span>
+                    <span class="button-icon">→</span>
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Info Cards - Creative Stacked Layout -->
+    <div class="info-section">
+        <div class="info-cards">
+            <div class="info-card card-primary">
+                <div class="card-icon">🎯</div>
+                <h3 class="card-title">Smart Timing</h3>
+                <p class="card-description">
+                    Avoid peak hours and find the perfect time for your workout. Our data shows real crowd patterns to help you plan better.
+                </p>
+                <div class="card-features">
+                    <span class="feature">✓ Peak hour alerts</span>
+                    <span class="feature">✓ Crowd predictions</span>
+                </div>
+            </div>
+            
+            <div class="info-card card-secondary">
+                <div class="card-icon">📈</div>
+                <h3 class="card-title">Live Data</h3>
+                <p class="card-description">
+                    We continuously scrape ActiveSG's official capacity data to provide you with the most accurate and up-to-date trends.
+                </p>
+                <div class="card-link">
+                    <a href="https://activesg.gov.sg/gym-capacity" target="_blank" rel="noopener noreferrer">
+                        View Official Source →
+                    </a>
+                </div>
+            </div>
+            
+            <div class="info-card card-accent">
+                <div class="card-icon">🚀</div>
+                <h3 class="card-title">Coming Soon</h3>
+                <p class="card-description">
+                    We're building ML-powered predictions and holiday adjustments to make your gym planning even smarter.
+                </p>
+                <div class="card-features">
+                    <span class="feature">🔮 AI Predictions</span>
+                    <span class="feature">📅 Holiday Patterns</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
