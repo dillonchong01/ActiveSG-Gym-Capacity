@@ -3,38 +3,128 @@
 {% block title %}{{ gym_name.replace('_', ' ') }} Gym{% endblock %}
 
 {% block content %}
-<div class="top-banner">
-    <h1>🏋️ {{ gym_name.replace('_', ' ').title() }} Capacity Trends</h1>
+<!-- Dynamic Header with Gym Name -->
+<div class="gym-header">
+    <div class="header-content">
+        <div class="breadcrumb">
+            <a href="{{ url_for('home') }}" class="breadcrumb-link">
+                <span class="breadcrumb-icon">←</span>
+                <span class="breadcrumb-text">Back to Selection</span>
+            </a>
+        </div>
+        
+        <div class="gym-title-section">
+            <h1 class="gym-title">
+                <span class="gym-icon">🏋️</span>
+                <span class="gym-name">{{ gym_name.replace('_', ' ').title() }}</span>
+            </h1>
+            <p class="gym-subtitle">Capacity Trend Analysis</p>
+        </div>
+        
+        <div class="header-stats">
+            <div class="stat-item">
+                <span class="stat-value">Live</span>
+                <span class="stat-label">Data</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-value">24/7</span>
+                <span class="stat-label">Updated</span>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="back-button-container">
-    <a href="{{ url_for('home') }}" class="back-button-inline" aria-label="Go back to gym selection">
-        ← Back to Selection
-    </a>
-</div>
-
-<div class="graphs-container">
-    {% if weekday_image %}
-    <div class="graph">
-        <h2>📅 Weekday Trends</h2>
-        <img src="{{ url_for('get_graph', filename=weekday_image) }}" 
-             alt="Weekday capacity trend graph for {{ gym_name.replace('_', ' ') }}"
-             loading="lazy">
-    </div>
-    {% endif %}
-    {% if weekend_image %}
-    <div class="graph">
-        <h2>🎉 Weekend Trends</h2>
-        <img src="{{ url_for('get_graph', filename=weekend_image) }}" 
-             alt="Weekend capacity trend graph for {{ gym_name.replace('_', ' ') }}"
-             loading="lazy">
-    </div>
-    {% endif %}
-    {% if not weekday_image and not weekend_image %}
-    <div style="text-align: center; padding: 2rem; background: white; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-        <h2 style="color: #dc2626; margin-bottom: 1rem;">📊 No Data Available</h2>
-        <p style="color: #6b7280;">Capacity trend data for this gym is currently unavailable. Please try again later or select a different gym.</p>
-    </div>
+<!-- Graphs Section with Creative Layout -->
+<div class="graphs-section">
+    {% if weekday_image or weekend_image %}
+        <div class="graphs-container">
+            {% if weekday_image %}
+            <div class="graph-card weekday-card">
+                <div class="graph-header">
+                    <div class="graph-title">
+                        <span class="graph-icon">📅</span>
+                        <h2>Weekday Patterns</h2>
+                    </div>
+                    <div class="graph-badge">Mon - Fri</div>
+                </div>
+                <div class="graph-content">
+                    <img src="{{ url_for('get_graph', filename=weekday_image) }}" 
+                         alt="Weekday capacity trend graph for {{ gym_name.replace('_', ' ') }}"
+                         loading="lazy"
+                         class="graph-image">
+                </div>
+                <div class="graph-footer">
+                    <p class="graph-insight">Peak hours typically between 6-9 AM and 6-9 PM</p>
+                </div>
+            </div>
+            {% endif %}
+            
+            {% if weekend_image %}
+            <div class="graph-card weekend-card">
+                <div class="graph-header">
+                    <div class="graph-title">
+                        <span class="graph-icon">🎉</span>
+                        <h2>Weekend Patterns</h2>
+                    </div>
+                    <div class="graph-badge weekend-badge">Sat - Sun</div>
+                </div>
+                <div class="graph-content">
+                    <img src="{{ url_for('get_graph', filename=weekend_image) }}" 
+                         alt="Weekend capacity trend graph for {{ gym_name.replace('_', ' ') }}"
+                         loading="lazy"
+                         class="graph-image">
+                </div>
+                <div class="graph-footer">
+                    <p class="graph-insight">More consistent traffic throughout the day</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        
+        <!-- Quick Tips Section -->
+        <div class="tips-section">
+            <div class="tips-card">
+                <h3 class="tips-title">
+                    <span class="tips-icon">💡</span>
+                    Pro Tips
+                </h3>
+                <div class="tips-list">
+                    <div class="tip-item">
+                        <span class="tip-bullet">🌅</span>
+                        <span class="tip-text">Early morning (6-8 AM) usually has lower crowds</span>
+                    </div>
+                    <div class="tip-item">
+                        <span class="tip-bullet">🌙</span>
+                        <span class="tip-text">Late evening (after 8 PM) tends to be quieter</span>
+                    </div>
+                    <div class="tip-item">
+                        <span class="tip-bullet">📊</span>
+                        <span class="tip-text">Check both weekday and weekend patterns for best planning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    {% else %}
+        <div class="no-data-section">
+            <div class="no-data-card">
+                <div class="no-data-icon">📊</div>
+                <h2 class="no-data-title">No Data Available</h2>
+                <p class="no-data-description">
+                    Capacity trend data for this gym is currently unavailable. 
+                    This could be due to recent updates or maintenance.
+                </p>
+                <div class="no-data-actions">
+                    <a href="{{ url_for('home') }}" class="action-button primary">
+                        Try Another Gym
+                    </a>
+                    <button onclick="location.reload()" class="action-button secondary">
+                        Refresh Page
+                    </button>
+                </div>
+            </div>
+        </div>
     {% endif %}
 </div>
 {% endblock %}
