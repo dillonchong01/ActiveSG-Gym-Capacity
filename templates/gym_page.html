@@ -3,34 +3,20 @@
 {% block title %}{{ gym_name.replace('_', ' ') }} Gym{% endblock %}
 
 {% block content %}
-<!-- Dynamic Header with Gym Name -->
+<!-- Compact Header with Gym Info -->
 <div class="gym-header">
     <div class="header-content">
-        <div class="breadcrumb">
-            <a href="{{ url_for('home') }}" class="breadcrumb-link">
-                <span class="breadcrumb-icon">←</span>
-                <span class="breadcrumb-text">Back to Selection</span>
-            </a>
-        </div>
+        <a href="{{ url_for('home') }}" class="back-button" aria-label="Go back to gym selection">
+            <span class="back-icon">←</span>
+            <span class="back-text">Back</span>
+        </a>
         
-        <div class="gym-title-section">
-            <h1 class="gym-title">
+        <div class="gym-info">
+            <h1 class="gym-name">
                 <span class="gym-icon">🏋️</span>
-                <span class="gym-name">{{ gym_name.replace('_', ' ').title() }}</span>
+                {{ gym_name.replace('_', ' ').title() }}
             </h1>
             <p class="gym-subtitle">Capacity Trend Analysis</p>
-        </div>
-        
-        <div class="header-stats">
-            <div class="stat-item">
-                <span class="stat-value">Live</span>
-                <span class="stat-label">Data</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat-item">
-                <span class="stat-value">24/7</span>
-                <span class="stat-label">Updated</span>
-            </div>
         </div>
     </div>
 </div>
