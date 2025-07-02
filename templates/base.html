@@ -36,62 +36,40 @@
     <meta name="theme-color" content="#dc2626">
     <meta name="msapplication-TileColor" content="#dc2626">
     
-    <!-- Prevent zoom on iOS -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
     {% block extra_head %}{% endblock %}
 </head>
 <body>
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
-    <!-- Background overlay -->
-    <div class="background-overlay" aria-hidden="true"></div>
+    <!-- Dynamic background with overlay -->
+    <div class="background-wrapper">
+        <div class="background-image"></div>
+        <div class="background-overlay"></div>
+        <div class="background-pattern"></div>
+    </div>
+    
+    <!-- Floating decorative elements -->
+    <div class="floating-elements" aria-hidden="true">
+        <div class="float-element float-1">💪</div>
+        <div class="float-element float-2">🏃‍♂️</div>
+        <div class="float-element float-3">⚡</div>
+        <div class="float-element float-4">🎯</div>
+    </div>
     
     <!-- Main content wrapper -->
-    <div class="page-wrapper">
-        <!-- Header -->
-        <header class="site-header" role="banner">
-            {% block header %}{% endblock %}
-        </header>
-        
-        <!-- Main content -->
+    <div class="page-container">
         <main id="main-content" class="main-content" role="main">
             {% block content %}{% endblock %}
         </main>
-        
-        <!-- Footer -->
-        <footer class="site-footer" role="contentinfo">
-            {% block footer %}
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>ActiveSG Capacity Tracker</h3>
-                    <p>Helping you find the perfect workout time since 2024</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="{{ url_for('home') }}" aria-label="Go to homepage">Home</a></li>
-                        <li><a href="https://activesg.gov.sg/gym-capacity" target="_blank" rel="noopener noreferrer" aria-label="Visit ActiveSG official capacity page">Official ActiveSG</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>About</h4>
-                    <p>Data sourced from ActiveSG's official capacity tracking system. Updated regularly for accuracy.</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 ActiveSG Capacity Tracker. Built with ❤️ for the Singapore fitness community.</p>
-                <p class="disclaimer">This is an unofficial tool. For official information, visit <a href="https://activesg.gov.sg" target="_blank" rel="noopener noreferrer">ActiveSG.gov.sg</a></p>
-            </div>
-            {% endblock %}
-        </footer>
     </div>
     
     <!-- Loading indicator -->
     <div id="loading-indicator" class="loading-indicator" aria-hidden="true">
-        <div class="loading-spinner"></div>
-        <p>Loading gym data...</p>
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>Loading gym data...</p>
+        </div>
     </div>
     
     <!-- Error notification -->
@@ -105,12 +83,16 @@
     
     <!-- JavaScript -->
     <script>
-        // Basic error handling and loading states
         document.addEventListener('DOMContentLoaded', function() {
             // Hide loading indicator once page is loaded
             const loadingIndicator = document.getElementById('loading-indicator');
             if (loadingIndicator) {
-                loadingIndicator.style.display = 'none';
+                setTimeout(() => {
+                    loadingIndicator.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingIndicator.style.display = 'none';
+                    }, 300);
+                }, 500);
             }
             
             // Error notification handling
@@ -137,7 +119,13 @@
                     const submitBtn = form.querySelector('button[type="submit"]');
                     if (submitBtn) {
                         submitBtn.disabled = true;
-                        submitBtn.innerHTML = '<span class="loading-dots">Loading...</span>';
+                        submitBtn.innerHTML = '<span class="loading-dots">Analyzing trends</span>';
+                        
+                        // Show loading indicator
+                        if (loadingIndicator) {
+                            loadingIndicator.style.display = 'flex';
+                            loadingIndicator.style.opacity = '1';
+                        }
                         
                         // Re-enable after 10 seconds as fallback
                         setTimeout(() => {
@@ -161,6 +149,18 @@
                     }
                 });
             });
+
+            // Parallax effect for floating elements
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallax = document.querySelectorAll('.float-element');
+                const speed = 0.5;
+
+                parallax.forEach((element, index) => {
+                    const yPos = -(scrolled * speed * (index + 1) * 0.3);
+                    element.style.transform = `translateY(${yPos}px) rotate(${scrolled * 0.1}deg)`;
+                });
+            });
         });
         
         // Show error notification function
@@ -173,13 +173,6 @@
                 errorNotification.classList.add('show');
             }
         }
-        
-        // Performance monitoring
-        window.addEventListener('load', function() {
-            // Log page load time for debugging
-            const loadTime = performance.now();
-            console.log(`Page loaded in ${Math.round(loadTime)}ms`);
-        });
     </script>
     
     {% block extra_scripts %}{% endblock %}
