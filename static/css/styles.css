@@ -541,6 +541,36 @@ body {
   justify-content: center;
 }
 
+.back-button {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all var(--transition-fast);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+
+.back-button:hover {
+  color: var(--text-white);
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-50%) translateX(-2px);
+}
+
+.back-icon {
+  font-size: 1rem;
+}
+
 .gym-info {
   text-align: center;
 }
@@ -567,36 +597,6 @@ body {
   font-size: 0.875rem;
   margin: 0;
   font-weight: 500;
-}
-
-.back-button {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.875rem;
-  transition: all var(--transition-fast);
-  padding: 0.5rem 0.75rem;
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  flex-shrink: 0;
-}
-
-.back-button:hover {
-  color: var(--text-white);
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-50%) translateX(2px);
-}
-
-.back-icon {
-  font-size: 1rem;
 }
 
 /* ============================
@@ -1017,22 +1017,24 @@ body {
 
   .header-content {
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
+    align-items: stretch;
   }
 
   .back-button {
     position: static;
     transform: none;
-    align-self: flex-end;
+    align-self: flex-start;
     order: -1;
   }
 
   .back-button:hover {
-    transform: translateX(2px);
+    transform: translateX(-2px);
   }
 
   .gym-info {
     order: 0;
+    text-align: center;
   }
 
   .graphs-container {
@@ -1087,6 +1089,10 @@ body {
 
   .gym-header {
     padding: 0.875rem;
+  }
+
+  .header-content {
+    gap: 0.75rem;
   }
 
   .back-button {
