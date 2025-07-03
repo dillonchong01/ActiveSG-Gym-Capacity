@@ -35,7 +35,7 @@
                         <select name="gym" id="gym-select" required class="gym-select">
                             <option value="" disabled selected>Select your preferred gym...</option>
                             {% for gym in gyms %}
-                                <option value="{{ gym }}">{{ gym.replace('_', ' ').title() }}</option>
+                                <option value="{{ gym }}">{{ gym.replace('_', ' ')}}</option>
                             {% endfor %}
                         </select>
                         <div class="select-icon">
@@ -60,14 +60,14 @@
             <div class="info-card card-primary">
                 <h3 class="card-title">
                     <span class="card-icon">🎯</span>
-                    Smart Timing
+                    About This Project
                 </h3>
                 <p class="card-description">
-                    Avoid peak hours and find the perfect time for your workout. Our data shows real crowd patterns to help you plan better.
+                    Struggling to find the best time to hit the gym without the crowd? Our tool helps ActiveSG users make informed decisions by visualizing gym capacity trends, whether you're avoiding peak hours or just curious about crowd patterns. 🚀
                 </p>
                 <div class="card-features">
-                    <span class="feature">✓ Peak hour alerts</span>
-                    <span class="feature">✓ Crowd predictions</span>
+                    <span class="feature">✓ Hourly Crowd Predictions</span>
+                    <span class="feature">✓ Weekday vs Weekend Trends</span>
                 </div>
             </div>
             
@@ -77,7 +77,7 @@
                     Live Data
                 </h3>
                 <p class="card-description">
-                    We continuously scrape ActiveSG's official capacity data to provide you with the most accurate and up-to-date trends.
+                    We continuously webscrape ActiveSG's gym capacity data over the last 3 months to provide you with the most accurate and up-to-date trends.
                 </p>
                 <div class="card-link">
                     <a href="https://activesg.gov.sg/gym-capacity" target="_blank" rel="noopener noreferrer">
@@ -95,8 +95,8 @@
                     We're building ML-powered predictions and holiday adjustments to make your gym planning even smarter.
                 </p>
                 <div class="card-features">
-                    <span class="feature">🔮 AI Predictions</span>
-                    <span class="feature">📅 Holiday Patterns</span>
+                    <span class="feature">🔮 Forecasting Model – ML-powered Capacity Predictions</span>
+                    <span class="feature">📅 Holiday Adjustments – Factoring in Public/School Holidays</span>
                 </div>
             </div>
         </div>
