@@ -79,7 +79,8 @@ def generate_graph(gym, is_weekend, gym_data):
     for spine in ax.spines.values():
         spine.set_visible(False)
 
-    ax.tick_params(axis='both', which='major', labelsize=12, colors="#555555")
+    ax.tick_params(axis='y', which='major', labelsize=12, colors="#000000")
+    ax.tick_params(axis='x', which='major', labelsize=10, colors="#000000")
     fig.subplots_adjust(bottom=0.15, right=0.9)
 
     # Save graph into static/graphs
