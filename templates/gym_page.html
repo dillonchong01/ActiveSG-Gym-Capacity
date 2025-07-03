@@ -6,18 +6,18 @@
 <!-- Compact Header with Gym Info -->
 <div class="gym-header">
     <div class="header-content">
-        <div class="gym-info">
-            <h1 class="gym-name">
-                <span class="gym-icon">🏋️</span>
-                {{ gym_name.replace('_', ' ').title() }}
-            </h1>
-            <p class="gym-subtitle">Capacity Trend Analysis</p>
-        </div>
-        
         <a href="{{ url_for('home') }}" class="back-button" aria-label="Go back to gym selection">
             <span class="back-icon">←</span>
             <span class="back-text">Back</span>
         </a>
+        
+        <div class="gym-info">
+            <h1 class="gym-name">
+                <span class="gym-icon">🏋️</span>
+                {{ gym_name.replace('_', ' ') + ' ActiveSG Gym' }}
+            </h1>
+            <p class="gym-subtitle">Capacity Trend Analysis</p>
+        </div>
     </div>
 </div>
 
@@ -30,7 +30,7 @@
                 <div class="graph-header">
                     <div class="graph-title">
                         <span class="graph-icon">📅</span>
-                        <h2>Weekday Patterns</h2>
+                        <h2>Weekday Capacity Trend</h2>
                     </div>
                     <div class="graph-badge">Mon - Fri</div>
                 </div>
@@ -40,9 +40,6 @@
                          loading="lazy"
                          class="graph-image">
                 </div>
-                <div class="graph-footer">
-                    <p class="graph-insight">Peak hours typically between 6-9 AM and 6-9 PM</p>
-                </div>
             </div>
             {% endif %}
             
@@ -51,7 +48,7 @@
                 <div class="graph-header">
                     <div class="graph-title">
                         <span class="graph-icon">🎉</span>
-                        <h2>Weekend Patterns</h2>
+                        <h2>Weekend Capacity Trend</h2>
                     </div>
                     <div class="graph-badge weekend-badge">Sat - Sun</div>
                 </div>
@@ -61,36 +58,10 @@
                          loading="lazy"
                          class="graph-image">
                 </div>
-                <div class="graph-footer">
-                    <p class="graph-insight">More consistent traffic throughout the day</p>
-                </div>
             </div>
             {% endif %}
         </div>
         
-        <!-- Quick Tips Section -->
-        <div class="tips-section">
-            <div class="tips-card">
-                <h3 class="tips-title">
-                    <span class="tips-icon">💡</span>
-                    Pro Tips
-                </h3>
-                <div class="tips-list">
-                    <div class="tip-item">
-                        <span class="tip-bullet">🌅</span>
-                        <span class="tip-text">Early morning (6-8 AM) usually has lower crowds</span>
-                    </div>
-                    <div class="tip-item">
-                        <span class="tip-bullet">🌙</span>
-                        <span class="tip-text">Late evening (after 8 PM) tends to be quieter</span>
-                    </div>
-                    <div class="tip-item">
-                        <span class="tip-bullet">📊</span>
-                        <span class="tip-text">Check both weekday and weekend patterns for best planning</span>
-                    </div>
-                </div>
-            </div>
-        </div>
         
     {% else %}
         <div class="no-data-section">
