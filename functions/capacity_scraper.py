@@ -31,7 +31,7 @@ def scrape():
         update_text = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "p.chakra-text.css-12346zh"))).text
         
         # Extract Date/Time from Webpage
-        match = re.search(r"Last updated at (\d{1,2} \w+ \d{4}), ([\d:APM ]+)", update_text)
+        match = re.search(r"Last updated at (\d{1,2} \w+ \d{4}),\s*([\d: ]+(?:AM|PM|am|pm)?)", update_text)
         if match:
             # Get Date
             date_str = match.group(1)
@@ -126,3 +126,4 @@ if __name__ == "__main__":
     data = scrape()
     if data:
         save_data_to_db(data)
+
