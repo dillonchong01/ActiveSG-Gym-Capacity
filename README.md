@@ -41,7 +41,7 @@ The application is publicly available at: [**activesg-capacity.vercel.app**](htt
 
 ## Technology Stack
 
-- **Data Extraction:** Selenium, BeautifulSoup  
+- **Data Extraction:** Python (Selenium, BeautifulSoup)
 - **Automation:** GitHub Actions  
 - **Frontend:** HTML, CSS  
 - **Database:** SQLite (stores historical gym occupancy data)  
