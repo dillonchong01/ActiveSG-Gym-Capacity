@@ -35,8 +35,7 @@ A web application that provides insights into gym occupancy trends for ActiveSG 
 
 ## Access the Web Interface
 
-The application is publicly available at:  
-[**activesg-capacity.vercel.app**](https://activesg-capacity.vercel.app)
+The application is publicly available at: [**activesg-capacity.vercel.app**](https://activesg-capacity.vercel.app)
 
 ---
 
