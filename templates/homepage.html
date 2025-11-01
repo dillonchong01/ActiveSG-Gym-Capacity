@@ -1,105 +1,141 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ActiveSG Gym Capacity Trends</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <div class="bg-animation"></div>
 
-{% block title %}ActiveSG Gym Capacity Trends{% endblock %}
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">🌸</div>
+            <div class="site-title">ActiveSG Gym Trends</div>
+        </div>
+    </header>
 
-{% block content %}
-<!-- Hero Section with Creative Layout -->
-<div class="hero-section">
-    <div class="hero-content">
-        <h1 class="hero-title">
-            <span class="title-main">ActiveSG</span>
-            <span class="title-accent">Gym Capacity</span>
-            <span class="title-sub">Trends</span>
-        </h1>
-        <p class="hero-subtitle">Beat the Crowds for your Workout</p>
-    </div>
-</div>
+    <!-- Homepage -->
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="badge">🔥 Real-time Gym Analytics</div>
+            <h1>ActiveSG Gym Capacity Trends</h1>
+            <p class="subtitle">Plan your workout with data-driven insights</p>
+        </div>
 
-<!-- Main Content Area with Asymmetric Layout -->
-<div class="content-grid">
-    <!-- Gym Selector - Prominent Position -->
-    <div class="selector-section">
-        <div class="selector-card">
-            <div class="card-header">
-                <h2 class="selector-title">
-                    <span class="title-icon">📊</span>
-                    Choose Your Gym
-                </h2>
-                <p class="selector-subtitle">Select a gym to view detailed capacity trends</p>
+        <div class="content-wrapper">
+            <!-- Gym Selector Section (Shows first on mobile) -->
+            <div class="card gym-selector-section">
+                <h2>📊 Choose Your Gym</h2>
+                <p style="text-align: center;">Select a gym to view detailed capacity trends</p>
+                <div class="selector-box">
+                    <label for="gym-select">Gym Location</label>
+                    <select id="gym-select">
+                        <option value="">Select your preferred gym...</option>
+                        <option value="Ang_Mo_Kio_CC">Ang Mo Kio CC</option>
+                        <option value="Bishan">Bishan</option>
+                        <option value="Bukit_Batok">Bukit Batok</option>
+                        <option value="Bukit_Canberra">Bukit Canberra</option>
+                        <option value="Bukit_Gombak">Bukit Gombak</option>
+                        <option value="Choa_Chu_Kang">Choa Chu Kang</option>
+                        <option value="Clementi">Clementi</option>
+                        <option value="Delta">Delta</option>
+                        <option value="Enabling_Village">Enabling Village</option>
+                        <option value="Fernvale_Square">Fernvale Square</option>
+                        <option value="Heartbeat_Bedok">Heartbeat Bedok</option>
+                        <option value="Hockey_Village_Boon_Lay">Hockey Village Boon Lay</option>
+                        <option value="Jalan_Besar">Jalan Besar</option>
+                        <option value="Jurong_East">Jurong East</option>
+                        <option value="Jurong_Lake_Gardens">Jurong Lake Gardens</option>
+                        <option value="Jurong_West">Jurong West</option>
+                        <option value="Kallang_Basin">Kallang Basin</option>
+                        <option value="Katong">Katong</option>
+                        <option value="Pasir_Ris">Pasir Ris</option>
+                        <option value="Sengkang">Sengkang</option>
+                        <option value="Senja-Cashew">Senja-Cashew</option>
+                        <option value="Serangoon_Central">Serangoon Central</option>
+                        <option value="Tampines">Tampines</option>
+                        <option value="Toa_Payoh">Toa Payoh</option>
+                        <option value="Toa_Payoh_West_CC">Toa Payoh West CC</option>
+                        <option value="Woodlands">Woodlands</option>
+                        <option value="Yio_Chu_Kang">Yio Chu Kang</option>
+                        <option value="Yishun">Yishun</option>
+                    </select>
+                    <button class="btn btn-analyze" onclick="analyzeGym()">Analyze Trends →</button>
+                </div>
             </div>
-            
-            <form action="{{ url_for('select_gym') }}" method="post" class="gym-form">
-                <div class="form-group">
-                    <label for="gym-select" class="form-label">Gym Location</label>
-                    <div class="select-wrapper">
-                        <select name="gym" id="gym-select" required class="gym-select">
-                            <option value="" disabled selected>Select your preferred gym...</option>
-                            {% for gym in gyms %}
-                                <option value="{{ gym }}">{{ gym.replace('_', ' ')}}</option>
-                            {% endfor %}
-                        </select>
-                        <div class="select-icon">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </div>
+
+            <!-- Stats Section -->
+            <div class="card">
+                <h2>📈 By The Numbers</h2>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">28</span>
+                        <span class="stat-label">ActiveSG Gyms</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">90+</span>
+                        <span class="stat-label">Days of Data</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Hourly Tracking</span>
                     </div>
                 </div>
-                
-                <button type="submit" class="cta-button" aria-label="View capacity trend for selected gym">
-                    <span class="button-text">Analyze Trends</span>
-                    <span class="button-icon">→</span>
-                </button>
-            </form>
-        </div>
-    </div>
-    
-    <!-- Info Cards - Creative Stacked Layout -->
-    <div class="info-section">
-        <div class="info-cards">
-            <div class="info-card card-primary">
-                <h3 class="card-title">
-                    <span class="card-icon">🎯</span>
-                    About This Project
-                </h3>
-                <p class="card-description">
-                    Struggling to find the best time to hit the gym without the crowd? Our tool helps ActiveSG users make informed decisions by visualizing gym capacity trends, whether you're avoiding peak hours or just curious about crowd patterns. 🚀
-                </p>
-                <div class="card-features">
-                    <span class="feature">✓ Hourly Crowd Predictions</span>
-                    <span class="feature">✓ Weekday vs Weekend Trends</span>
+            </div>
+
+            <!-- About Section -->
+            <div class="card">
+                <h2>🎯 About This Project</h2>
+                <p>Struggling to find the best time to hit the gym without the crowd? Our tool helps ActiveSG users make informed decisions by visualizing gym capacity trends, whether you're avoiding peak hours or just curious about crowd patterns. 🚀</p>
+                <div class="features">
+                    <div class="feature">Hourly Crowd Predictions</div>
+                    <div class="feature">Weekday vs Weekend Trends</div>
                 </div>
             </div>
-            
-            <div class="info-card card-secondary">
-                <h3 class="card-title">
-                    <span class="card-icon">📈</span>
-                    Live Data
-                </h3>
-                <p class="card-description">
-                    We continuously webscrape ActiveSG's gym capacity data over the last 3 months to provide you with the most accurate and up-to-date trends.
-                </p>
-                <div class="card-link">
-                    <a href="https://activesg.gov.sg/gym-capacity" target="_blank" rel="noopener noreferrer">
-                        View Official Source →
-                    </a>
-                </div>
+
+            <!-- Live Data Section -->
+            <div class="card">
+                <h2>📈 Live Data</h2>
+                <p>We continuously webscrape ActiveSG's gym capacity data over the last 3 months to provide you with the most accurate and up-to-date trends.</p>
+                <a href="https://activesg.gov.sg/gym-capacity" target="_blank" class="btn btn-secondary">View Official Source →</a>
             </div>
-            
-            <div class="info-card card-accent">
-                <h3 class="card-title">
-                    <span class="card-icon">🚀</span>
-                    Coming Soon
-                </h3>
-                <p class="card-description">
-                    We're building ML-powered predictions and holiday adjustments to make your gym planning even smarter.
-                </p>
-                <div class="card-features">
-                    <span class="feature">🔮 Forecasting Model – ML-powered Capacity Predictions</span>
-                    <span class="feature">📅 Holiday Adjustments – Factoring in Public/School Holidays</span>
+
+            <!-- Coming Soon Section -->
+            <div class="card">
+                <h2>🚀 Coming Soon</h2>
+                <p>We're building ML-powered predictions and holiday adjustments to make your gym planning even smarter.</p>
+                <div class="coming-soon-grid">
+                    <div class="coming-soon-item">
+                        <h4>🔮 Forecasting Model</h4>
+                        <p>ML-powered Capacity Predictions</p>
+                    </div>
+                    <div class="coming-soon-item">
+                        <h4>📅 Holiday Adjustments</h4>
+                        <p>Factoring in Public/School Holidays</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-{% endblock %}
+
+    <script>
+        function analyzeGym() {
+            const select = document.getElementById('gym-select');
+            const selectedGym = select.value;
+
+            if (!selectedGym) {
+                alert('Please select a gym first!');
+                return;
+            }
+
+            // Navigate to gym page with URL parameter
+            window.location.href = `gympage.html?gym=${selectedGym}`;
+        }
+    </script>
+</body>
+</html>

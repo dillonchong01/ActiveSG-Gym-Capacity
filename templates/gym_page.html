@@ -1,87 +1,64 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Capacity Trends - ActiveSG</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <div class="bg-animation"></div>
 
-{% block title %}{{ gym_name.replace('_', ' ') }} Gym{% endblock %}
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">🌸</div>
+            <div class="site-title">ActiveSG Gym Trends</div>
+        </div>
+    </header>
 
-{% block content %}
-<!-- Compact Header with Gym Info -->
-<div class="gym-header">
-    <div class="header-content">
-        <a href="{{ url_for('home') }}" class="back-button" aria-label="Go back to gym selection">
-            <span class="back-icon">←</span>
-            <span class="back-text">Back</span>
-        </a>
+    <!-- Graph Page -->
+    <div class="container">
+        <a href="homepage.html" class="btn back-button">← Back to Home</a>
         
-        <div class="gym-info">
-            <h1 class="gym-name">
-                <span class="gym-icon">🏋️</span>
-                {{ gym_name.replace('_', ' ') + ' ActiveSG Gym' }}
-            </h1>
-            <p class="gym-subtitle">Capacity Trend Analysis</p>
+        <div class="graph-header">
+            <h1>Capacity Trends</h1>
+            <p class="gym-name" id="selected-gym-name"></p>
+        </div>
+
+        <div class="graphs-container">
+            <div class="graph-card">
+                <h3>📅 Weekday Capacity</h3>
+                <img id="weekday-graph" src="" alt="Weekday Capacity Graph">
+            </div>
+            <div class="graph-card">
+                <h3>🎉 Weekend Capacity</h3>
+                <img id="weekend-graph" src="" alt="Weekend Capacity Graph">
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Graphs Section with Creative Layout -->
-<div class="graphs-section">
-    {% if weekday_image or weekend_image %}
-        <div class="graphs-container">
-            {% if weekday_image %}
-            <div class="graph-card weekday-card">
-                <div class="graph-header">
-                    <div class="graph-title">
-                        <span class="graph-icon">📅</span>
-                        <h2>Weekday Capacity Trend</h2>
-                    </div>
-                    <div class="graph-badge">Mon - Fri</div>
-                </div>
-                <div class="graph-content">
-                    <img src="{{ url_for('get_graph', filename=weekday_image) }}" 
-                         alt="Weekday capacity trend graph for {{ gym_name.replace('_', ' ') }}"
-                         loading="lazy"
-                         class="graph-image">
-                </div>
-            </div>
-            {% endif %}
-            
-            {% if weekend_image %}
-            <div class="graph-card weekend-card">
-                <div class="graph-header">
-                    <div class="graph-title">
-                        <span class="graph-icon">🎉</span>
-                        <h2>Weekend Capacity Trend</h2>
-                    </div>
-                    <div class="graph-badge weekend-badge">Sat - Sun</div>
-                </div>
-                <div class="graph-content">
-                    <img src="{{ url_for('get_graph', filename=weekend_image) }}" 
-                         alt="Weekend capacity trend graph for {{ gym_name.replace('_', ' ') }}"
-                         loading="lazy"
-                         class="graph-image">
-                </div>
-            </div>
-            {% endif %}
-        </div>
-        
-        
-    {% else %}
-        <div class="no-data-section">
-            <div class="no-data-card">
-                <div class="no-data-icon">📊</div>
-                <h2 class="no-data-title">No Data Available</h2>
-                <p class="no-data-description">
-                    Capacity trend data for this gym is currently unavailable. 
-                    This could be due to recent updates or maintenance.
-                </p>
-                <div class="no-data-actions">
-                    <a href="{{ url_for('home') }}" class="action-button primary">
-                        Try Another Gym
-                    </a>
-                    <button onclick="location.reload()" class="action-button secondary">
-                        Refresh Page
-                    </button>
-                </div>
-            </div>
-        </div>
-    {% endif %}
-</div>
-{% endblock %}
+    <script>
+        // Get gym name from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const gymValue = urlParams.get('gym');
+
+        if (!gymValue) {
+            // If no gym parameter, redirect to homepage
+            window.location.href = 'homepage.html';
+        } else {
+            // Convert gym value to display name (replace underscores with spaces)
+            const gymDisplayName = gymValue.replace(/_/g, ' ');
+            document.getElementById('selected-gym-name').textContent = gymDisplayName;
+
+            // Set graph sources
+            document.getElementById('weekday-graph').src = `../static/graphs/${gymValue}_weekday.png`;
+            document.getElementById('weekend-graph').src = `../static/graphs/${gymValue}_weekend.png`;
+
+            // Update page title
+            document.title = `${gymDisplayName} - Capacity Trends`;
+        }
+    </script>
+</body>
+</html>
