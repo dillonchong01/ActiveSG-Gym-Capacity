@@ -45,51 +45,86 @@ def generate_all():
             future.result()
 
 def generate_graph(gym, is_weekend, gym_data):
-    sns.set_style("whitegrid")
+    # --- Dark modern theme setup ---
+    plt.style.use('dark_background')
+    sns.set_style("whitegrid", {'axes.facecolor': '#1b1528'})
     gym = re.sub(r'\s+', ' ', gym)
 
-    # Sort by time, obtain list of times and capacities
+    # Sort and prepare data
     gym_data = gym_data.sort("time")
     times = [datetime.combine(date.today(), t) for t in gym_data["time"]]
     capacities = gym_data["capacity"].to_list()
-
     if not times or not capacities:
         return
 
-    # Plot graph
-    fig, ax = plt.subplots(figsize=(8, 5), facecolor='white')
+    # --- Create figure ---
+    fig, ax = plt.subplots(figsize=(8, 5), facecolor='#1b1528')
     plt.rcParams['font.family'] = 'DejaVu Sans'
-    ax.plot(times, capacities, marker="o", linestyle="-", linewidth=2, markersize=7, color="#1f77b4")
-    label = "Weekend" if is_weekend else "Weekday"
-    ax.set_title(f"Gym Capacity - {gym} ({label})", fontsize=16, fontweight='bold', color="#333")
-    ax.set_xlabel("Time", fontsize=14, fontweight='bold', labelpad=10)
-    ax.set_ylabel("Average Capacity (%)", fontsize=14, fontweight='bold', labelpad=10)
 
-    # Set x axis (Format to 8AM, 10PM, etc.)
-    ax.xaxis.set_major_locator(mdates.HourLocator(interval=1))
+    # Line color gradient based on theme
+    line_color = "#ff7eb3" if is_weekend else "#7dd3fc"  # pink for weekend, blue for weekday
+    marker_color = "#ffd1dc" if is_weekend else "#bae6fd"
+
+    ax.plot(
+        times, capacities,
+        marker="o",
+        markersize=6,
+        linewidth=2.5,
+        color=line_color,
+        markerfacecolor=marker_color,
+        markeredgecolor='white',
+        alpha=0.95
+    )
+
+    # --- Title & labels ---
+    label = "Weekend" if is_weekend else "Weekday"
+    ax.set_title(
+        f"{gym} ({label})",
+        fontsize=16,
+        fontweight='bold',
+        color="#f9a8d4" if is_weekend else "#93c5fd",
+        pad=15
+    )
+    ax.set_xlabel("Time", fontsize=13, color="#e5e7eb", labelpad=10)
+    ax.set_ylabel("Average Capacity (%)", fontsize=13, color="#e5e7eb", labelpad=10)
+
+    # --- X-axis formatting ---
+    ax.xaxis.set_major_locator(mdates.HourLocator(interval=2))
     def time_fmt(x, pos=None):
         dt = mdates.num2date(x)
-        return dt.strftime('%I%p').lstrip('0')  # Remove leading zero, e.g. "1PM"
+        return dt.strftime('%I%p').lstrip('0')
     ax.xaxis.set_major_formatter(ticker.FuncFormatter(time_fmt))
 
-    # Set y axis
+    # --- Y-axis settings ---
     ax.set_ylim(0, min(100, max(capacities) + 10))
+    ax.tick_params(axis='x', colors='#d1d5db', labelsize=10)
+    ax.tick_params(axis='y', colors='#d1d5db', labelsize=10)
 
-    ax.grid(True, color="#dcdcdc", linestyle='-', linewidth=0.7)
+    # --- Grid and frame ---
+    ax.grid(color='#2e2a3b', linestyle='-', linewidth=0.7, alpha=0.6)
     for spine in ax.spines.values():
         spine.set_visible(False)
 
-    ax.tick_params(axis='y', which='major', labelsize=12, colors="#000000")
-    ax.tick_params(axis='x', which='major', labelsize=10, colors="#000000")
-    fig.subplots_adjust(bottom=0.15, right=0.9)
+    # --- Glow effect (soft outer line) ---
+    for n in range(1, 4):
+        ax.plot(times, capacities,
+                linewidth=2 + n*1.2,
+                color=line_color,
+                alpha=0.08 * (4 - n))
 
-    # Save graph into static/graphs
+    # --- Subtle gradient background ---
+    fig.patch.set_facecolor("#1b1528")
+    ax.set_facecolor("#241b33")
+
+    # --- Adjust layout and save ---
+    fig.subplots_adjust(left=0.12, right=0.95, top=0.9, bottom=0.18)
     filename = re.sub(r'[^\w\-_. @]', '_', gym)
     filename = re.sub(r'\s+', '_', filename) + f'_{label.lower()}'
     graph_path = f"static/graphs/{filename}.jpg"
-    fig.savefig(graph_path, facecolor='white', edgecolor='white')
+
+    fig.savefig(graph_path, facecolor=fig.get_facecolor(), dpi=200, bbox_inches='tight')
     plt.close(fig)
-    print("Done")
+    print(f"Generated: {graph_path}")
 
 if __name__ == "__main__":
     generate_all()
