@@ -10,14 +10,6 @@
 <body>
     <div class="bg-animation"></div>
 
-    <!-- Header -->
-    <header>
-        <div class="header-content">
-            <div class="logo">🌸</div>
-            <div class="site-title">ActiveSG Gym Trends</div>
-        </div>
-    </header>
-
     <!-- Graph Page -->
     <div class="container">
         <a href="/" class="btn back-button">← Back to Home</a>
@@ -53,8 +45,8 @@
             document.getElementById('selected-gym-name').textContent = gymDisplayName;
 
             // Set graph sources
-            document.getElementById('weekday-graph').src = `/static/graphs/${gymValue}_weekday.png`;
-            document.getElementById('weekend-graph').src = `/static/graphs/${gymValue}_weekend.png`;
+            document.getElementById('weekday-graph').src = `/static/graphs/${gymValue}_weekday.jpg`;
+            document.getElementById('weekend-graph').src = `/static/graphs/${gymValue}_weekend.jpg`;
 
             // Update page title
             document.title = `${gymDisplayName} - Capacity Trends`;
