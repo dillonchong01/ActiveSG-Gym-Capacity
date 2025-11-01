@@ -78,15 +78,9 @@ def generate_graph(gym, is_weekend, gym_data):
 
     # --- Title & labels ---
     label = "Weekend" if is_weekend else "Weekday"
-    ax.set_title(
-        f"{gym} ({label})",
-        fontsize=16,
-        fontweight='bold',
-        color="#f9a8d4" if is_weekend else "#93c5fd",
-        pad=15
-    )
-    ax.set_xlabel("Time", fontsize=13, color="#e5e7eb", labelpad=10)
-    ax.set_ylabel("Average Capacity (%)", fontsize=13, color="#e5e7eb", labelpad=10)
+    ax.set_xlabel("Time", fontsize=13, color="#e5e7eb", labelpad=10, fontweight='bold')
+    ax.set_ylabel("Average Capacity (%)", fontsize=13, color="#e5e7eb", labelpad=10, fontweight='bold')
+
 
     # --- X-axis formatting ---
     ax.xaxis.set_major_locator(mdates.HourLocator(interval=2))
@@ -122,7 +116,7 @@ def generate_graph(gym, is_weekend, gym_data):
     filename = re.sub(r'\s+', '_', filename) + f'_{label.lower()}'
     graph_path = f"static/graphs/{filename}.jpg"
 
-    fig.savefig(graph_path, facecolor=fig.get_facecolor(), dpi=200, bbox_inches='tight')
+    fig.savefig(graph_path, facecolor=fig.get_facecolor(), dpi=200, bbox_inches='tight', pad_inches=0.3)
     plt.close(fig)
     print(f"Generated: {graph_path}")
 
