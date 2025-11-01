@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ActiveSG Gym Capacity Trends</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
     <div class="bg-animation"></div>
@@ -28,7 +28,7 @@
         </div>
 
         <div class="content-wrapper">
-            <!-- Gym Selector Section (Shows first on mobile) -->
+            <!-- Left: Gym Selector (Sticky on Desktop) -->
             <div class="card gym-selector-section">
                 <h2>📊 Choose Your Gym</h2>
                 <p style="text-align: center;">Select a gym to view detailed capacity trends</p>
@@ -69,54 +69,57 @@
                 </div>
             </div>
 
-            <!-- Stats Section -->
-            <div class="card">
-                <h2>📈 By The Numbers</h2>
-                <div class="stats">
-                    <div class="stat-item">
-                        <span class="stat-number">28</span>
-                        <span class="stat-label">ActiveSG Gyms</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">90+</span>
-                        <span class="stat-label">Days of Data</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">24/7</span>
-                        <span class="stat-label">Hourly Tracking</span>
+            <!-- Right: Stacked Content -->
+            <div class="right-content">
+                <!-- Stats Section -->
+                <div class="card">
+                    <h2>📈 By The Numbers</h2>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">28</span>
+                            <span class="stat-label">ActiveSG Gyms</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">90+</span>
+                            <span class="stat-label">Days of Data</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Hourly Tracking</span>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- About Section -->
-            <div class="card">
-                <h2>🎯 About This Project</h2>
-                <p>Struggling to find the best time to hit the gym without the crowd? Our tool helps ActiveSG users make informed decisions by visualizing gym capacity trends, whether you're avoiding peak hours or just curious about crowd patterns. 🚀</p>
-                <div class="features">
-                    <div class="feature">Hourly Crowd Predictions</div>
-                    <div class="feature">Weekday vs Weekend Trends</div>
-                </div>
-            </div>
-
-            <!-- Live Data Section -->
-            <div class="card">
-                <h2>📈 Live Data</h2>
-                <p>We continuously webscrape ActiveSG's gym capacity data over the last 3 months to provide you with the most accurate and up-to-date trends.</p>
-                <a href="https://activesg.gov.sg/gym-capacity" target="_blank" class="btn btn-secondary">View Official Source →</a>
-            </div>
-
-            <!-- Coming Soon Section -->
-            <div class="card">
-                <h2>🚀 Coming Soon</h2>
-                <p>We're building ML-powered predictions and holiday adjustments to make your gym planning even smarter.</p>
-                <div class="coming-soon-grid">
-                    <div class="coming-soon-item">
-                        <h4>🔮 Forecasting Model</h4>
-                        <p>ML-powered Capacity Predictions</p>
+                <!-- About Section -->
+                <div class="card">
+                    <h2>🎯 About This Project</h2>
+                    <p>Struggling to find the best time to hit the gym without the crowd? Our tool helps ActiveSG users make informed decisions by visualizing gym capacity trends, whether you're avoiding peak hours or just curious about crowd patterns. 🚀</p>
+                    <div class="features">
+                        <div class="feature">Hourly Crowd Predictions</div>
+                        <div class="feature">Weekday vs Weekend Trends</div>
                     </div>
-                    <div class="coming-soon-item">
-                        <h4>📅 Holiday Adjustments</h4>
-                        <p>Factoring in Public/School Holidays</p>
+                </div>
+
+                <!-- Live Data Section -->
+                <div class="card">
+                    <h2>📈 Live Data</h2>
+                    <p>We continuously webscrape ActiveSG's gym capacity data over the last 3 months to provide you with the most accurate and up-to-date trends.</p>
+                    <a href="https://activesg.gov.sg/gym-capacity" target="_blank" class="btn btn-secondary">View Official Source →</a>
+                </div>
+
+                <!-- Coming Soon Section -->
+                <div class="card">
+                    <h2>🚀 Coming Soon</h2>
+                    <p>We're building ML-powered predictions and holiday adjustments to make your gym planning even smarter.</p>
+                    <div class="coming-soon-grid">
+                        <div class="coming-soon-item">
+                            <h4>🔮 Forecasting Model</h4>
+                            <p>ML-powered Capacity Predictions</p>
+                        </div>
+                        <div class="coming-soon-item">
+                            <h4>📅 Holiday Adjustments</h4>
+                            <p>Factoring in Public/School Holidays</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -134,7 +137,7 @@
             }
 
             // Navigate to gym page with URL parameter
-            window.location.href = `gympage.html?gym=${selectedGym}`;
+            window.location.href = `/gympage.html?gym=${selectedGym}`;
         }
     </script>
 </body>

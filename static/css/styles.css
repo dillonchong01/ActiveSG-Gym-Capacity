@@ -54,7 +54,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
     position: relative;
@@ -75,7 +75,7 @@ header {
 }
 
 .header-content {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
@@ -390,11 +390,20 @@ header {
     color: #94a3b8;
 }
 
+/* Main Layout - Desktop: Left Sidebar + Right Content */
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
 /* Gym Selector */
 .gym-selector-section {
     background: linear-gradient(135deg, rgba(255, 71, 87, 0.1) 0%, rgba(199, 179, 255, 0.1) 100%);
     border: 2px solid rgba(255, 71, 87, 0.2);
-    order: -1;
+    position: sticky;
+    top: 120px;
 }
 
 .gym-selector-section h2 {
@@ -403,8 +412,6 @@ header {
 }
 
 .selector-box {
-    max-width: 600px;
-    margin: 0 auto;
     position: relative;
     z-index: 10;
 }
@@ -454,6 +461,12 @@ select:hover {
     font-size: 18px;
     padding: 20px;
     font-weight: 800;
+}
+
+/* Right column - stacked content */
+.right-content {
+    display: flex;
+    flex-direction: column;
 }
 
 /* Graph Page */
@@ -545,19 +558,20 @@ select:hover {
     }
 }
 
-/* Content wrapper for mobile ordering */
-.content-wrapper {
-    display: flex;
-    flex-direction: column;
-}
-
 /* Mobile Responsive */
-@media (max-width: 768px) {
-    .gym-selector-section {
-        order: -1;
-        margin-bottom: 20px;
+@media (max-width: 1024px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
     }
 
+    .gym-selector-section {
+        position: relative;
+        top: 0;
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
     .hero {
         padding: 20px 10px;
     }

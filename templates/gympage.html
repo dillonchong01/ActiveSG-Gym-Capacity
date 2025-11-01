@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gym Capacity Trends - ActiveSG</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
     <div class="bg-animation"></div>
@@ -20,7 +20,7 @@
 
     <!-- Graph Page -->
     <div class="container">
-        <a href="homepage.html" class="btn back-button">← Back to Home</a>
+        <a href="/" class="btn back-button">← Back to Home</a>
         
         <div class="graph-header">
             <h1>Capacity Trends</h1>
@@ -46,15 +46,15 @@
 
         if (!gymValue) {
             // If no gym parameter, redirect to homepage
-            window.location.href = 'homepage.html';
+            window.location.href = '/';
         } else {
             // Convert gym value to display name (replace underscores with spaces)
             const gymDisplayName = gymValue.replace(/_/g, ' ');
             document.getElementById('selected-gym-name').textContent = gymDisplayName;
 
             // Set graph sources
-            document.getElementById('weekday-graph').src = `../static/graphs/${gymValue}_weekday.png`;
-            document.getElementById('weekend-graph').src = `../static/graphs/${gymValue}_weekend.png`;
+            document.getElementById('weekday-graph').src = `/static/graphs/${gymValue}_weekday.png`;
+            document.getElementById('weekend-graph').src = `/static/graphs/${gymValue}_weekend.png`;
 
             // Update page title
             document.title = `${gymDisplayName} - Capacity Trends`;
