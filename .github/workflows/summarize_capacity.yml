@@ -28,8 +28,7 @@ jobs:
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"    
-          git add static/
-          
-          # Only commit if file has changed
-          git diff --cached --quiet || git commit -m "Update summarized capacity database and add generated graphs"
+          git add static/gym_capacity_summary.json
+
+          git diff --cached --quiet || git commit -m "Update gym capacity summary JSON"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
