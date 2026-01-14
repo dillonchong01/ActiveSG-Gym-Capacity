@@ -4,53 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gym Capacity Trends - ActiveSG</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/styles.css">
-</head>
-<body>
-    <div class="bg-animation"></div>
 
-    <!-- Graph Page -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/styles.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
+</head>
+
+<body>
     <div class="container">
-        <a href="/" class="btn back-button">← Back to Home</a>
-        
+
         <div class="graph-header">
             <h1>Capacity Trends</h1>
-            <p class="gym-name" id="selected-gym-name"></p>
+            <p class="graph-gym-name" id="selected-gym-name">Loading...</p>
         </div>
 
-        <div class="graphs-container">
+        <div id="loading-state" class="loading-container">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Loading capacity trends...</p>
+        </div>
+
+        <div class="graphs-container" id="graphs-container" style="display:none;">
             <div class="graph-card">
-                <h3 style="color: #7dd3fc;">📅 Weekday Capacity</h3>
-                <img id="weekday-graph" src="" alt="Weekday Capacity Graph">
+                <h3 class="graph-title">📅 Weekday Capacity</h3>
+                <canvas id="weekday-chart"></canvas>
             </div>
+
             <div class="graph-card">
-                <h3 style="color: #ff7eb3;">🎉 Weekend Capacity</h3>
-                <img id="weekend-graph" src="" alt="Weekend Capacity Graph">
+                <h3 class="graph-title">🎉 Weekend Capacity</h3>
+                <canvas id="weekend-chart"></canvas>
             </div>
         </div>
+
+        <div style="text-align:center;margin-top:3rem;display:none;" id="check-another-btn">
+            <a href="homepage.html" class="btn">Check Another Gym</a>
+        </div>
+
     </div>
-
+    
     <script>
-        // Get gym name from URL parameter
-        const urlParams = new URLSearchParams(window.location.search);
-        const gymValue = urlParams.get('gym');
+    const params = new URLSearchParams(window.location.search);
+    const gymKey = params.get('gym');
 
-        if (!gymValue) {
-            // If no gym parameter, redirect to homepage
-            window.location.href = '/';
-        } else {
-            // Convert gym value to display name (replace underscores with spaces)
-            const gymDisplayName = gymValue.replace(/_/g, ' ');
-            document.getElementById('selected-gym-name').textContent = gymDisplayName;
+    if (!gymKey) {
+        window.location.href = 'homepage.html';
+    }
 
-            // Set graph sources
-            document.getElementById('weekday-graph').src = `/static/graphs/${gymValue}_weekday.jpg`;
-            document.getElementById('weekend-graph').src = `/static/graphs/${gymValue}_weekend.jpg`;
+    document.getElementById('selected-gym-name').textContent =
+        gymKey.replace(/_/g, ' ');
+    document.title = `${gymKey.replace(/_/g, ' ')} - Capacity Trends`;
 
-            // Update page title
-            document.title = `${gymDisplayName} - Capacity Trends`;
-        }
+    function toMinutes(timeStr) {
+        const [h, m] = timeStr.split(':').map(Number);
+        return h * 60 + m;
+    }
+
+    function createChart(canvasId, dataPoints, color, fillColor) {
+        const ctx = document.getElementById(canvasId).getContext('2d');
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                datasets: [{
+                    data: dataPoints.map(d => ({
+                        x: toMinutes(d.time),
+                        y: d.capacity
+                    })),
+                    borderColor: color,
+                    backgroundColor: fillColor,
+                    borderWidth: 3,
+                    tension: 0.4,
+                    fill: true,
+                    pointRadius: 4,
+                    pointHoverRadius: 6,
+                    spanGaps: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                aspectRatio: 1.8,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            title: items => {
+                                const value = items[0].parsed.x;
+                                let h = Math.floor(value / 60);
+                                const m = value % 60;
+                                const ampm = h >= 12 ? 'PM' : 'AM';
+                                h = h % 12 || 12;
+                                return `${h}:${m.toString().padStart(2,'0')}${ampm}`;
+                            },
+                            label: ctx => `Capacity: ${ctx.parsed.y.toFixed(1)}%`
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        type: 'linear',
+                        min: 420,
+                        max: 1320,
+                        ticks: {
+                            stepSize: 60,
+                            callback: value => {
+                                const h = value / 60;
+                                const ampm = h >= 12 ? 'PM' : 'AM';
+                                const hour12 = h % 12 || 12;
+                                return `${hour12}${ampm}`;
+                            }
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            callback: v => v + '%'
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    fetch('../static/gym_capacity_summary.json')
+        .then(res => res.json())
+        .then(data => {
+            const gym = data[gymKey];
+            if (!gym) throw new Error('Gym not found');
+
+            createChart(
+                'weekday-chart',
+                gym.weekday,
+                '#7dd3fc',
+                'rgba(125,211,252,0.1)'
+            );
+
+            createChart(
+                'weekend-chart',
+                gym.weekend,
+                '#ff7eb3',
+                'rgba(255,126,179,0.1)'
+            );
+
+            document.getElementById('loading-state').style.display = 'none';
+            document.getElementById('graphs-container').style.display = 'grid';
+            document.getElementById('check-another-btn').style.display = 'block';
+        })
+        .catch(() => {
+            document.getElementById('loading-state').innerHTML = `
+                <h2>Error loading data</h2>
+                <a href="homepage.html" class="btn">Return Home</a>
+            `;
+        });
     </script>
 </body>
 </html>

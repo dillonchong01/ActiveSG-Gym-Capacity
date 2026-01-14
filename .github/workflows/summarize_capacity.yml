@@ -1,0 +1,35 @@
+name: Summarise Capacity to JSON (Daily)
+
+on:
+  schedule:
+    - cron: '0 16 * * *'  # Run daily at 12am time
+  workflow_dispatch:
+
+jobs:
+  summarise:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install pandas seaborn polars==1.26.0 matplotlib==3.9.2
+
+      - name: Run summarisation script
+        run: python functions/summarise_capacity.py
+
+      - name: Commit and push summarized DB
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"    
+          git add static/
+          
+          # Only commit if file has changed
+          git diff --cached --quiet || git commit -m "Update summarized capacity database and add generated graphs"
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}

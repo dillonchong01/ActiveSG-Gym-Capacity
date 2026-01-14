@@ -4,117 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ActiveSG Gym Capacity Trends</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/styles.css">
 </head>
 <body>
-    <div class="bg-animation"></div>
-
-    <!-- Homepage -->
     <div class="container">
-        <!-- Hero Section -->
         <div class="hero">
-            <h1>ActiveSG Gym Capacity Trends</h1>
-            <p class="subtitle">Plan your workout with data-driven insights</p>
+            <div class="hero-badge">📊 Data-Driven Insights</div>
+            <h1 class="hero-title">ActiveSG Gym Capacity Trends</h1>
+            <p class="hero-subtitle">Plan your workout with data-driven insights</p>
         </div>
 
-        <div class="content-wrapper">
-            <!-- Left: Gym Selector (Sticky on Desktop) -->
-            <div class="card gym-selector-section">
-                <h2>📊 Choose Your Gym</h2>
-                <div class="selector-box">
-                    <label for="gym-select">Gym Location</label>
-                    <select id="gym-select">
-                        <option value="">Select your preferred gym...</option>
-                        <option value="Ang_Mo_Kio_CC">Ang Mo Kio CC</option>
-                        <option value="Bishan">Bishan</option>
-                        <option value="Bukit_Batok">Bukit Batok</option>
-                        <option value="Bukit_Canberra">Bukit Canberra</option>
-                        <option value="Bukit_Gombak">Bukit Gombak</option>
-                        <option value="Choa_Chu_Kang">Choa Chu Kang</option>
-                        <option value="Clementi">Clementi</option>
-                        <option value="Delta">Delta</option>
-                        <option value="Enabling_Village">Enabling Village</option>
-                        <option value="Fernvale_Square">Fernvale Square</option>
-                        <option value="Heartbeat_Bedok">Heartbeat Bedok</option>
-                        <option value="Hockey_Village_Boon_Lay">Hockey Village Boon Lay</option>
-                        <option value="Jalan_Besar">Jalan Besar</option>
-                        <option value="Jurong_East">Jurong East</option>
-                        <option value="Jurong_Lake_Gardens">Jurong Lake Gardens</option>
-                        <option value="Jurong_West">Jurong West</option>
-                        <option value="Kallang_Basin">Kallang Basin</option>
-                        <option value="Katong">Katong</option>
-                        <option value="Pasir_Ris">Pasir Ris</option>
-                        <option value="Sengkang">Sengkang</option>
-                        <option value="Senja-Cashew">Senja-Cashew</option>
-                        <option value="Serangoon_Central">Serangoon Central</option>
-                        <option value="Tampines">Tampines</option>
-                        <option value="Toa_Payoh">Toa Payoh</option>
-                        <option value="Toa_Payoh_West_CC">Toa Payoh West CC</option>
-                        <option value="Woodlands">Woodlands</option>
-                        <option value="Yio_Chu_Kang">Yio Chu Kang</option>
-                        <option value="Yishun">Yishun</option>
-                    </select>
-                    <button class="btn btn-analyze" onclick="analyzeGym()">Analyze Trends →</button>
-                </div>
-            </div>
-
-            <!-- Right: Stacked Content -->
-            <div class="right-content">
-                <!-- About Section -->
+        <div class="layout">
+            <aside>
                 <div class="card">
-                    <h2>🎯 About This Project</h2>
-                    <p>Struggling to find the best time to hit the gym without the crowd? This tool helps ActiveSG users make informed decisions by visualizing gym capacity trends, whether you're avoiding peak hours or just curious about crowd patterns. 🚀</p>
-                    <div class="features">
-                        <div class="feature">Hourly Crowd Predictions</div>
-                        <div class="feature">Weekday vs Weekend Trends</div>
+                    <h2 class="card-title">
+                        <span class="card-icon">🏋️</span>
+                        Choose Your Gym
+                    </h2>
+                    <div class="selector-wrapper">
+                        <label class="selector-label" for="gym-select">Gym Location</label>
+                        <select id="gym-select" class="gym-select">
+                            <option value="">Select your preferred gym...</option>
+                        </select>
+                        <button class="btn btn-full" onclick="analyzeGym()">
+                            View Trends →
+                        </button>
+                    </div>
+                </div>
+            </aside>
+
+            <main>
+                <div class="card">
+                    <h2 class="card-title">
+                        <span class="card-icon">🎯</span>
+                        About This Project
+                    </h2>
+                    <p>Struggling to find the best time to hit the gym without the crowd? This tool helps ActiveSG users make informed decisions by visualizing gym capacity trends, whether you're avoiding peak hours or just curious about crowd patterns.</p>
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <span class="feature-icon">📈</span>
+                            <span class="feature-text">Hourly Crowd Predictions</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">📅</span>
+                            <span class="feature-text">Weekday vs Weekend Trends</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Stats Section -->
                 <div class="card">
-                    <h2>📈 By The Numbers</h2>
-                    <div class="stats">
-                        <div class="stat-item">
+                    <h2 class="card-title">
+                        <span class="card-icon">📊</span>
+                        By The Numbers
+                    </h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
                             <span class="stat-number">28</span>
                             <span class="stat-label">ActiveSG Gyms</span>
                         </div>
-                        <div class="stat-item">
+                        <div class="stat-card">
                             <span class="stat-number">90+</span>
                             <span class="stat-label">Days of Data</span>
                         </div>
-                        <div class="stat-item">
+                        <div class="stat-card">
                             <span class="stat-number">24/7</span>
                             <span class="stat-label">Tracking every 15min</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Data Trends Section -->
                 <div class="card">
-                    <h2>📈 Data Trends</h2>
+                    <h2 class="card-title">
+                        <span class="card-icon">🔍</span>
+                        Data Trends
+                    </h2>
                     <p>We continuously webscrape ActiveSG's gym capacity data over the last 3 months to provide you with the most accurate and up-to-date trends.</p>
-                    <a href="https://activesg.gov.sg/gym-capacity" target="_blank" class="btn btn-secondary">View Official Source →</a>
+                    <a href="https://activesg.gov.sg/gym-pool-crowd" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: 1.5rem;">
+                        View Official Source →
+                    </a>
                 </div>
-
-                <!-- Coming Soon Section -->
-                <div class="card">
-                    <h2>🚀 Coming Soon</h2>
-                    <p>Building ML-powered predictions and holiday adjustments to make gym planning even smarter.</p>
-                    <div class="coming-soon-grid">
-                        <div class="coming-soon-item">
-                            <h4>🔮 Forecasting Model</h4>
-                            <p>ML-powered Capacity Predictions</p>
-                        </div>
-                        <div class="coming-soon-item">
-                            <h4>📅 Holiday Adjustments</h4>
-                            <p>Factoring in Public/School Holidays</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </main>
         </div>
     </div>
+
+    <footer class="site-footer">
+        <p>© 2026 Dillon. All rights reserved.</p>
+    </footer>
 
     <script>
         function analyzeGym() {
@@ -123,12 +99,41 @@
 
             if (!selectedGym) {
                 alert('Please select a gym first!');
+                select.focus();
                 return;
             }
 
-            // Navigate to gym page with URL parameter
-            window.location.href = `/gympage.html?gym=${selectedGym}`;
+            window.location.href = `gympage.html?gym=${selectedGym}`;
         }
+
+        document.getElementById('gym-select').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                analyzeGym();
+            }
+        });
+
+        // Dynamically populate gym select from JSON
+        fetch('../static/gym_capacity_summary.json')
+            .then(res => res.json())
+            .then(data => {
+                const select = document.getElementById('gym-select');
+
+                // Convert keys to array of {key, name}, replace _ with space, and sort alphabetically
+                const gyms = Object.keys(data)
+                    .map(key => ({ key, name: key.replace(/_/g, ' ') }))
+                    .sort((a, b) => a.name.localeCompare(b.name));
+
+                // Add each gym as an option
+                gyms.forEach(gym => {
+                    const option = document.createElement('option');
+                    option.value = gym.key;        // keeps original key for URL
+                    option.textContent = gym.name; // readable name
+                    select.appendChild(option);
+                });
+            })
+            .catch(err => {
+                console.error('Failed to load gym list:', err);
+            });
     </script>
 </body>
 </html>

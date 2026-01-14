@@ -3,13 +3,14 @@ import sqlite3
 import pandas as pd
 from pathlib import Path
 from datetime import datetime, timedelta
+import json
 
 DB_PATH = Path("database/gym_capacity.db")
-SUMMARY_DB_PATH = Path("database/gym_capacity_summary.db")
+OUTPUT_JSON_PATH = Path("static/gym_capacity_summary.json")
 
-def summarize_capacity():
+def summarize_capacity_to_json():
     """
-    Summarizes gym capacity using only the last 3 months of data.
+    Summarizes gym capacity using only the last 3 months of data and saves it as JSON.
     """
 
     # Connect to raw data SQLite database
@@ -19,8 +20,9 @@ def summarize_capacity():
     query = "SELECT gym_name, capacity, date, time, is_weekend FROM gym_capacity;"
     df = pd.read_sql(query, conn)
     conn.close()
+
     if df.empty:
-      return
+        return
 
     # Use only last 3 months of data
     df["date"] = pd.to_datetime(df["date"])
@@ -29,18 +31,35 @@ def summarize_capacity():
     if df.empty:
         return
 
-    # Group by gym_name, date and time and obtain average capacity (Only 1 Value from each datetime)
+    # Group by gym_name, date, time, is_weekend and obtain average capacity
     df_grouped1 = df.groupby(["gym_name", "date", "time", "is_weekend"])["capacity"].mean().reset_index()
     df_grouped = df_grouped1.groupby(["gym_name", "time", "is_weekend"])["capacity"].mean().reset_index()
 
     # Clean gym names and format time
-    df_grouped["gym_name"] = df_grouped["gym_name"].apply(lambda x: re.sub(r'\b(ActiveSG|Gym)\b|@', '', x).replace('  ', ' ').strip())
-    df_grouped["time"] = df_grouped["time"].apply(lambda t: datetime.strptime(t, "%H:%M").strftime("%H:%M"))
+    df_grouped["gym_name"] = df_grouped["gym_name"].apply(
+        lambda x: re.sub(r'\b(ActiveSG|Gym)\b|@', '', x).replace('  ', ' ').strip().replace(' ', '_')
+    )
+    df_grouped["time"] = df_grouped["time"].apply(lambda t: datetime.strptime(t, "%H:%M").strftime("%H:%M:%S"))
 
-    # Save into summary database
-    summary_conn = sqlite3.connect(SUMMARY_DB_PATH)
-    df_grouped.to_sql("gym_capacity_summary", summary_conn, if_exists="replace", index=False)
-    summary_conn.close()
+    # Build JSON structure
+    summary_dict = {}
+    for gym_name, group in df_grouped.groupby("gym_name"):
+        summary_dict[gym_name] = {
+            "weekday": [],
+            "weekend": []
+        }
+        for _, row in group.iterrows():
+            # Round capacity to nearest 1 decimal
+            entry = {"time": row["time"], "capacity": round(float(row["capacity"]), 1)}
+            if row["is_weekend"]:
+                summary_dict[gym_name]["weekend"].append(entry)
+            else:
+                summary_dict[gym_name]["weekday"].append(entry)
+
+    # Save to JSON
+    OUTPUT_JSON_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with open(OUTPUT_JSON_PATH, "w") as f:
+        json.dump(summary_dict, f, indent=4)
 
 if __name__ == "__main__":
-    summarize_capacity()
+    summarize_capacity_to_json()

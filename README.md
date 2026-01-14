@@ -10,7 +10,7 @@ A web application providing insights into gym occupancy trends across ActiveSG g
 Selenium navigates the ActiveSG gym capacity page to extract occupancy data, storing it in a **SQLite** database for historical tracking.  
 
 **Automation**  
-Capacity data is automatically scraped every 15 minutes from [ActiveSG Gym Pool Crowd](https://activesg.gov.sg/gym-pool-crowd) using **Selenium** and **BeautifulSoup**, with workflows scheduled via **GitHub Actions**.  
+Capacity data is automatically scraped every 15 minutes from the [ActiveSG Gym & Pool Crowd](https://activesg.gov.sg/gym-pool-crowd) website using **Selenium** and **BeautifulSoup**, with workflows scheduled via **GitHub Actions**.  
 
 **Trend Visualization**  
 The frontend displays historical data of average occupancy trends, helping users compare weekday and weekend patterns and make informed decisions.
@@ -20,15 +20,6 @@ The frontend displays historical data of average occupancy trends, helping users
 ## Access the Web Interface
 
 Check out the application: [activesg-capacity.vercel.app](https://activesg-capacity.vercel.app)
-
----
-
-## Technology Stack
-
-- **Data Extraction:** Python (Selenium, BeautifulSoup)  
-- **Automation:** GitHub Actions  
-- **Frontend:** HTML, CSS  
-- **Database:** SQLite
 
 ---
 
