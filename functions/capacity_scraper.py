@@ -57,6 +57,7 @@ def scrape():
             # If Gym Name not found, continue
             if element.select_one('.chakra-text'):
                 gym_name = element.select_one('.chakra-text').get_text(strip=True)
+                gym_name = re.sub(r'(?i)\b(activesg|gym)\b|@', '', gym_name).strip()
             else:
                 continue
 
@@ -75,7 +76,8 @@ def scrape():
 
             # Add Boolean for Weekend
             is_weekend = date_str.weekday() >= 5
-            data.append([gym_name, capacity_percentage, date_str, time_str, is_weekend])
+            day = date_str.strftime("%A")
+            data.append([gym_name, capacity_percentage, date_str, time_str, day, is_weekend])
 
     finally:
         driver.quit()
@@ -102,6 +104,7 @@ def save_data_to_db(data):
                 capacity INTEGER,
                 date DATE,
                 time TIME,
+                day TEXT,
                 is_weekend BOOLEAN,
                 UNIQUE(gym_name, date, time)
             )
@@ -109,8 +112,8 @@ def save_data_to_db(data):
 
         # Insert data while avoiding duplicates
         cursor.executemany('''
-            INSERT OR IGNORE INTO gym_capacity (gym_name, capacity, date, time, is_weekend) 
-            VALUES (?, ?, ?, ?, ?)
+            INSERT OR IGNORE INTO gym_capacity (gym_name, capacity, date, time, day, is_weekend) 
+            VALUES (?, ?, ?, ?, ?, ?)
         ''', data)
         
         # Commit changes to the database
