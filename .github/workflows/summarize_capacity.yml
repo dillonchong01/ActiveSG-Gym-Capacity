@@ -24,11 +24,13 @@ jobs:
       - name: Run summarisation script
         run: python functions/summarise_capacity.py
 
-      - name: Commit and push summarized DB
+      - name: Commit and push summarized DB and JSON
         run: |
           git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"    
+          git config --global user.email "github-actions@github.com"
+
+          git add database/gym_capacity_cleaned.db
           git add static/gym_capacity_summary.json
 
-          git diff --cached --quiet || git commit -m "Update gym capacity summary JSON"
+          git diff --cached --quiet || git commit -m "Update cleaned gym capacity DB and summary JSON"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
