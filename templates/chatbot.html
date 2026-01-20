@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Crowd Chatbot - ActiveSG</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="hero-badge">🤖 AI-Powered Assistant</div>
+            <h1 class="hero-title">Gym Crowd Chatbot</h1>
+            <p class="hero-subtitle">Ask me anything about ActiveSG gym crowd levels</p>
+        </div>
+
+        <div class="chatbot-container">
+            <!-- Embedded Gradio Interface -->
+            <div class="card" style="padding: 0; overflow: hidden;">
+                <iframe 
+                    src="https://dillonchong01-gym-chatbot.hf.space"
+                    frameborder="0"
+                    width="100%"
+                    height="700px"
+                    style="border-radius: var(--radius-lg);"
+                ></iframe>
+            </div>
+
+            <!-- Navigation -->
+            <div style="text-align: center; margin-top: var(--spacing-xl);">
+                <a href="homepage.html" class="btn btn-secondary">← Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>© 2026 Dillon. All rights reserved.</p>
+    </footer>
+</body>
+</html>
