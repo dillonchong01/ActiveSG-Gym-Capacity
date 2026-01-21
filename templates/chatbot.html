@@ -16,15 +16,43 @@
         </div>
 
         <div class="chatbot-container">
-            <!-- Embedded Gradio Interface -->
-            <div class="card" style="padding: 0; overflow: hidden;">
-                <iframe 
-                    src="https://dillonchong01-gym-chatbot.hf.space"
-                    frameborder="0"
-                    width="100%"
-                    height="700px"
-                    style="border-radius: var(--radius-lg);"
-                ></iframe>
+            <!-- Chat Interface -->
+            <div class="card chat-card">
+                <div class="chat-messages" id="chat-messages">
+                    <div class="chat-message bot-message">
+                        <div class="message-avatar">🤖</div>
+                        <div class="message-content">
+                            <p>Hi! I'm your ActiveSG gym assistant. Ask me about crowd levels at any gym!</p>
+                            <div class="quick-suggestions">
+                                <button class="suggestion-btn" onclick="sendSuggestion('Which gym is least crowded right now?')">
+                                    🏃 Least crowded gym?
+                                </button>
+                                <button class="suggestion-btn" onclick="sendSuggestion('How crowded is Bishan gym on Saturday morning?')">
+                                    📊 Bishan on Saturday?
+                                </button>
+                                <button class="suggestion-btn" onclick="sendSuggestion('Compare Tampines and Jurong East on weekday evenings')">
+                                    ⚖️ Compare gyms
+                                </button>
+                                <button class="suggestion-btn" onclick="sendSuggestion('When is the best time to go to Clementi gym?')">
+                                    📅 Best time for Clementi?
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input-container">
+                    <input 
+                        type="text" 
+                        id="chat-input" 
+                        class="chat-input" 
+                        placeholder="Ask about gym crowd levels..."
+                        autocomplete="off"
+                    />
+                    <button id="send-btn" class="chat-send-btn" onclick="sendMessage()">
+                        <span id="send-icon">➤</span>
+                    </button>
+                </div>
             </div>
 
             <!-- Navigation -->
@@ -37,5 +65,151 @@
     <footer class="site-footer">
         <p>© 2026 Dillon. All rights reserved.</p>
     </footer>
+
+    <script>
+        const API_URL = 'https://dillonchong01-gym-chatbot.hf.space/query'; // Replace with your HuggingFace Space URL
+        let conversationHistory = [];
+        let isLoading = false;
+
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const sendBtn = document.getElementById('send-btn');
+        const sendIcon = document.getElementById('send-icon');
+
+        // Auto-focus input on load
+        chatInput.focus();
+
+        // Handle Enter key
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !isLoading) {
+                sendMessage();
+            }
+        });
+
+        function sendSuggestion(text) {
+            chatInput.value = text;
+            sendMessage();
+        }
+
+        async function sendMessage() {
+            const message = chatInput.value.trim();
+            
+            if (!message || isLoading) return;
+
+            // Add user message to chat
+            addMessage(message, 'user');
+            chatInput.value = '';
+            
+            // Show loading state
+            setLoading(true);
+            const loadingId = addMessage('Thinking...', 'bot', true);
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        user_query: message,
+                        conversation_history: conversationHistory
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to get response from server');
+                }
+
+                const data = await response.json();
+                
+                // Remove loading message
+                removeMessage(loadingId);
+                
+                // Add bot response
+                addMessage(data.response, 'bot');
+                
+                // Update conversation history
+                conversationHistory = data.conversation_history;
+
+            } catch (error) {
+                console.error('Error:', error);
+                removeMessage(loadingId);
+                addMessage('Sorry, I encountered an error. Please try again.', 'bot', false, true);
+            } finally {
+                setLoading(false);
+                chatInput.focus();
+            }
+        }
+
+        function addMessage(text, sender, isLoading = false, isError = false) {
+            const messageId = `msg-${Date.now()}`;
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${sender}-message ${isLoading ? 'loading-message' : ''} ${isError ? 'error-message' : ''}`;
+            messageDiv.id = messageId;
+
+            if (sender === 'user') {
+                messageDiv.innerHTML = `
+                    <div class="message-content">
+                        <p>${escapeHtml(text)}</p>
+                    </div>
+                    <div class="message-avatar">👤</div>
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <div class="message-avatar">🤖</div>
+                    <div class="message-content">
+                        ${isLoading ? '<div class="typing-indicator"><span></span><span></span><span></span></div>' : `<p>${escapeHtml(text)}</p>`}
+                    </div>
+                `;
+            }
+
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            return messageId;
+        }
+
+        function removeMessage(messageId) {
+            const message = document.getElementById(messageId);
+            if (message) {
+                message.remove();
+            }
+        }
+
+        function setLoading(loading) {
+            isLoading = loading;
+            sendBtn.disabled = loading;
+            chatInput.disabled = loading;
+            
+            if (loading) {
+                sendIcon.textContent = '⏳';
+                sendBtn.style.opacity = '0.6';
+            } else {
+                sendIcon.textContent = '➤';
+                sendBtn.style.opacity = '1';
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Clear conversation button (optional)
+        function clearConversation() {
+            if (confirm('Clear conversation history?')) {
+                conversationHistory = [];
+                chatMessages.innerHTML = `
+                    <div class="chat-message bot-message">
+                        <div class="message-avatar">🤖</div>
+                        <div class="message-content">
+                            <p>Hi! I'm your ActiveSG gym assistant. Ask me about crowd levels at any gym!</p>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+    </script>
 </body>
 </html>
