@@ -1,0 +1,14 @@
+name: Keep HuggingFace API online
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping HuggingFace Space
+        run: |
+          curl -f -L -s -o /dev/null https://huggingface.co/spaces/dillonchong01/gym_chatbot
