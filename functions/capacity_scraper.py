@@ -26,7 +26,7 @@ def scrape():
     url = "https://activesg.gov.sg/gym-capacity"
     try:
         driver.get(url)
-        WebDriverWait(driver, 45).until(EC.presence_of_all_elements_located((By.CLASS_NAME, "chakra-card.css-m97yjq")))
+        WebDriverWait(driver, 75).until(EC.presence_of_all_elements_located((By.CLASS_NAME, "chakra-card.css-m97yjq")))
         soup = BeautifulSoup(driver.page_source, 'html.parser')
         update_text = WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.CSS_SELECTOR, "p.chakra-text.css-12346zh"))).text
         
@@ -129,5 +129,6 @@ if __name__ == "__main__":
     data = scrape()
     if data:
         save_data_to_db(data)
+
 
 
