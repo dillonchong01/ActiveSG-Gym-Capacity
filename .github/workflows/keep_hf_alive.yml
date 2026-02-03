@@ -1,14 +1,17 @@
-name: Keep HuggingFace API online
+name: Keep HuggingFace Space Alive
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: '0 */6 * * *'
   workflow_dispatch:
 
 jobs:
   keepalive:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping HuggingFace Space
+      - name: Ping HuggingFace Space API
         run: |
-          curl -f -L -s -o /dev/null https://huggingface.co/spaces/dillonchong01/gym_chatbot
+          curl -X POST https://huggingface.co/spaces/dillonchong01/gym_chatbot/api/predict/ \
+               -H "Content-Type: application/json" \
+               -d '{"data":["keep alive"]}' \
+               -s -o /dev/null
