@@ -28,4 +28,4 @@ jobs:
           playwright install --with-deps chromium
 
       - name: Run keep alive script
-        run: python keep_hf_alive.py
+        run: python functions/keep_hf_alive.py
