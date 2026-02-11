@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -18,14 +18,10 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: |
-          pip install --upgrade pip
           pip install playwright
-
-      - name: Install Playwright browsers
-        run: |
           playwright install --with-deps chromium
 
-      - name: Run keep alive script
+      - name: Run Keep Alive Script
         run: python functions/keep_hf_alive.py
