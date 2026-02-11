@@ -8,10 +8,24 @@ on:
 jobs:
   keepalive:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Ping HuggingFace Space API
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
         run: |
-          curl -X POST https://huggingface.co/spaces/dillonchong01/gym_chatbot/api/predict/ \
-               -H "Content-Type: application/json" \
-               -d '{"data":["keep alive"]}' \
-               -s -o /dev/null
+          pip install --upgrade pip
+          pip install playwright
+
+      - name: Install Playwright browsers
+        run: |
+          playwright install --with-deps chromium
+
+      - name: Run keep alive script
+        run: python keep_hf_alive.py
