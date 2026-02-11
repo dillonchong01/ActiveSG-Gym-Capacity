@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  keepalive:
+  Keep HuggingFace Alive:
     runs-on: ubuntu-latest
 
     steps:
