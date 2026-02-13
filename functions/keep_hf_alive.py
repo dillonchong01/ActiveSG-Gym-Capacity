@@ -14,7 +14,7 @@ with sync_playwright() as p:
         if restart_button.is_visible():
             restart_button.click()
             print("Restart button clicked.")
-            time.sleep(10)
+            time.sleep(60)
 
     except:
         print("Restart button not found.")
