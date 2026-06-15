@@ -3,19 +3,19 @@
         "weekday": [
             {
                 "time": "07:00:00",
-                "capacity": 18.1
+                "capacity": 18.2
             },
             {
                 "time": "07:30:00",
-                "capacity": 32.4
+                "capacity": 32.5
             },
             {
                 "time": "08:00:00",
-                "capacity": 37.1
+                "capacity": 36.9
             },
             {
                 "time": "08:30:00",
-                "capacity": 37.2
+                "capacity": 37.5
             },
             {
                 "time": "09:00:00",
@@ -31,7 +31,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 45.7
+                "capacity": 44.5
             },
             {
                 "time": "11:00:00",
@@ -39,23 +39,23 @@
             },
             {
                 "time": "11:30:00",
-                "capacity": 46.3
+                "capacity": 46.0
             },
             {
                 "time": "12:00:00",
-                "capacity": 46.7
+                "capacity": 46.3
             },
             {
                 "time": "12:30:00",
-                "capacity": 40.3
+                "capacity": 40.1
             },
             {
                 "time": "13:00:00",
-                "capacity": 37.7
+                "capacity": 37.9
             },
             {
                 "time": "13:30:00",
-                "capacity": 34.5
+                "capacity": 34.7
             },
             {
                 "time": "14:00:00",
@@ -63,27 +63,27 @@
             },
             {
                 "time": "14:30:00",
-                "capacity": 34.6
+                "capacity": 34.4
             },
             {
                 "time": "15:00:00",
-                "capacity": 38.0
+                "capacity": 37.8
             },
             {
                 "time": "15:30:00",
-                "capacity": 40.7
+                "capacity": 40.6
             },
             {
                 "time": "16:00:00",
-                "capacity": 42.6
+                "capacity": 42.5
             },
             {
                 "time": "16:30:00",
-                "capacity": 44.1
+                "capacity": 44.0
             },
             {
                 "time": "17:00:00",
-                "capacity": 43.9
+                "capacity": 43.8
             },
             {
                 "time": "17:30:00",
@@ -95,15 +95,15 @@
             },
             {
                 "time": "18:30:00",
-                "capacity": 46.3
+                "capacity": 46.2
             },
             {
                 "time": "19:00:00",
-                "capacity": 46.1
+                "capacity": 46.0
             },
             {
                 "time": "19:30:00",
-                "capacity": 48.2
+                "capacity": 48.1
             },
             {
                 "time": "20:00:00",
@@ -119,11 +119,11 @@
             },
             {
                 "time": "21:30:00",
-                "capacity": 45.1
+                "capacity": 45.0
             },
             {
                 "time": "22:00:00",
-                "capacity": 40.4
+                "capacity": 40.2
             }
         ],
         "weekend": [
@@ -257,19 +257,19 @@
         "weekday": [
             {
                 "time": "07:00:00",
-                "capacity": 11.1
+                "capacity": 11.3
             },
             {
                 "time": "07:30:00",
-                "capacity": 23.7
+                "capacity": 23.8
             },
             {
                 "time": "08:00:00",
-                "capacity": 29.4
+                "capacity": 29.5
             },
             {
                 "time": "08:30:00",
-                "capacity": 27.8
+                "capacity": 26.3
             },
             {
                 "time": "09:00:00",
@@ -285,7 +285,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 51.2
+                "capacity": 51.6
             },
             {
                 "time": "11:00:00",
@@ -293,19 +293,19 @@
             },
             {
                 "time": "11:30:00",
-                "capacity": 43.4
+                "capacity": 42.3
             },
             {
                 "time": "12:00:00",
-                "capacity": 45.3
+                "capacity": 44.7
             },
             {
                 "time": "12:30:00",
-                "capacity": 45.4
+                "capacity": 44.6
             },
             {
                 "time": "13:00:00",
-                "capacity": 39.9
+                "capacity": 39.6
             },
             {
                 "time": "13:30:00",
@@ -313,31 +313,31 @@
             },
             {
                 "time": "14:00:00",
-                "capacity": 38.0
+                "capacity": 37.9
             },
             {
                 "time": "14:30:00",
-                "capacity": 40.7
+                "capacity": 40.5
             },
             {
                 "time": "15:00:00",
-                "capacity": 45.7
+                "capacity": 45.6
             },
             {
                 "time": "15:30:00",
-                "capacity": 50.3
+                "capacity": 50.0
             },
             {
                 "time": "16:00:00",
-                "capacity": 51.6
+                "capacity": 51.3
             },
             {
                 "time": "16:30:00",
-                "capacity": 54.0
+                "capacity": 53.7
             },
             {
                 "time": "17:00:00",
-                "capacity": 54.7
+                "capacity": 54.5
             },
             {
                 "time": "17:30:00",
@@ -345,19 +345,19 @@
             },
             {
                 "time": "18:00:00",
-                "capacity": 56.7
+                "capacity": 56.6
             },
             {
                 "time": "18:30:00",
-                "capacity": 57.9
+                "capacity": 57.8
             },
             {
                 "time": "19:00:00",
-                "capacity": 60.7
+                "capacity": 60.5
             },
             {
                 "time": "19:30:00",
-                "capacity": 67.0
+                "capacity": 66.9
             },
             {
                 "time": "20:00:00",
@@ -369,15 +369,15 @@
             },
             {
                 "time": "21:00:00",
-                "capacity": 57.1
+                "capacity": 56.9
             },
             {
                 "time": "21:30:00",
-                "capacity": 52.5
+                "capacity": 52.4
             },
             {
                 "time": "22:00:00",
-                "capacity": 48.9
+                "capacity": 48.8
             }
         ],
         "weekend": [
@@ -515,15 +515,15 @@
             },
             {
                 "time": "07:30:00",
-                "capacity": 37.4
+                "capacity": 37.5
             },
             {
                 "time": "08:00:00",
-                "capacity": 47.4
+                "capacity": 47.6
             },
             {
                 "time": "08:30:00",
-                "capacity": 47.4
+                "capacity": 50.0
             },
             {
                 "time": "09:00:00",
@@ -539,7 +539,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 56.8
+                "capacity": 56.4
             },
             {
                 "time": "11:00:00",
@@ -547,19 +547,19 @@
             },
             {
                 "time": "11:30:00",
-                "capacity": 50.5
+                "capacity": 50.2
             },
             {
                 "time": "12:00:00",
-                "capacity": 47.6
+                "capacity": 47.5
             },
             {
                 "time": "12:30:00",
-                "capacity": 49.9
+                "capacity": 50.1
             },
             {
                 "time": "13:00:00",
-                "capacity": 43.6
+                "capacity": 43.7
             },
             {
                 "time": "13:30:00",
@@ -567,7 +567,7 @@
             },
             {
                 "time": "14:00:00",
-                "capacity": 39.4
+                "capacity": 39.0
             },
             {
                 "time": "14:30:00",
@@ -575,7 +575,7 @@
             },
             {
                 "time": "15:00:00",
-                "capacity": 45.1
+                "capacity": 45.0
             },
             {
                 "time": "15:30:00",
@@ -583,35 +583,35 @@
             },
             {
                 "time": "16:00:00",
-                "capacity": 55.5
+                "capacity": 55.4
             },
             {
                 "time": "16:30:00",
-                "capacity": 53.8
+                "capacity": 54.1
             },
             {
                 "time": "17:00:00",
-                "capacity": 51.3
+                "capacity": 51.5
             },
             {
                 "time": "17:30:00",
-                "capacity": 52.0
+                "capacity": 52.3
             },
             {
                 "time": "18:00:00",
-                "capacity": 52.7
+                "capacity": 53.2
             },
             {
                 "time": "18:30:00",
-                "capacity": 54.5
+                "capacity": 54.7
             },
             {
                 "time": "19:00:00",
-                "capacity": 57.7
+                "capacity": 57.8
             },
             {
                 "time": "19:30:00",
-                "capacity": 58.6
+                "capacity": 58.9
             },
             {
                 "time": "20:00:00",
@@ -623,7 +623,7 @@
             },
             {
                 "time": "21:00:00",
-                "capacity": 51.7
+                "capacity": 52.2
             },
             {
                 "time": "21:30:00",
@@ -765,19 +765,19 @@
         "weekday": [
             {
                 "time": "07:00:00",
-                "capacity": 10.8
+                "capacity": 10.9
             },
             {
                 "time": "07:30:00",
-                "capacity": 21.4
+                "capacity": 21.5
             },
             {
                 "time": "08:00:00",
-                "capacity": 26.2
+                "capacity": 26.3
             },
             {
                 "time": "08:30:00",
-                "capacity": 29.4
+                "capacity": 29.2
             },
             {
                 "time": "09:00:00",
@@ -793,7 +793,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 43.7
+                "capacity": 43.8
             },
             {
                 "time": "11:00:00",
@@ -801,59 +801,59 @@
             },
             {
                 "time": "11:30:00",
-                "capacity": 42.3
+                "capacity": 42.1
             },
             {
                 "time": "12:00:00",
-                "capacity": 43.9
+                "capacity": 43.7
             },
             {
                 "time": "12:30:00",
-                "capacity": 41.9
+                "capacity": 41.7
             },
             {
                 "time": "13:00:00",
-                "capacity": 40.8
+                "capacity": 40.6
             },
             {
                 "time": "13:30:00",
-                "capacity": 38.5
+                "capacity": 38.2
             },
             {
                 "time": "14:00:00",
-                "capacity": 39.0
+                "capacity": 38.7
             },
             {
                 "time": "14:30:00",
-                "capacity": 40.4
+                "capacity": 40.1
             },
             {
                 "time": "15:00:00",
-                "capacity": 44.8
+                "capacity": 44.6
             },
             {
                 "time": "15:30:00",
-                "capacity": 46.8
+                "capacity": 46.5
             },
             {
                 "time": "16:00:00",
-                "capacity": 49.4
+                "capacity": 49.2
             },
             {
                 "time": "16:30:00",
-                "capacity": 50.8
+                "capacity": 50.5
             },
             {
                 "time": "17:00:00",
-                "capacity": 51.9
+                "capacity": 51.6
             },
             {
                 "time": "17:30:00",
-                "capacity": 53.5
+                "capacity": 53.4
             },
             {
                 "time": "18:00:00",
-                "capacity": 56.1
+                "capacity": 56.0
             },
             {
                 "time": "18:30:00",
@@ -865,11 +865,11 @@
             },
             {
                 "time": "19:30:00",
-                "capacity": 66.8
+                "capacity": 66.7
             },
             {
                 "time": "20:00:00",
-                "capacity": 67.8
+                "capacity": 67.7
             },
             {
                 "time": "20:30:00",
@@ -877,15 +877,15 @@
             },
             {
                 "time": "21:00:00",
-                "capacity": 64.2
+                "capacity": 64.1
             },
             {
                 "time": "21:30:00",
-                "capacity": 51.2
+                "capacity": 51.1
             },
             {
                 "time": "22:00:00",
-                "capacity": 47.6
+                "capacity": 47.4
             }
         ],
         "weekend": [
@@ -1019,7 +1019,7 @@
         "weekday": [
             {
                 "time": "07:00:00",
-                "capacity": 15.1
+                "capacity": 15.2
             },
             {
                 "time": "07:30:00",
@@ -1027,11 +1027,11 @@
             },
             {
                 "time": "08:00:00",
-                "capacity": 39.3
+                "capacity": 39.4
             },
             {
                 "time": "08:30:00",
-                "capacity": 46.0
+                "capacity": 47.2
             },
             {
                 "time": "09:00:00",
@@ -1047,7 +1047,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 60.5
+                "capacity": 60.0
             },
             {
                 "time": "11:00:00",
@@ -1055,63 +1055,63 @@
             },
             {
                 "time": "11:30:00",
-                "capacity": 64.6
+                "capacity": 64.8
             },
             {
                 "time": "12:00:00",
-                "capacity": 61.3
+                "capacity": 62.0
             },
             {
                 "time": "12:30:00",
-                "capacity": 62.3
+                "capacity": 63.2
             },
             {
                 "time": "13:00:00",
-                "capacity": 57.1
+                "capacity": 57.5
             },
             {
                 "time": "13:30:00",
-                "capacity": 55.4
+                "capacity": 55.6
             },
             {
                 "time": "14:00:00",
-                "capacity": 55.4
+                "capacity": 55.3
             },
             {
                 "time": "14:30:00",
-                "capacity": 60.5
+                "capacity": 60.1
             },
             {
                 "time": "15:00:00",
-                "capacity": 69.2
+                "capacity": 69.1
             },
             {
                 "time": "15:30:00",
-                "capacity": 73.3
+                "capacity": 73.0
             },
             {
                 "time": "16:00:00",
-                "capacity": 76.0
+                "capacity": 75.8
             },
             {
                 "time": "16:30:00",
-                "capacity": 77.4
+                "capacity": 77.2
             },
             {
                 "time": "17:00:00",
-                "capacity": 79.0
+                "capacity": 78.8
             },
             {
                 "time": "17:30:00",
-                "capacity": 80.5
+                "capacity": 80.4
             },
             {
                 "time": "18:00:00",
-                "capacity": 82.2
+                "capacity": 82.1
             },
             {
                 "time": "18:30:00",
-                "capacity": 81.2
+                "capacity": 81.1
             },
             {
                 "time": "19:00:00",
@@ -1119,7 +1119,7 @@
             },
             {
                 "time": "19:30:00",
-                "capacity": 82.9
+                "capacity": 82.8
             },
             {
                 "time": "20:00:00",
@@ -1131,11 +1131,11 @@
             },
             {
                 "time": "21:00:00",
-                "capacity": 79.6
+                "capacity": 79.4
             },
             {
                 "time": "21:30:00",
-                "capacity": 72.3
+                "capacity": 71.6
             },
             {
                 "time": "22:00:00",
@@ -1273,11 +1273,11 @@
         "weekday": [
             {
                 "time": "07:00:00",
-                "capacity": 12.6
+                "capacity": 12.8
             },
             {
                 "time": "07:30:00",
-                "capacity": 26.0
+                "capacity": 26.1
             },
             {
                 "time": "08:00:00",
@@ -1285,7 +1285,7 @@
             },
             {
                 "time": "08:30:00",
-                "capacity": 34.0
+                "capacity": 34.8
             },
             {
                 "time": "09:00:00",
@@ -1301,7 +1301,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 49.3
+                "capacity": 49.6
             },
             {
                 "time": "11:00:00",
@@ -1309,31 +1309,31 @@
             },
             {
                 "time": "11:30:00",
-                "capacity": 43.2
+                "capacity": 43.1
             },
             {
                 "time": "12:00:00",
-                "capacity": 44.3
+                "capacity": 44.4
             },
             {
                 "time": "12:30:00",
-                "capacity": 45.8
+                "capacity": 46.1
             },
             {
                 "time": "13:00:00",
-                "capacity": 42.6
+                "capacity": 42.7
             },
             {
                 "time": "13:30:00",
-                "capacity": 39.5
+                "capacity": 39.4
             },
             {
                 "time": "14:00:00",
-                "capacity": 39.9
+                "capacity": 40.0
             },
             {
                 "time": "14:30:00",
-                "capacity": 42.9
+                "capacity": 43.0
             },
             {
                 "time": "15:00:00",
@@ -1341,43 +1341,43 @@
             },
             {
                 "time": "15:30:00",
-                "capacity": 53.0
+                "capacity": 53.3
             },
             {
                 "time": "16:00:00",
-                "capacity": 57.0
+                "capacity": 57.3
             },
             {
                 "time": "16:30:00",
-                "capacity": 57.8
+                "capacity": 58.2
             },
             {
                 "time": "17:00:00",
-                "capacity": 61.8
+                "capacity": 62.3
             },
             {
                 "time": "17:30:00",
-                "capacity": 62.5
+                "capacity": 62.9
             },
             {
                 "time": "18:00:00",
-                "capacity": 66.5
+                "capacity": 66.8
             },
             {
                 "time": "18:30:00",
-                "capacity": 68.4
+                "capacity": 68.6
             },
             {
                 "time": "19:00:00",
-                "capacity": 69.7
+                "capacity": 69.9
             },
             {
                 "time": "19:30:00",
-                "capacity": 72.0
+                "capacity": 72.1
             },
             {
                 "time": "20:00:00",
-                "capacity": 73.8
+                "capacity": 73.9
             },
             {
                 "time": "20:30:00",
@@ -1385,7 +1385,7 @@
             },
             {
                 "time": "21:00:00",
-                "capacity": 69.4
+                "capacity": 69.7
             },
             {
                 "time": "21:30:00",
@@ -1527,11 +1527,11 @@
         "weekday": [
             {
                 "time": "07:00:00",
-                "capacity": 18.9
+                "capacity": 19.2
             },
             {
                 "time": "07:30:00",
-                "capacity": 35.3
+                "capacity": 35.4
             },
             {
                 "time": "08:00:00",
@@ -1539,7 +1539,7 @@
             },
             {
                 "time": "08:30:00",
-                "capacity": 44.2
+                "capacity": 44.8
             },
             {
                 "time": "09:00:00",
@@ -1563,23 +1563,23 @@
             },
             {
                 "time": "11:30:00",
-                "capacity": 55.8
+                "capacity": 56.0
             },
             {
                 "time": "12:00:00",
-                "capacity": 54.9
+                "capacity": 55.0
             },
             {
                 "time": "12:30:00",
-                "capacity": 47.8
+                "capacity": 47.9
             },
             {
                 "time": "13:00:00",
-                "capacity": 48.8
+                "capacity": 48.9
             },
             {
                 "time": "13:30:00",
-                "capacity": 45.9
+                "capacity": 46.1
             },
             {
                 "time": "14:00:00",
@@ -1587,11 +1587,11 @@
             },
             {
                 "time": "14:30:00",
-                "capacity": 53.3
+                "capacity": 53.6
             },
             {
                 "time": "15:00:00",
-                "capacity": 56.7
+                "capacity": 56.9
             },
             {
                 "time": "15:30:00",
@@ -1599,15 +1599,15 @@
             },
             {
                 "time": "16:00:00",
-                "capacity": 63.2
+                "capacity": 63.0
             },
             {
                 "time": "16:30:00",
-                "capacity": 62.1
+                "capacity": 61.9
             },
             {
                 "time": "17:00:00",
-                "capacity": 64.7
+                "capacity": 64.6
             },
             {
                 "time": "17:30:00",
@@ -1615,19 +1615,19 @@
             },
             {
                 "time": "18:00:00",
-                "capacity": 63.5
+                "capacity": 63.3
             },
             {
                 "time": "18:30:00",
-                "capacity": 66.8
+                "capacity": 67.1
             },
             {
                 "time": "19:00:00",
-                "capacity": 69.2
+                "capacity": 69.3
             },
             {
                 "time": "19:30:00",
-                "capacity": 73.4
+                "capacity": 73.5
             },
             {
                 "time": "20:00:00",
@@ -1639,11 +1639,11 @@
             },
             {
                 "time": "21:00:00",
-                "capacity": 67.4
+                "capacity": 67.9
             },
             {
                 "time": "21:30:00",
-                "capacity": 47.1
+                "capacity": 47.7
             },
             {
                 "time": "22:00:00",
@@ -1781,7 +1781,7 @@
         "weekday": [
             {
                 "time": "07:00:00",
-                "capacity": 19.1
+                "capacity": 19.3
             },
             {
                 "time": "07:30:00",
@@ -1793,7 +1793,7 @@
             },
             {
                 "time": "08:30:00",
-                "capacity": 39.8
+                "capacity": 38.8
             },
             {
                 "time": "09:00:00",
@@ -1809,7 +1809,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 54.1
+                "capacity": 53.2
             },
             {
                 "time": "11:00:00",
@@ -1817,19 +1817,19 @@
             },
             {
                 "time": "11:30:00",
-                "capacity": 50.8
+                "capacity": 50.7
             },
             {
                 "time": "12:00:00",
-                "capacity": 48.1
+                "capacity": 47.7
             },
             {
                 "time": "12:30:00",
-                "capacity": 48.9
+                "capacity": 48.5
             },
             {
                 "time": "13:00:00",
-                "capacity": 48.4
+                "capacity": 48.3
             },
             {
                 "time": "13:30:00",
@@ -1849,43 +1849,43 @@
             },
             {
                 "time": "15:30:00",
-                "capacity": 49.8
+                "capacity": 49.7
             },
             {
                 "time": "16:00:00",
-                "capacity": 49.6
+                "capacity": 49.4
             },
             {
                 "time": "16:30:00",
-                "capacity": 48.9
+                "capacity": 48.5
             },
             {
                 "time": "17:00:00",
-                "capacity": 52.3
+                "capacity": 52.0
             },
             {
                 "time": "17:30:00",
-                "capacity": 55.3
+                "capacity": 55.2
             },
             {
                 "time": "18:00:00",
-                "capacity": 57.3
+                "capacity": 57.2
             },
             {
                 "time": "18:30:00",
-                "capacity": 65.2
+                "capacity": 65.1
             },
             {
                 "time": "19:00:00",
-                "capacity": 68.5
+                "capacity": 68.4
             },
             {
                 "time": "19:30:00",
-                "capacity": 72.7
+                "capacity": 72.8
             },
             {
                 "time": "20:00:00",
-                "capacity": 73.7
+                "capacity": 73.8
             },
             {
                 "time": "20:30:00",
@@ -1893,15 +1893,15 @@
             },
             {
                 "time": "21:00:00",
-                "capacity": 60.6
+                "capacity": 60.4
             },
             {
                 "time": "21:30:00",
-                "capacity": 46.0
+                "capacity": 46.2
             },
             {
                 "time": "22:00:00",
-                "capacity": 31.1
+                "capacity": 31.8
             }
         ],
         "weekend": [
@@ -2035,19 +2035,19 @@
         "weekday": [
             {
                 "time": "07:00:00",
-                "capacity": 10.4
+                "capacity": 10.5
             },
             {
                 "time": "07:30:00",
-                "capacity": 18.3
+                "capacity": 18.4
             },
             {
                 "time": "08:00:00",
-                "capacity": 23.6
+                "capacity": 23.5
             },
             {
                 "time": "08:30:00",
-                "capacity": 21.8
+                "capacity": 19.0
             },
             {
                 "time": "09:00:00",
@@ -2063,7 +2063,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 24.7
+                "capacity": 24.1
             },
             {
                 "time": "11:00:00",
@@ -2071,15 +2071,15 @@
             },
             {
                 "time": "11:30:00",
-                "capacity": 29.9
+                "capacity": 30.5
             },
             {
                 "time": "12:00:00",
-                "capacity": 27.5
+                "capacity": 27.9
             },
             {
                 "time": "12:30:00",
-                "capacity": 26.1
+                "capacity": 26.3
             },
             {
                 "time": "13:00:00",
@@ -2087,15 +2087,15 @@
             },
             {
                 "time": "13:30:00",
-                "capacity": 19.6
+                "capacity": 19.9
             },
             {
                 "time": "14:00:00",
-                "capacity": 20.2
+                "capacity": 20.3
             },
             {
                 "time": "14:30:00",
-                "capacity": 20.2
+                "capacity": 20.1
             },
             {
                 "time": "15:00:00",
@@ -2107,15 +2107,15 @@
             },
             {
                 "time": "16:00:00",
-                "capacity": 28.6
+                "capacity": 28.5
             },
             {
                 "time": "16:30:00",
-                "capacity": 30.0
+                "capacity": 29.8
             },
             {
                 "time": "17:00:00",
-                "capacity": 29.7
+                "capacity": 29.6
             },
             {
                 "time": "17:30:00",
@@ -2123,7 +2123,7 @@
             },
             {
                 "time": "18:00:00",
-                "capacity": 29.4
+                "capacity": 29.3
             },
             {
                 "time": "18:30:00",
@@ -2131,7 +2131,7 @@
             },
             {
                 "time": "19:00:00",
-                "capacity": 33.4
+                "capacity": 33.2
             },
             {
                 "time": "19:30:00",
@@ -2139,7 +2139,7 @@
             },
             {
                 "time": "20:00:00",
-                "capacity": 31.8
+                "capacity": 31.7
             },
             {
                 "time": "20:30:00",
@@ -2147,15 +2147,15 @@
             },
             {
                 "time": "21:00:00",
-                "capacity": 28.1
+                "capacity": 27.9
             },
             {
                 "time": "21:30:00",
-                "capacity": 21.3
+                "capacity": 21.1
             },
             {
                 "time": "22:00:00",
-                "capacity": 14.0
+                "capacity": 14.3
             }
         ],
         "weekend": [
@@ -2289,11 +2289,11 @@
         "weekday": [
             {
                 "time": "07:00:00",
-                "capacity": 17.1
+                "capacity": 17.2
             },
             {
                 "time": "07:30:00",
-                "capacity": 37.5
+                "capacity": 37.6
             },
             {
                 "time": "08:00:00",
@@ -2301,7 +2301,7 @@
             },
             {
                 "time": "08:30:00",
-                "capacity": 37.6
+                "capacity": 36.2
             },
             {
                 "time": "09:00:00",
@@ -2317,7 +2317,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 53.7
+                "capacity": 54.1
             },
             {
                 "time": "11:00:00",
@@ -2325,19 +2325,19 @@
             },
             {
                 "time": "11:30:00",
-                "capacity": 50.5
+                "capacity": 49.8
             },
             {
                 "time": "12:00:00",
-                "capacity": 60.1
+                "capacity": 59.8
             },
             {
                 "time": "12:30:00",
-                "capacity": 54.3
+                "capacity": 54.4
             },
             {
                 "time": "13:00:00",
-                "capacity": 49.7
+                "capacity": 49.9
             },
             {
                 "time": "13:30:00",
@@ -2357,43 +2357,43 @@
             },
             {
                 "time": "15:30:00",
-                "capacity": 54.2
+                "capacity": 54.3
             },
             {
                 "time": "16:00:00",
-                "capacity": 60.0
+                "capacity": 60.1
             },
             {
                 "time": "16:30:00",
-                "capacity": 59.6
+                "capacity": 59.7
             },
             {
                 "time": "17:00:00",
-                "capacity": 59.6
+                "capacity": 59.7
             },
             {
                 "time": "17:30:00",
-                "capacity": 58.4
+                "capacity": 58.5
             },
             {
                 "time": "18:00:00",
-                "capacity": 58.7
+                "capacity": 58.8
             },
             {
                 "time": "18:30:00",
-                "capacity": 63.3
+                "capacity": 63.1
             },
             {
                 "time": "19:00:00",
-                "capacity": 63.7
+                "capacity": 63.3
             },
             {
                 "time": "19:30:00",
-                "capacity": 64.1
+                "capacity": 63.6
             },
             {
                 "time": "20:00:00",
-                "capacity": 64.7
+                "capacity": 64.3
             },
             {
                 "time": "20:30:00",
@@ -2401,15 +2401,15 @@
             },
             {
                 "time": "21:00:00",
-                "capacity": 69.8
+                "capacity": 70.1
             },
             {
                 "time": "21:30:00",
-                "capacity": 56.0
+                "capacity": 55.9
             },
             {
                 "time": "22:00:00",
-                "capacity": 55.6
+                "capacity": 55.5
             }
         ],
         "weekend": [
@@ -2595,7 +2595,7 @@
             },
             {
                 "time": "13:30:00",
-                "capacity": 39.4
+                "capacity": 39.7
             },
             {
                 "time": "14:00:00",
@@ -2643,7 +2643,7 @@
             },
             {
                 "time": "19:30:00",
-                "capacity": 57.1
+                "capacity": 57.0
             },
             {
                 "time": "20:00:00",
@@ -2793,19 +2793,19 @@
         "weekday": [
             {
                 "time": "07:00:00",
-                "capacity": 18.4
+                "capacity": 18.7
             },
             {
                 "time": "07:30:00",
-                "capacity": 31.1
+                "capacity": 31.2
             },
             {
                 "time": "08:00:00",
-                "capacity": 35.3
+                "capacity": 35.5
             },
             {
                 "time": "08:30:00",
-                "capacity": 33.5
+                "capacity": 33.7
             },
             {
                 "time": "09:00:00",
@@ -2813,7 +2813,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 48.2
+                "capacity": 48.7
             },
             {
                 "time": "11:00:00",
@@ -2821,11 +2821,11 @@
             },
             {
                 "time": "11:30:00",
-                "capacity": 56.3
+                "capacity": 60.5
             },
             {
                 "time": "12:00:00",
-                "capacity": 46.6
+                "capacity": 46.9
             },
             {
                 "time": "12:30:00",
@@ -2833,11 +2833,11 @@
             },
             {
                 "time": "13:00:00",
-                "capacity": 44.7
+                "capacity": 44.5
             },
             {
                 "time": "13:30:00",
-                "capacity": 41.8
+                "capacity": 41.9
             },
             {
                 "time": "14:00:00",
@@ -2845,23 +2845,23 @@
             },
             {
                 "time": "14:30:00",
-                "capacity": 40.4
+                "capacity": 40.5
             },
             {
                 "time": "15:00:00",
-                "capacity": 44.8
+                "capacity": 45.0
             },
             {
                 "time": "15:30:00",
-                "capacity": 48.0
+                "capacity": 48.1
             },
             {
                 "time": "16:00:00",
-                "capacity": 48.4
+                "capacity": 48.7
             },
             {
                 "time": "16:30:00",
-                "capacity": 49.4
+                "capacity": 49.8
             },
             {
                 "time": "17:00:00",
@@ -2869,7 +2869,7 @@
             },
             {
                 "time": "17:30:00",
-                "capacity": 48.7
+                "capacity": 48.8
             },
             {
                 "time": "18:00:00",
@@ -2881,15 +2881,15 @@
             },
             {
                 "time": "19:00:00",
-                "capacity": 53.7
+                "capacity": 53.5
             },
             {
                 "time": "19:30:00",
-                "capacity": 54.4
+                "capacity": 54.1
             },
             {
                 "time": "20:00:00",
-                "capacity": 54.7
+                "capacity": 54.2
             },
             {
                 "time": "20:30:00",
@@ -2897,15 +2897,15 @@
             },
             {
                 "time": "21:00:00",
-                "capacity": 44.9
+                "capacity": 44.3
             },
             {
                 "time": "21:30:00",
-                "capacity": 31.7
+                "capacity": 30.9
             },
             {
                 "time": "22:00:00",
-                "capacity": 35.6
+                "capacity": 35.3
             }
         ],
         "weekend": [
@@ -3083,7 +3083,7 @@
             },
             {
                 "time": "13:30:00",
-                "capacity": 20.0
+                "capacity": 20.1
             },
             {
                 "time": "14:00:00",
@@ -3131,7 +3131,7 @@
             },
             {
                 "time": "19:30:00",
-                "capacity": 37.8
+                "capacity": 38.0
             },
             {
                 "time": "20:00:00",
@@ -3281,7 +3281,7 @@
         "weekday": [
             {
                 "time": "07:00:00",
-                "capacity": 4.8
+                "capacity": 4.9
             },
             {
                 "time": "07:30:00",
@@ -3293,7 +3293,7 @@
             },
             {
                 "time": "08:30:00",
-                "capacity": 10.0
+                "capacity": 10.7
             },
             {
                 "time": "09:00:00",
@@ -3301,7 +3301,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 17.4
+                "capacity": 17.5
             },
             {
                 "time": "11:00:00",
@@ -3309,11 +3309,11 @@
             },
             {
                 "time": "11:30:00",
-                "capacity": 26.3
+                "capacity": 27.5
             },
             {
                 "time": "12:00:00",
-                "capacity": 20.6
+                "capacity": 20.5
             },
             {
                 "time": "12:30:00",
@@ -3325,59 +3325,59 @@
             },
             {
                 "time": "13:30:00",
-                "capacity": 19.9
+                "capacity": 19.7
             },
             {
                 "time": "14:00:00",
-                "capacity": 20.5
+                "capacity": 20.2
             },
             {
                 "time": "14:30:00",
-                "capacity": 20.5
+                "capacity": 20.3
             },
             {
                 "time": "15:00:00",
-                "capacity": 23.5
+                "capacity": 23.3
             },
             {
                 "time": "15:30:00",
-                "capacity": 25.6
+                "capacity": 25.2
             },
             {
                 "time": "16:00:00",
-                "capacity": 26.6
-            },
-            {
-                "time": "16:30:00",
                 "capacity": 26.7
             },
             {
+                "time": "16:30:00",
+                "capacity": 26.9
+            },
+            {
                 "time": "17:00:00",
-                "capacity": 28.2
+                "capacity": 28.3
             },
             {
                 "time": "17:30:00",
-                "capacity": 29.5
+                "capacity": 29.7
             },
             {
                 "time": "18:00:00",
-                "capacity": 30.4
+                "capacity": 30.3
             },
             {
                 "time": "18:30:00",
-                "capacity": 33.4
+                "capacity": 33.2
             },
             {
                 "time": "19:00:00",
-                "capacity": 36.1
+                "capacity": 35.8
             },
             {
                 "time": "19:30:00",
-                "capacity": 37.9
+                "capacity": 37.7
             },
             {
                 "time": "20:00:00",
-                "capacity": 38.7
+                "capacity": 38.8
             },
             {
                 "time": "20:30:00",
@@ -3385,7 +3385,7 @@
             },
             {
                 "time": "21:00:00",
-                "capacity": 37.0
+                "capacity": 37.5
             },
             {
                 "time": "21:30:00",
@@ -3393,7 +3393,7 @@
             },
             {
                 "time": "22:00:00",
-                "capacity": 23.8
+                "capacity": 23.9
             }
         ],
         "weekend": [
@@ -3527,7 +3527,7 @@
             },
             {
                 "time": "08:00:00",
-                "capacity": 20.0
+                "capacity": 21.5
             },
             {
                 "time": "09:30:00",
@@ -3544,6 +3544,10 @@
             {
                 "time": "13:00:00",
                 "capacity": 32.0
+            },
+            {
+                "time": "13:30:00",
+                "capacity": 42.0
             },
             {
                 "time": "14:30:00",
@@ -3567,7 +3571,7 @@
             },
             {
                 "time": "19:30:00",
-                "capacity": 63.0
+                "capacity": 76.5
             },
             {
                 "time": "20:00:00",
@@ -3629,7 +3633,7 @@
         "weekday": [
             {
                 "time": "07:00:00",
-                "capacity": 18.8
+                "capacity": 19.0
             },
             {
                 "time": "07:30:00",
@@ -3637,11 +3641,11 @@
             },
             {
                 "time": "08:00:00",
-                "capacity": 40.1
+                "capacity": 40.0
             },
             {
                 "time": "08:30:00",
-                "capacity": 35.4
+                "capacity": 37.0
             },
             {
                 "time": "09:00:00",
@@ -3657,7 +3661,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 49.4
+                "capacity": 49.9
             },
             {
                 "time": "11:00:00",
@@ -3665,31 +3669,31 @@
             },
             {
                 "time": "11:30:00",
-                "capacity": 45.0
+                "capacity": 44.8
             },
             {
                 "time": "12:00:00",
-                "capacity": 42.4
+                "capacity": 42.0
             },
             {
                 "time": "12:30:00",
-                "capacity": 42.8
+                "capacity": 42.3
             },
             {
                 "time": "13:00:00",
-                "capacity": 42.9
+                "capacity": 42.7
             },
             {
                 "time": "13:30:00",
-                "capacity": 39.2
+                "capacity": 39.3
             },
             {
                 "time": "14:00:00",
-                "capacity": 36.4
+                "capacity": 36.3
             },
             {
                 "time": "14:30:00",
-                "capacity": 38.9
+                "capacity": 38.8
             },
             {
                 "time": "15:00:00",
@@ -3697,11 +3701,11 @@
             },
             {
                 "time": "15:30:00",
-                "capacity": 50.3
+                "capacity": 50.2
             },
             {
                 "time": "16:00:00",
-                "capacity": 53.0
+                "capacity": 52.9
             },
             {
                 "time": "16:30:00",
@@ -3713,11 +3717,11 @@
             },
             {
                 "time": "17:30:00",
-                "capacity": 50.6
+                "capacity": 50.8
             },
             {
                 "time": "18:00:00",
-                "capacity": 54.4
+                "capacity": 54.5
             },
             {
                 "time": "18:30:00",
@@ -3729,11 +3733,11 @@
             },
             {
                 "time": "19:30:00",
-                "capacity": 75.4
+                "capacity": 75.6
             },
             {
                 "time": "20:00:00",
-                "capacity": 70.6
+                "capacity": 70.7
             },
             {
                 "time": "20:30:00",
@@ -3745,11 +3749,11 @@
             },
             {
                 "time": "21:30:00",
-                "capacity": 45.6
+                "capacity": 46.1
             },
             {
                 "time": "22:00:00",
-                "capacity": 32.2
+                "capacity": 32.4
             }
         ],
         "weekend": [
@@ -3883,19 +3887,19 @@
         "weekday": [
             {
                 "time": "07:00:00",
-                "capacity": 7.6
+                "capacity": 7.7
             },
             {
                 "time": "07:30:00",
-                "capacity": 14.6
+                "capacity": 14.7
             },
             {
                 "time": "08:00:00",
-                "capacity": 19.1
+                "capacity": 19.2
             },
             {
                 "time": "08:30:00",
-                "capacity": 25.8
+                "capacity": 25.2
             },
             {
                 "time": "09:00:00",
@@ -3911,7 +3915,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 32.7
+                "capacity": 32.1
             },
             {
                 "time": "11:00:00",
@@ -3919,43 +3923,43 @@
             },
             {
                 "time": "11:30:00",
-                "capacity": 26.4
-            },
-            {
-                "time": "12:00:00",
                 "capacity": 26.7
             },
             {
+                "time": "12:00:00",
+                "capacity": 26.6
+            },
+            {
                 "time": "12:30:00",
-                "capacity": 23.6
+                "capacity": 23.2
             },
             {
                 "time": "13:00:00",
-                "capacity": 23.6
+                "capacity": 23.5
             },
             {
                 "time": "13:30:00",
-                "capacity": 21.1
+                "capacity": 21.3
             },
             {
                 "time": "14:00:00",
-                "capacity": 23.4
+                "capacity": 23.2
             },
             {
                 "time": "14:30:00",
-                "capacity": 24.0
+                "capacity": 23.7
             },
             {
                 "time": "15:00:00",
-                "capacity": 27.8
+                "capacity": 27.6
             },
             {
                 "time": "15:30:00",
-                "capacity": 32.1
+                "capacity": 32.0
             },
             {
                 "time": "16:00:00",
-                "capacity": 35.0
+                "capacity": 34.9
             },
             {
                 "time": "16:30:00",
@@ -3963,31 +3967,31 @@
             },
             {
                 "time": "17:00:00",
-                "capacity": 34.9
+                "capacity": 34.8
             },
             {
                 "time": "17:30:00",
-                "capacity": 35.1
+                "capacity": 35.0
             },
             {
                 "time": "18:00:00",
-                "capacity": 36.1
+                "capacity": 36.0
             },
             {
                 "time": "18:30:00",
-                "capacity": 44.0
-            },
-            {
-                "time": "19:00:00",
                 "capacity": 43.8
             },
             {
+                "time": "19:00:00",
+                "capacity": 43.5
+            },
+            {
                 "time": "19:30:00",
-                "capacity": 47.7
+                "capacity": 47.3
             },
             {
                 "time": "20:00:00",
-                "capacity": 47.7
+                "capacity": 47.4
             },
             {
                 "time": "20:30:00",
@@ -3995,11 +3999,11 @@
             },
             {
                 "time": "21:00:00",
-                "capacity": 41.1
+                "capacity": 40.6
             },
             {
                 "time": "21:30:00",
-                "capacity": 33.1
+                "capacity": 32.3
             },
             {
                 "time": "22:00:00",
@@ -4141,15 +4145,15 @@
             },
             {
                 "time": "07:30:00",
-                "capacity": 12.2
+                "capacity": 12.3
             },
             {
                 "time": "08:00:00",
-                "capacity": 15.7
+                "capacity": 15.8
             },
             {
                 "time": "08:30:00",
-                "capacity": 15.4
+                "capacity": 16.0
             },
             {
                 "time": "09:00:00",
@@ -4173,59 +4177,59 @@
             },
             {
                 "time": "11:30:00",
-                "capacity": 23.2
+                "capacity": 23.1
             },
             {
                 "time": "12:00:00",
-                "capacity": 23.9
+                "capacity": 23.8
             },
             {
                 "time": "12:30:00",
-                "capacity": 23.5
+                "capacity": 23.3
             },
             {
                 "time": "13:00:00",
-                "capacity": 22.3
+                "capacity": 22.1
             },
             {
                 "time": "13:30:00",
-                "capacity": 20.4
-            },
-            {
-                "time": "14:00:00",
-                "capacity": 19.8
-            },
-            {
-                "time": "14:30:00",
                 "capacity": 20.3
             },
             {
+                "time": "14:00:00",
+                "capacity": 19.6
+            },
+            {
+                "time": "14:30:00",
+                "capacity": 20.1
+            },
+            {
                 "time": "15:00:00",
-                "capacity": 22.2
+                "capacity": 22.1
             },
             {
                 "time": "15:30:00",
-                "capacity": 24.2
+                "capacity": 24.3
             },
             {
                 "time": "16:00:00",
-                "capacity": 25.3
+                "capacity": 25.4
             },
             {
                 "time": "16:30:00",
-                "capacity": 26.8
+                "capacity": 27.0
             },
             {
                 "time": "17:00:00",
-                "capacity": 26.4
+                "capacity": 26.5
             },
             {
                 "time": "17:30:00",
-                "capacity": 27.5
+                "capacity": 27.6
             },
             {
                 "time": "18:00:00",
-                "capacity": 30.2
+                "capacity": 30.3
             },
             {
                 "time": "18:30:00",
@@ -4233,11 +4237,11 @@
             },
             {
                 "time": "19:00:00",
-                "capacity": 32.8
+                "capacity": 32.9
             },
             {
                 "time": "19:30:00",
-                "capacity": 33.9
+                "capacity": 34.1
             },
             {
                 "time": "20:00:00",
@@ -4249,7 +4253,7 @@
             },
             {
                 "time": "21:00:00",
-                "capacity": 31.8
+                "capacity": 31.9
             },
             {
                 "time": "21:30:00",
@@ -4257,7 +4261,7 @@
             },
             {
                 "time": "22:00:00",
-                "capacity": 19.1
+                "capacity": 18.8
             }
         ],
         "weekend": [
@@ -4391,7 +4395,7 @@
         "weekday": [
             {
                 "time": "07:00:00",
-                "capacity": 7.7
+                "capacity": 7.8
             },
             {
                 "time": "07:30:00",
@@ -4399,11 +4403,11 @@
             },
             {
                 "time": "08:00:00",
-                "capacity": 17.7
+                "capacity": 17.8
             },
             {
                 "time": "08:30:00",
-                "capacity": 15.4
+                "capacity": 16.2
             },
             {
                 "time": "09:00:00",
@@ -4419,7 +4423,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 21.7
+                "capacity": 22.4
             },
             {
                 "time": "11:00:00",
@@ -4431,11 +4435,11 @@
             },
             {
                 "time": "12:00:00",
-                "capacity": 21.6
+                "capacity": 21.7
             },
             {
                 "time": "12:30:00",
-                "capacity": 22.0
+                "capacity": 22.1
             },
             {
                 "time": "13:00:00",
@@ -4451,11 +4455,11 @@
             },
             {
                 "time": "14:30:00",
-                "capacity": 20.4
+                "capacity": 20.5
             },
             {
                 "time": "15:00:00",
-                "capacity": 19.6
+                "capacity": 19.7
             },
             {
                 "time": "15:30:00",
@@ -4467,23 +4471,23 @@
             },
             {
                 "time": "16:30:00",
-                "capacity": 23.2
+                "capacity": 23.1
             },
             {
                 "time": "17:00:00",
-                "capacity": 25.2
+                "capacity": 25.1
             },
             {
                 "time": "17:30:00",
-                "capacity": 26.2
+                "capacity": 26.3
             },
             {
                 "time": "18:00:00",
-                "capacity": 27.5
+                "capacity": 27.4
             },
             {
                 "time": "18:30:00",
-                "capacity": 31.7
+                "capacity": 31.6
             },
             {
                 "time": "19:00:00",
@@ -4495,7 +4499,7 @@
             },
             {
                 "time": "20:00:00",
-                "capacity": 35.5
+                "capacity": 35.6
             },
             {
                 "time": "20:30:00",
@@ -4503,11 +4507,11 @@
             },
             {
                 "time": "21:00:00",
-                "capacity": 32.4
+                "capacity": 32.6
             },
             {
                 "time": "21:30:00",
-                "capacity": 26.0
+                "capacity": 26.2
             },
             {
                 "time": "22:00:00",
@@ -4645,11 +4649,11 @@
         "weekday": [
             {
                 "time": "07:00:00",
-                "capacity": 14.3
+                "capacity": 14.5
             },
             {
                 "time": "07:30:00",
-                "capacity": 25.2
+                "capacity": 25.3
             },
             {
                 "time": "08:00:00",
@@ -4657,7 +4661,7 @@
             },
             {
                 "time": "08:30:00",
-                "capacity": 34.0
+                "capacity": 33.0
             },
             {
                 "time": "09:00:00",
@@ -4673,7 +4677,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 40.5
+                "capacity": 40.8
             },
             {
                 "time": "11:00:00",
@@ -4689,11 +4693,11 @@
             },
             {
                 "time": "12:30:00",
-                "capacity": 41.8
+                "capacity": 41.7
             },
             {
                 "time": "13:00:00",
-                "capacity": 41.4
+                "capacity": 41.6
             },
             {
                 "time": "13:30:00",
@@ -4705,23 +4709,23 @@
             },
             {
                 "time": "14:30:00",
-                "capacity": 39.1
+                "capacity": 38.9
             },
             {
                 "time": "15:00:00",
-                "capacity": 42.9
+                "capacity": 42.8
             },
             {
                 "time": "15:30:00",
-                "capacity": 44.1
+                "capacity": 44.2
             },
             {
                 "time": "16:00:00",
-                "capacity": 48.7
+                "capacity": 48.8
             },
             {
                 "time": "16:30:00",
-                "capacity": 45.3
+                "capacity": 45.4
             },
             {
                 "time": "17:00:00",
@@ -4737,15 +4741,15 @@
             },
             {
                 "time": "18:30:00",
-                "capacity": 50.4
+                "capacity": 50.3
             },
             {
                 "time": "19:00:00",
-                "capacity": 49.6
+                "capacity": 49.4
             },
             {
                 "time": "19:30:00",
-                "capacity": 52.0
+                "capacity": 52.2
             },
             {
                 "time": "20:00:00",
@@ -4757,11 +4761,11 @@
             },
             {
                 "time": "21:00:00",
-                "capacity": 46.4
+                "capacity": 46.5
             },
             {
                 "time": "21:30:00",
-                "capacity": 38.3
+                "capacity": 38.5
             },
             {
                 "time": "22:00:00",
@@ -4899,7 +4903,7 @@
         "weekday": [
             {
                 "time": "07:00:00",
-                "capacity": 14.4
+                "capacity": 14.5
             },
             {
                 "time": "07:30:00",
@@ -4907,11 +4911,11 @@
             },
             {
                 "time": "08:00:00",
-                "capacity": 30.5
+                "capacity": 30.7
             },
             {
                 "time": "08:30:00",
-                "capacity": 33.4
+                "capacity": 35.5
             },
             {
                 "time": "09:00:00",
@@ -4927,7 +4931,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 47.4
+                "capacity": 47.0
             },
             {
                 "time": "11:00:00",
@@ -4935,15 +4939,15 @@
             },
             {
                 "time": "11:30:00",
-                "capacity": 44.3
+                "capacity": 43.1
             },
             {
                 "time": "12:00:00",
-                "capacity": 46.0
+                "capacity": 45.9
             },
             {
                 "time": "12:30:00",
-                "capacity": 46.0
+                "capacity": 45.9
             },
             {
                 "time": "13:00:00",
@@ -4951,31 +4955,31 @@
             },
             {
                 "time": "13:30:00",
-                "capacity": 39.2
+                "capacity": 38.9
             },
             {
                 "time": "14:00:00",
-                "capacity": 36.5
+                "capacity": 36.2
             },
             {
                 "time": "14:30:00",
-                "capacity": 39.8
+                "capacity": 39.2
             },
             {
                 "time": "15:00:00",
-                "capacity": 42.0
+                "capacity": 41.5
             },
             {
                 "time": "15:30:00",
-                "capacity": 45.6
+                "capacity": 45.3
             },
             {
                 "time": "16:00:00",
-                "capacity": 43.8
+                "capacity": 43.6
             },
             {
                 "time": "16:30:00",
-                "capacity": 43.1
+                "capacity": 43.2
             },
             {
                 "time": "17:00:00",
@@ -4983,7 +4987,7 @@
             },
             {
                 "time": "17:30:00",
-                "capacity": 47.9
+                "capacity": 48.0
             },
             {
                 "time": "18:00:00",
@@ -4999,11 +5003,11 @@
             },
             {
                 "time": "19:30:00",
-                "capacity": 55.6
+                "capacity": 55.3
             },
             {
                 "time": "20:00:00",
-                "capacity": 53.2
+                "capacity": 53.1
             },
             {
                 "time": "20:30:00",
@@ -5015,11 +5019,11 @@
             },
             {
                 "time": "21:30:00",
-                "capacity": 38.8
+                "capacity": 39.0
             },
             {
                 "time": "22:00:00",
-                "capacity": 28.5
+                "capacity": 28.8
             }
         ],
         "weekend": [
@@ -5161,11 +5165,11 @@
             },
             {
                 "time": "08:00:00",
-                "capacity": 51.7
+                "capacity": 51.9
             },
             {
                 "time": "08:30:00",
-                "capacity": 59.6
+                "capacity": 62.5
             },
             {
                 "time": "09:00:00",
@@ -5181,7 +5185,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 70.4
+                "capacity": 70.6
             },
             {
                 "time": "11:00:00",
@@ -5193,27 +5197,27 @@
             },
             {
                 "time": "12:00:00",
-                "capacity": 73.3
+                "capacity": 73.0
             },
             {
                 "time": "12:30:00",
-                "capacity": 70.6
+                "capacity": 70.1
             },
             {
                 "time": "13:00:00",
-                "capacity": 67.3
+                "capacity": 67.0
             },
             {
                 "time": "13:30:00",
-                "capacity": 58.9
+                "capacity": 59.4
             },
             {
                 "time": "14:00:00",
-                "capacity": 58.7
+                "capacity": 58.9
             },
             {
                 "time": "14:30:00",
-                "capacity": 62.5
+                "capacity": 62.4
             },
             {
                 "time": "15:00:00",
@@ -5221,11 +5225,11 @@
             },
             {
                 "time": "15:30:00",
-                "capacity": 73.4
+                "capacity": 73.3
             },
             {
                 "time": "16:00:00",
-                "capacity": 79.8
+                "capacity": 79.7
             },
             {
                 "time": "16:30:00",
@@ -5233,15 +5237,15 @@
             },
             {
                 "time": "17:00:00",
-                "capacity": 77.8
+                "capacity": 77.9
             },
             {
                 "time": "17:30:00",
-                "capacity": 77.2
+                "capacity": 77.4
             },
             {
                 "time": "18:00:00",
-                "capacity": 78.2
+                "capacity": 78.3
             },
             {
                 "time": "18:30:00",
@@ -5253,11 +5257,11 @@
             },
             {
                 "time": "19:30:00",
-                "capacity": 86.3
+                "capacity": 86.2
             },
             {
                 "time": "20:00:00",
-                "capacity": 84.9
+                "capacity": 84.8
             },
             {
                 "time": "20:30:00",
@@ -5265,15 +5269,15 @@
             },
             {
                 "time": "21:00:00",
-                "capacity": 75.9
+                "capacity": 76.4
             },
             {
                 "time": "21:30:00",
-                "capacity": 62.8
+                "capacity": 63.2
             },
             {
                 "time": "22:00:00",
-                "capacity": 51.9
+                "capacity": 52.0
             }
         ],
         "weekend": [
@@ -5411,7 +5415,7 @@
             },
             {
                 "time": "07:30:00",
-                "capacity": 39.4
+                "capacity": 39.5
             },
             {
                 "time": "08:00:00",
@@ -5419,7 +5423,7 @@
             },
             {
                 "time": "08:30:00",
-                "capacity": 51.0
+                "capacity": 50.0
             },
             {
                 "time": "09:00:00",
@@ -5435,7 +5439,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 60.5
+                "capacity": 61.3
             },
             {
                 "time": "11:00:00",
@@ -5443,23 +5447,23 @@
             },
             {
                 "time": "11:30:00",
-                "capacity": 56.7
+                "capacity": 56.6
             },
             {
                 "time": "12:00:00",
-                "capacity": 61.5
+                "capacity": 61.7
             },
             {
                 "time": "12:30:00",
-                "capacity": 59.3
+                "capacity": 59.7
             },
             {
                 "time": "13:00:00",
-                "capacity": 55.8
+                "capacity": 56.1
             },
             {
                 "time": "13:30:00",
-                "capacity": 50.5
+                "capacity": 50.8
             },
             {
                 "time": "14:00:00",
@@ -5467,31 +5471,31 @@
             },
             {
                 "time": "14:30:00",
-                "capacity": 50.2
+                "capacity": 50.1
             },
             {
                 "time": "15:00:00",
-                "capacity": 56.5
+                "capacity": 56.6
             },
             {
                 "time": "15:30:00",
-                "capacity": 62.6
-            },
-            {
-                "time": "16:00:00",
-                "capacity": 62.0
-            },
-            {
-                "time": "16:30:00",
-                "capacity": 58.7
-            },
-            {
-                "time": "17:00:00",
                 "capacity": 62.5
             },
             {
+                "time": "16:00:00",
+                "capacity": 61.8
+            },
+            {
+                "time": "16:30:00",
+                "capacity": 58.5
+            },
+            {
+                "time": "17:00:00",
+                "capacity": 62.4
+            },
+            {
                 "time": "17:30:00",
-                "capacity": 63.4
+                "capacity": 63.5
             },
             {
                 "time": "18:00:00",
@@ -5499,19 +5503,19 @@
             },
             {
                 "time": "18:30:00",
-                "capacity": 68.7
+                "capacity": 68.6
             },
             {
                 "time": "19:00:00",
-                "capacity": 70.0
+                "capacity": 69.8
             },
             {
                 "time": "19:30:00",
-                "capacity": 72.9
+                "capacity": 73.0
             },
             {
                 "time": "20:00:00",
-                "capacity": 72.8
+                "capacity": 72.6
             },
             {
                 "time": "20:30:00",
@@ -5519,11 +5523,11 @@
             },
             {
                 "time": "21:00:00",
-                "capacity": 64.8
+                "capacity": 64.5
             },
             {
                 "time": "21:30:00",
-                "capacity": 50.6
+                "capacity": 50.7
             },
             {
                 "time": "22:00:00",
@@ -5665,15 +5669,15 @@
             },
             {
                 "time": "07:30:00",
-                "capacity": 65.2
+                "capacity": 65.0
             },
             {
                 "time": "08:00:00",
-                "capacity": 71.9
+                "capacity": 71.8
             },
             {
                 "time": "08:30:00",
-                "capacity": 53.2
+                "capacity": 56.5
             },
             {
                 "time": "09:00:00",
@@ -5689,7 +5693,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 63.5
+                "capacity": 63.7
             },
             {
                 "time": "11:00:00",
@@ -5697,27 +5701,27 @@
             },
             {
                 "time": "11:30:00",
-                "capacity": 60.8
+                "capacity": 60.7
             },
             {
                 "time": "12:00:00",
-                "capacity": 58.8
+                "capacity": 58.9
             },
             {
                 "time": "12:30:00",
-                "capacity": 57.5
+                "capacity": 57.6
             },
             {
                 "time": "13:00:00",
-                "capacity": 53.8
+                "capacity": 53.7
             },
             {
                 "time": "13:30:00",
-                "capacity": 55.4
+                "capacity": 55.1
             },
             {
                 "time": "14:00:00",
-                "capacity": 49.5
+                "capacity": 49.4
             },
             {
                 "time": "14:30:00",
@@ -5725,47 +5729,47 @@
             },
             {
                 "time": "15:00:00",
-                "capacity": 47.2
+                "capacity": 47.1
             },
             {
                 "time": "15:30:00",
-                "capacity": 51.3
+                "capacity": 50.8
             },
             {
                 "time": "16:00:00",
-                "capacity": 51.7
+                "capacity": 51.4
             },
             {
                 "time": "16:30:00",
-                "capacity": 50.5
+                "capacity": 50.7
             },
             {
                 "time": "17:00:00",
-                "capacity": 54.9
+                "capacity": 55.0
             },
             {
                 "time": "17:30:00",
-                "capacity": 61.9
+                "capacity": 61.7
             },
             {
                 "time": "18:00:00",
-                "capacity": 68.6
+                "capacity": 68.3
             },
             {
                 "time": "18:30:00",
-                "capacity": 72.2
+                "capacity": 71.8
             },
             {
                 "time": "19:00:00",
-                "capacity": 70.9
+                "capacity": 70.5
             },
             {
                 "time": "19:30:00",
-                "capacity": 71.5
+                "capacity": 71.2
             },
             {
                 "time": "20:00:00",
-                "capacity": 66.6
+                "capacity": 66.3
             },
             {
                 "time": "20:30:00",
@@ -5773,15 +5777,15 @@
             },
             {
                 "time": "21:00:00",
-                "capacity": 52.9
+                "capacity": 52.7
             },
             {
                 "time": "21:30:00",
-                "capacity": 37.8
+                "capacity": 37.4
             },
             {
                 "time": "22:00:00",
-                "capacity": 24.8
+                "capacity": 24.9
             }
         ],
         "weekend": [
@@ -5967,7 +5971,7 @@
             },
             {
                 "time": "13:30:00",
-                "capacity": 24.7
+                "capacity": 24.6
             },
             {
                 "time": "14:00:00",
@@ -6015,7 +6019,7 @@
             },
             {
                 "time": "19:30:00",
-                "capacity": 39.9
+                "capacity": 40.2
             },
             {
                 "time": "20:00:00",
@@ -6455,7 +6459,7 @@
             },
             {
                 "time": "13:30:00",
-                "capacity": 48.8
+                "capacity": 49.0
             },
             {
                 "time": "14:00:00",
@@ -6503,7 +6507,7 @@
             },
             {
                 "time": "19:30:00",
-                "capacity": 68.7
+                "capacity": 68.8
             },
             {
                 "time": "20:00:00",
@@ -6657,7 +6661,7 @@
         "weekday": [
             {
                 "time": "07:00:00",
-                "capacity": 18.8
+                "capacity": 18.9
             },
             {
                 "time": "07:30:00",
@@ -6669,7 +6673,7 @@
             },
             {
                 "time": "08:30:00",
-                "capacity": 34.4
+                "capacity": 34.5
             },
             {
                 "time": "09:00:00",
@@ -6685,7 +6689,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 52.6
+                "capacity": 53.9
             },
             {
                 "time": "11:00:00",
@@ -6697,15 +6701,15 @@
             },
             {
                 "time": "12:00:00",
-                "capacity": 45.7
+                "capacity": 45.9
             },
             {
                 "time": "12:30:00",
-                "capacity": 45.0
+                "capacity": 45.5
             },
             {
                 "time": "13:00:00",
-                "capacity": 41.3
+                "capacity": 41.6
             },
             {
                 "time": "13:30:00",
@@ -6713,7 +6717,7 @@
             },
             {
                 "time": "14:00:00",
-                "capacity": 36.7
+                "capacity": 36.8
             },
             {
                 "time": "14:30:00",
@@ -6721,23 +6725,23 @@
             },
             {
                 "time": "15:00:00",
-                "capacity": 41.3
+                "capacity": 41.4
             },
             {
                 "time": "15:30:00",
-                "capacity": 46.4
-            },
-            {
-                "time": "16:00:00",
-                "capacity": 48.6
-            },
-            {
-                "time": "16:30:00",
                 "capacity": 46.5
             },
             {
+                "time": "16:00:00",
+                "capacity": 48.7
+            },
+            {
+                "time": "16:30:00",
+                "capacity": 46.7
+            },
+            {
                 "time": "17:00:00",
-                "capacity": 48.6
+                "capacity": 48.8
             },
             {
                 "time": "17:30:00",
@@ -6745,23 +6749,23 @@
             },
             {
                 "time": "18:00:00",
-                "capacity": 51.6
+                "capacity": 51.5
             },
             {
                 "time": "18:30:00",
-                "capacity": 54.8
+                "capacity": 54.6
             },
             {
                 "time": "19:00:00",
-                "capacity": 61.4
+                "capacity": 61.3
             },
             {
                 "time": "19:30:00",
-                "capacity": 64.7
+                "capacity": 64.5
             },
             {
                 "time": "20:00:00",
-                "capacity": 63.0
+                "capacity": 62.9
             },
             {
                 "time": "20:30:00",
@@ -6773,11 +6777,11 @@
             },
             {
                 "time": "21:30:00",
-                "capacity": 42.8
+                "capacity": 42.6
             },
             {
                 "time": "22:00:00",
-                "capacity": 38.5
+                "capacity": 38.7
             }
         ],
         "weekend": [
@@ -6915,15 +6919,15 @@
             },
             {
                 "time": "07:30:00",
-                "capacity": 12.4
+                "capacity": 12.3
             },
             {
                 "time": "08:00:00",
-                "capacity": 17.7
+                "capacity": 17.8
             },
             {
                 "time": "08:30:00",
-                "capacity": 14.4
+                "capacity": 15.5
             },
             {
                 "time": "09:00:00",
@@ -6939,7 +6943,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 22.8
+                "capacity": 23.4
             },
             {
                 "time": "11:00:00",
@@ -6947,7 +6951,7 @@
             },
             {
                 "time": "11:30:00",
-                "capacity": 25.3
+                "capacity": 25.5
             },
             {
                 "time": "12:00:00",
@@ -6955,15 +6959,15 @@
             },
             {
                 "time": "12:30:00",
-                "capacity": 22.8
+                "capacity": 22.5
             },
             {
                 "time": "13:00:00",
-                "capacity": 21.5
+                "capacity": 21.3
             },
             {
                 "time": "13:30:00",
-                "capacity": 20.2
+                "capacity": 20.1
             },
             {
                 "time": "14:00:00",
@@ -6995,11 +6999,11 @@
             },
             {
                 "time": "17:30:00",
-                "capacity": 28.8
+                "capacity": 29.0
             },
             {
                 "time": "18:00:00",
-                "capacity": 28.8
+                "capacity": 28.9
             },
             {
                 "time": "18:30:00",
@@ -7023,11 +7027,11 @@
             },
             {
                 "time": "21:00:00",
-                "capacity": 33.9
+                "capacity": 33.5
             },
             {
                 "time": "21:30:00",
-                "capacity": 26.9
+                "capacity": 26.7
             },
             {
                 "time": "22:00:00",
@@ -7165,7 +7169,7 @@
         "weekday": [
             {
                 "time": "07:00:00",
-                "capacity": 9.2
+                "capacity": 9.3
             },
             {
                 "time": "07:30:00",
@@ -7177,7 +7181,7 @@
             },
             {
                 "time": "08:30:00",
-                "capacity": 32.4
+                "capacity": 31.5
             },
             {
                 "time": "09:00:00",
@@ -7193,7 +7197,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 40.2
+                "capacity": 39.9
             },
             {
                 "time": "11:00:00",
@@ -7201,47 +7205,47 @@
             },
             {
                 "time": "11:30:00",
-                "capacity": 35.9
+                "capacity": 35.8
             },
             {
                 "time": "12:00:00",
-                "capacity": 38.3
+                "capacity": 38.2
             },
             {
                 "time": "12:30:00",
-                "capacity": 37.2
+                "capacity": 37.1
             },
             {
                 "time": "13:00:00",
-                "capacity": 37.8
+                "capacity": 37.7
             },
             {
                 "time": "13:30:00",
-                "capacity": 35.3
+                "capacity": 35.9
             },
             {
                 "time": "14:00:00",
-                "capacity": 36.3
+                "capacity": 36.1
             },
             {
                 "time": "14:30:00",
-                "capacity": 37.8
+                "capacity": 37.5
             },
             {
                 "time": "15:00:00",
-                "capacity": 40.8
+                "capacity": 40.6
             },
             {
                 "time": "15:30:00",
-                "capacity": 43.7
+                "capacity": 43.6
             },
             {
                 "time": "16:00:00",
-                "capacity": 46.2
+                "capacity": 46.1
             },
             {
                 "time": "16:30:00",
-                "capacity": 48.0
+                "capacity": 47.9
             },
             {
                 "time": "17:00:00",
@@ -7249,11 +7253,11 @@
             },
             {
                 "time": "17:30:00",
-                "capacity": 52.6
+                "capacity": 52.4
             },
             {
                 "time": "18:00:00",
-                "capacity": 52.3
+                "capacity": 52.0
             },
             {
                 "time": "18:30:00",
@@ -7261,11 +7265,11 @@
             },
             {
                 "time": "19:00:00",
-                "capacity": 54.9
+                "capacity": 54.8
             },
             {
                 "time": "19:30:00",
-                "capacity": 55.5
+                "capacity": 55.4
             },
             {
                 "time": "20:00:00",
@@ -7277,7 +7281,7 @@
             },
             {
                 "time": "21:00:00",
-                "capacity": 51.5
+                "capacity": 51.8
             },
             {
                 "time": "21:30:00",
@@ -7419,7 +7423,7 @@
         "weekday": [
             {
                 "time": "07:00:00",
-                "capacity": 10.2
+                "capacity": 10.3
             },
             {
                 "time": "07:30:00",
@@ -7431,7 +7435,7 @@
             },
             {
                 "time": "08:30:00",
-                "capacity": 28.4
+                "capacity": 28.0
             },
             {
                 "time": "09:00:00",
@@ -7447,7 +7451,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 32.1
+                "capacity": 33.1
             },
             {
                 "time": "11:00:00",
@@ -7455,15 +7459,15 @@
             },
             {
                 "time": "11:30:00",
-                "capacity": 34.9
+                "capacity": 35.4
             },
             {
                 "time": "12:00:00",
-                "capacity": 37.2
+                "capacity": 37.5
             },
             {
                 "time": "12:30:00",
-                "capacity": 39.7
+                "capacity": 39.9
             },
             {
                 "time": "13:00:00",
@@ -7471,47 +7475,47 @@
             },
             {
                 "time": "13:30:00",
-                "capacity": 30.8
+                "capacity": 31.2
             },
             {
                 "time": "14:00:00",
-                "capacity": 31.8
+                "capacity": 32.1
             },
             {
                 "time": "14:30:00",
-                "capacity": 30.2
+                "capacity": 30.4
             },
             {
                 "time": "15:00:00",
-                "capacity": 33.2
+                "capacity": 33.4
             },
             {
                 "time": "15:30:00",
-                "capacity": 36.5
+                "capacity": 36.6
             },
             {
                 "time": "16:00:00",
-                "capacity": 40.3
+                "capacity": 40.5
             },
             {
                 "time": "16:30:00",
-                "capacity": 43.4
+                "capacity": 43.7
             },
             {
                 "time": "17:00:00",
-                "capacity": 42.3
+                "capacity": 42.4
             },
             {
                 "time": "17:30:00",
-                "capacity": 43.8
+                "capacity": 43.9
             },
             {
                 "time": "18:00:00",
-                "capacity": 45.8
+                "capacity": 45.7
             },
             {
                 "time": "18:30:00",
-                "capacity": 49.6
+                "capacity": 49.7
             },
             {
                 "time": "19:00:00",
@@ -7523,7 +7527,7 @@
             },
             {
                 "time": "20:00:00",
-                "capacity": 48.6
+                "capacity": 48.7
             },
             {
                 "time": "20:30:00",
@@ -7531,15 +7535,15 @@
             },
             {
                 "time": "21:00:00",
-                "capacity": 34.5
+                "capacity": 34.9
             },
             {
                 "time": "21:30:00",
-                "capacity": 26.1
+                "capacity": 26.5
             },
             {
                 "time": "22:00:00",
-                "capacity": 16.0
+                "capacity": 16.2
             }
         ],
         "weekend": [
@@ -7673,7 +7677,7 @@
         "weekday": [
             {
                 "time": "07:00:00",
-                "capacity": 9.8
+                "capacity": 9.9
             },
             {
                 "time": "07:30:00",
@@ -7681,11 +7685,11 @@
             },
             {
                 "time": "08:00:00",
-                "capacity": 32.6
+                "capacity": 32.7
             },
             {
                 "time": "08:30:00",
-                "capacity": 28.2
+                "capacity": 29.0
             },
             {
                 "time": "09:00:00",
@@ -7701,7 +7705,7 @@
             },
             {
                 "time": "10:30:00",
-                "capacity": 41.9
+                "capacity": 41.1
             },
             {
                 "time": "11:00:00",
@@ -7709,19 +7713,19 @@
             },
             {
                 "time": "11:30:00",
-                "capacity": 38.5
-            },
-            {
-                "time": "12:00:00",
-                "capacity": 39.5
-            },
-            {
-                "time": "12:30:00",
                 "capacity": 38.6
             },
             {
+                "time": "12:00:00",
+                "capacity": 39.6
+            },
+            {
+                "time": "12:30:00",
+                "capacity": 38.5
+            },
+            {
                 "time": "13:00:00",
-                "capacity": 35.8
+                "capacity": 35.5
             },
             {
                 "time": "13:30:00",
@@ -7729,19 +7733,19 @@
             },
             {
                 "time": "14:00:00",
-                "capacity": 35.7
+                "capacity": 35.4
             },
             {
                 "time": "14:30:00",
-                "capacity": 34.4
+                "capacity": 34.2
             },
             {
                 "time": "15:00:00",
-                "capacity": 38.8
+                "capacity": 38.6
             },
             {
                 "time": "15:30:00",
-                "capacity": 40.9
+                "capacity": 40.8
             },
             {
                 "time": "16:00:00",
@@ -7749,7 +7753,7 @@
             },
             {
                 "time": "16:30:00",
-                "capacity": 41.4
+                "capacity": 41.5
             },
             {
                 "time": "17:00:00",
@@ -7757,27 +7761,27 @@
             },
             {
                 "time": "17:30:00",
-                "capacity": 46.5
+                "capacity": 46.6
             },
             {
                 "time": "18:00:00",
-                "capacity": 47.1
+                "capacity": 46.7
             },
             {
                 "time": "18:30:00",
-                "capacity": 52.1
+                "capacity": 51.7
             },
             {
                 "time": "19:00:00",
-                "capacity": 55.3
+                "capacity": 55.2
             },
             {
                 "time": "19:30:00",
-                "capacity": 58.2
+                "capacity": 58.3
             },
             {
                 "time": "20:00:00",
-                "capacity": 58.4
+                "capacity": 58.2
             },
             {
                 "time": "20:30:00",
@@ -7785,15 +7789,15 @@
             },
             {
                 "time": "21:00:00",
-                "capacity": 52.1
+                "capacity": 51.9
             },
             {
                 "time": "21:30:00",
-                "capacity": 39.6
+                "capacity": 39.3
             },
             {
                 "time": "22:00:00",
-                "capacity": 25.9
+                "capacity": 25.8
             }
         ],
         "weekend": [
